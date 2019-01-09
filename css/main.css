@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #75ac5b;
+  background: #d5f713;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1918,7 +1918,6 @@ pre .javascript .function {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: justify;
-  white-space: nowrap;
   line-height: 1.8;
 }
 .post-toc .nav .nav-child {
@@ -3054,10 +3053,11 @@ pre .javascript .function {
 }
 .post-body h3 {
   font-size: 1.3em;
-  border-bottom: 1px dotted #eee;
+  border-bottom: 1px solid #eee;
 }
 .post-body h4 {
   font-size: 1.2em;
+  border-bottom: 1px dotted #eee;
 }
 .post-body h5 {
   font-size: 1.07em;
