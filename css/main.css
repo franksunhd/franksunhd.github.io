@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7e0891;
+  background: #c4ff0b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3155,7 +3155,7 @@ pre .javascript .function {
   margin-right: 10px;
 }
 .posts-expand .post-tags {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 .post-meta {
   font-size: 14px !important;
@@ -3165,9 +3165,9 @@ pre .javascript .function {
 .post-body h2,
 .post-body h3,
 .post-body h4 {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 .post-category a {
-  border-bottom: none;
-  font-weight: bolder;
+  border-bottom: none !important;
+  font-weight: bolder !important;
 }
