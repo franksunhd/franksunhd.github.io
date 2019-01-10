@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a3d7c8;
+  background: #360f04;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3153,4 +3153,21 @@ pre .javascript .function {
 .category-list-item a {
   border-bottom: none;
   margin-right: 10px;
+}
+.posts-expand .post-tags {
+  margin-top: 10px;
+}
+.post-meta {
+  font-size: 14px !important;
+  margin-bottom: 20px !important;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  border-bottom: none;
+}
+.post-category a {
+  border-bottom: none;
+  font-weight: bolder;
 }
