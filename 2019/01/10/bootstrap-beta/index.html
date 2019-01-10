@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="bootstrap,UI框架,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="BootStrap/起步/全局CSS样式(栅格系统/排版/表格/表单/按钮/图片/响应式工具/代码块)起步什么是BootStrap? BootStrap是一个基于HTML, CSS, JavaScript技术的快速开发响应式布局，移动设备优先的前端框架. BootStrap简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。 BootStrap是由Twitter的Mark Otto和Jaco">
+<meta name="keywords" content="bootstrap,UI框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BootStrap&#x2F;起步&#x2F;全局CSS样式">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/10/bootstrap-beta/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="BootStrap/起步/全局CSS样式(栅格系统/排版/表格/表单/按钮/图片/响应式工具/代码块)起步什么是BootStrap? BootStrap是一个基于HTML, CSS, JavaScript技术的快速开发响应式布局，移动设备优先的前端框架. BootStrap简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。 BootStrap是由Twitter的Mark Otto和Jaco">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-01.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-02.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-03.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-04.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-05.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-06.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-07.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-08.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-09.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-10.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-11.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-12.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-13.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-14.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-15.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-16.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-17.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-18.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-19.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-20.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-21.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-22.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-23.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-24.png">
+<meta property="og:updated_time" content="2019-01-10T10:18:47.719Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BootStrap&#x2F;起步&#x2F;全局CSS样式">
+<meta name="twitter:description" content="BootStrap/起步/全局CSS样式(栅格系统/排版/表格/表单/按钮/图片/响应式工具/代码块)起步什么是BootStrap? BootStrap是一个基于HTML, CSS, JavaScript技术的快速开发响应式布局，移动设备优先的前端框架. BootStrap简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。 BootStrap是由Twitter的Mark Otto和Jaco">
+<meta name="twitter:image" content="https://franksunhd.github.io/franksunhd.github.io/bootstrap/bootstrap-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/10/bootstrap-beta/">
+
+
+
+
+
+  <title>BootStrap/起步/全局CSS样式 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/10/bootstrap-beta/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">BootStrap/起步/全局CSS样式</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T17:57:40+08:00">
+                2019-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/UI框架/" itemprop="url" rel="index">
+                    <span itemprop="name">UI框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/bootstrap/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  bootstrap</a>
+              
+                <a href="/franksunhd.github.io/tags/UI框架/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  UI框架</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="BootStrap-起步-全局CSS样式-栅格系统-排版-表格-表单-按钮-图片-响应式工具-代码块"><a href="#BootStrap-起步-全局CSS样式-栅格系统-排版-表格-表单-按钮-图片-响应式工具-代码块" class="headerlink" title="BootStrap/起步/全局CSS样式(栅格系统/排版/表格/表单/按钮/图片/响应式工具/代码块)"></a>BootStrap/起步/全局CSS样式(栅格系统/排版/表格/表单/按钮/图片/响应式工具/代码块)</h2><h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><h3 id="什么是BootStrap"><a href="#什么是BootStrap" class="headerlink" title="什么是BootStrap?"></a>什么是BootStrap?</h3><ul>
+<li>BootStrap是一个<strong>基于HTML, CSS, JavaScript技术</strong>的快速开发响应式布局，移动设备优先的前端框架.</li>
+<li>BootStrap简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</li>
+<li>BootStrap是由Twitter的Mark Otto和Jacob Thomton开发的. BootStrap是2011年八月在GitHub上发布的开源产品.</li>
+</ul>
+<a id="more"></a>
+<h3 id="为什么使用BootStrap"><a href="#为什么使用BootStrap" class="headerlink" title="为什么使用BootStrap"></a>为什么使用BootStrap</h3><ul>
+<li>移动设备优先的响应式网格, 从BootStrap3.0开始, 框架将包含了移动终端设备的优先的样式.</li>
+<li>浏览器支持IE, Firefox, opera, chrome, safari.</li>
+<li>基于WEB字体的图标, 适用于移动及高密度屏幕(高清屏).</li>
+<li>使用更简单, 让开发者更容易上手, 只要你具备HTML和CSS的基础知识.</li>
+<li>响应式设计, 这也是BootStrap最大的特色, 它能够自适应于台式机, 平板电脑和手机.</li>
+<li>标记和样式更加简洁高效.</li>
+<li>包含了功能强大的内置组件, 易于定制.</li>
+<li>它是开源的, 可以根据需求任何更改源码.</li>
+</ul>
+<h3 id="BootStrap包的内容"><a href="#BootStrap包的内容" class="headerlink" title="BootStrap包的内容"></a>BootStrap包的内容</h3><ul>
+<li>基本结构: BootStarp提供了一个带着网络系统, 链接样式, 背景的基本结构.</li>
+<li>css: 自带, 全局的css设置, 定义基本的HTML元素样式, 可扩展的class, 以及一个先进的网格系统.</li>
+<li>组件: 包含了十几个可重用的组件, 用于创建图像, 下拉菜单, 导航, 警告, 弹出框等等.</li>
+<li>JavaScript插件: 包含了十几个自定义的jQuery插件.</li>
+<li>定制: 我们可以根据实际的需求定制BootStrap的组件等.</li>
+</ul>
+<h3 id="下载BootStrap源码"><a href="#下载BootStrap源码" class="headerlink" title="下载BootStrap源码"></a>下载BootStrap源码</h3><p><a href="http://v3.bootcss.com/" target="_blank" rel="noopener">官网下载</a></p>
+<ul>
+<li>获得所有 CSS 和 JavaScript 原始文件，另外还包含一个说明文档的本地版本，可以直接在 GitHub 中下载最新的版本。</li>
+</ul>
+<h3 id="包含的内容"><a href="#包含的内容" class="headerlink" title="包含的内容"></a>包含的内容</h3><blockquote>
+<p>​    Bootstrap 提供了两种形式的压缩包，在下载下来的压缩包内可以看到以下目录和文件，这些文件按照类别放到了不同的目录内，并且提供了压缩与未压缩两种版本。</p>
+</blockquote>
+<blockquote>
+<h4 id="Bootstrap-插件全部依赖-jQuery"><a href="#Bootstrap-插件全部依赖-jQuery" class="headerlink" title="Bootstrap 插件全部依赖 jQuery"></a>Bootstrap 插件全部依赖 jQuery</h4><p>请注意，<strong>Bootstrap 的所有 JavaScript 插件都依赖 jQuery，</strong>因此 jQuery 必须在 Bootstrap 之前引入，就像在基本模版中所展示的一样。在<a href="https://github.com/twbs/bootstrap/blob/v3.3.7/bower.json" target="_blank" rel="noopener"> <code>bower.json</code> </a>文件中列出了 Bootstra p 所支持的 jQuery 版本。</p>
+</blockquote>
+<h4 id="文档结构"><a href="#文档结构" class="headerlink" title="文档结构"></a>文档结构</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bootstrap/</span><br><span class="line">├── less/</span><br><span class="line">├── js/</span><br><span class="line">├── fonts/</span><br><span class="line">├── dist/</span><br><span class="line">│   ├── css/</span><br><span class="line">│   ├── js/</span><br><span class="line">│   └── fonts/</span><br><span class="line">└── docs/</span><br><span class="line">    └── examples/</span><br></pre></td></tr></table></figure>
+<h3 id="基本模板"><a href="#基本模板" class="headerlink" title="基本模板"></a>基本模板</h3><ul>
+<li>拷贝并粘贴下面给出的 HTML 代码，这就是一个最简单的 Bootstrap 页面了。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Bootstrap 101 Template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"bootstrap/dist/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    IE中独有的条件hack</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;![endif]--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，世界！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>HELLO WORLD!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bootstrap/dist/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="IE-兼容模式"><a href="#IE-兼容模式" class="headerlink" title="IE 兼容模式"></a>IE 兼容模式</h3><blockquote>
+<p>​    Bootstrap 不支持 IE 古老的兼容模式。为了让 IE 浏览器运行最新的渲染模式下，建议将此  <code>&lt;meta&gt;</code>  标签加入到你的页面中：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--也就是不支持IE 11以下版本--&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="国产浏览器高速模式"><a href="#国产浏览器高速模式" class="headerlink" title="国产浏览器高速模式"></a>国产浏览器高速模式</h3><blockquote>
+<p>​    国内浏览器厂商一般都支持兼容模式（即 IE 内核）和高速模式（即 webkit 内核），不幸的是，所有国产浏览器都是默认使用兼容模式，这就造成由于低版本 IE （IE8 及以下）内核让基于 Bootstrap 构建的网站展现效果很糟糕的情况。</p>
+</blockquote>
+<ul>
+<li>将下面的 <code>&lt;meta&gt;</code> 标签加入到页面中，可以让部分国产浏览器默认采用高速模式渲染页面：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="全局CSS样式"><a href="#全局CSS样式" class="headerlink" title="全局CSS样式"></a>全局CSS样式</h2><h3 id="移动设备优先"><a href="#移动设备优先" class="headerlink" title="移动设备优先"></a>移动设备优先</h3><ul>
+<li>为了确保适当的绘制和触屏缩放，需要在 <code>&lt;head&gt;</code> 之中<strong>添加 viewport 元数据标签</strong>。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Normalize-css"><a href="#Normalize-css" class="headerlink" title="Normalize.css"></a>Normalize.css</h3><ul>
+<li>为了增强跨浏览器表现的一致性，我们使用了 <a href="http://necolas.github.io/normalize.css/" target="_blank" rel="noopener">Normalize.css</a>，这是由 <a href="https://twitter.com/necolas" target="_blank" rel="noopener">Nicolas Gallagher</a> 和 <a href="https://twitter.com/jon_neal" target="_blank" rel="noopener">Jonathan Neal</a> 维护的一个CSS 重置样式库。</li>
+<li>使用标签对样式进行重置</li>
+<li>使用方式：下载Normalize.css文件，使用link引入外部样式文件</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel="stylesheet" href="./css/normalize.css"&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h3><ul>
+<li>Bootstrap 需要为页面内容和栅格系统包裹一个 <code>.container</code> 容器。我们提供了两个作此用处的类。注意，由于 <code>padding</code> 等属性的原因，这两种 容器类不能互相嵌套。</li>
+<li><code>.container</code> 类用于固定宽度并支持响应式布局的容器。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h3><blockquote>
+<p>​    Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的<a href="http://v3.bootcss.com/css/#grid-example-basic" target="_blank" rel="noopener">预定义类</a>，还有强大的<a href="http://v3.bootcss.com/css/#grid-less" target="_blank" rel="noopener">mixin 用于生成更具语义的布局</a>。</p>
+</blockquote>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p>
+<ul>
+<li>“行（row）”必须包含在 <code>.container</code> （固定宽度）或 <code>.container-fluid</code> （100% 宽度）中，以便为其赋予合适的排列（aligment）和内补（padding）。</li>
+<li>通过“行（row）”在水平方向创建一组“列（column）”。</li>
+<li>你的内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素。</li>
+<li>类似 <code>.row</code> 和 <code>.col-xs-4</code> 这种预定义的类，可以用来快速创建栅格布局。Bootstrap 源码中定义的 mixin 也可以用来创建语义化的布局。</li>
+<li>通过为“列（column）”设置 <code>padding</code> 属性，从而创建列与列之间的间隔（gutter）。通过为 <code>.row</code> 元素设置负值 <code>margin</code> 从而抵消掉为 <code>.container</code> 元素设置的 <code>padding</code>，也就间接为“行（row）”所包含的“列（column）”抵消掉了<code>padding</code>。</li>
+<li>负值的 margin就是下面的示例为什么是向外突出的原因。在栅格列中的内容排成一行。</li>
+<li>栅格系统中的列是通过指定1到12的值来表示其跨越的范围。例如，三个等宽的列可以使用三个  <code>.col-xs-4</code> 来创建。</li>
+<li>如果一“行（row）”中包含了的“列（column）”大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列。</li>
+<li>栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何 <code>.col-md-*</code> 栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何 <code>.col-lg-*</code> 不存在， 也影响大屏幕设备。</li>
+</ul>
+<h4 id="栅格参数"><a href="#栅格参数" class="headerlink" title="栅格参数"></a>栅格参数</h4><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">超小屏幕手机 (&lt;768px)</th>
+<th style="text-align:center">小屏幕平板 (≥768px)</th>
+<th style="text-align:center">中等屏幕桌面显示器 (≥992px)</th>
+<th style="text-align:center">大屏幕大桌面显示器 (≥1200px)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">栅格系统行为</td>
+<td style="text-align:center">总是水平排列</td>
+<td style="text-align:center">开始是堆叠在一起的，当大于这些阈值时将变为水平排列</td>
+<td style="text-align:center">开始是堆叠在一起的，当大于这些阈值时将变为水平排列</td>
+<td style="text-align:center">开始是堆叠在一起的，当大于这些阈值时将变为水平排列</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>.container</code> 最大宽度</td>
+<td style="text-align:center">None （自动）</td>
+<td style="text-align:center">750px</td>
+<td style="text-align:center">970px</td>
+<td style="text-align:center">1170px</td>
+</tr>
+<tr>
+<td style="text-align:center">类前缀</td>
+<td style="text-align:center"><code>.col-xs-</code></td>
+<td style="text-align:center"><code>.col-sm-</code></td>
+<td style="text-align:center"><code>.col-md-</code></td>
+<td style="text-align:center"><code>.col-lg-</code></td>
+</tr>
+<tr>
+<td style="text-align:center">列数</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center">最大列宽</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">~62px</td>
+<td style="text-align:center">~81px</td>
+<td style="text-align:center">~97px</td>
+</tr>
+<tr>
+<td style="text-align:center">槽宽</td>
+<td style="text-align:center">30px （每列左右均有 15px）</td>
+<td style="text-align:center">30px （每列左右均有 15px）</td>
+<td style="text-align:center">30px （每列左右均有 15px）</td>
+<td style="text-align:center">30px （每列左右均有 15px）</td>
+</tr>
+<tr>
+<td style="text-align:center">可嵌套</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">偏移</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">列排序</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实例：从堆叠到水平排列"><a href="#实例：从堆叠到水平排列" class="headerlink" title="实例：从堆叠到水平排列"></a>实例：从堆叠到水平排列</h4><blockquote>
+<p>​    使用单一的一组 <code>.col-md-*</code> 栅格类，就可以创建一个基本的栅格系统，在手机和平板设备上一开始是堆叠在一起的（超小屏幕到小屏幕这一范围），在桌面（中等）屏幕设备上变为水平排列。所有“列（column）必须放在 ” <code>.row</code> 内。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-01.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 12列排布 响应式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container container1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-1 col-sm-2 col-xs-4"</span>&gt;</span>12<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 8 4 排列  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container container1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-8"</span>&gt;</span>col-md-8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 4 4 4排列 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container container1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 6 6排列 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container container1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span>col-md-6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span>col-md-6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="实例：流式布局容器"><a href="#实例：流式布局容器" class="headerlink" title="实例：流式布局容器"></a>实例：流式布局容器</h4><blockquote>
+<p>​    将最外面的布局元素 <code>.container</code> 修改为 <code>.container-fluid</code>，就可以将固定宽度的栅格布局转换为 100% 宽度的布局。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="列偏移"><a href="#列偏移" class="headerlink" title="列偏移"></a>列偏移</h4><blockquote>
+<p>​    使用 <code>.col-md-offset-*</code> 类可以将列向右侧偏移。这些类实际是通过使用 <code>*</code> 选择器为当前元素增加了左侧的边距（margin）。例如，<code>.col-md-offset-4</code> 类将 <code>.col-md-4</code> 元素向右侧偏移了4个列（column）的宽度。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-02.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container container1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4 col-md-offset-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 col-md-offset-3"</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 col-md-offset-3"</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6 col-md-offset-3"</span>&gt;</span>.col-md-6 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="嵌套列"><a href="#嵌套列" class="headerlink" title="嵌套列"></a>嵌套列</h4><blockquote>
+<p>​    为了使用内置的栅格系统将内容再次嵌套，可以通过添加一个新的 <code>.row</code> 元素和一系列 <code>.col-sm-*</code> 元素到已经存在的 <code>.col-md-*</code> 元素内。被嵌套的行（row）所包含的列（column）的个数不能超过12（其实，没有要求你必须占满12列）。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 嵌套  --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span>col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-8"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span>col-sm-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span>col-sm-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span>col-sm-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="列排序"><a href="#列排序" class="headerlink" title="列排序"></a>列排序</h4><blockquote>
+<p> 通过使用 <code>.col-md-push-*</code> 和 <code>.col-md-pull-*</code> 类就可以很容易的改变列（column）的顺序。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-03.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-9 col-md-push-3"</span>&gt;</span>.col-md-9 .col-md-push-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 col-md-pull-9"</span>&gt;</span>.col-md-3 .col-md-pull-9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><blockquote>
+<p>​    HTML 中的所有标题标签，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外，还提供了 <code>.h1</code> 到 <code>.h6</code> 类，为的是给内联（inline）属性的文本赋予标题的样式。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container container1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是H1标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是H2标签<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>我是H3标签<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h4</span>&gt;</span>我是H4标签<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h5</span>&gt;</span>我是H5标签<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h6</span>&gt;</span>我是H6标签<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在标题内还可以包含 <code>&lt;small&gt;</code> 标签或赋予 <code>.small</code> 类的元素，可以用来标记副标题。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1. Bootstrap heading <span class="tag">&lt;<span class="name">small</span>&gt;</span>Secondary text<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2. Bootstrap heading <span class="tag">&lt;<span class="name">small</span>&gt;</span>Secondary text<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>h3. Bootstrap heading <span class="tag">&lt;<span class="name">small</span>&gt;</span>Secondary text<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>h4. Bootstrap heading <span class="tag">&lt;<span class="name">small</span>&gt;</span>Secondary text<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>h5. Bootstrap heading <span class="tag">&lt;<span class="name">small</span>&gt;</span>Secondary text<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>h6. Bootstrap heading <span class="tag">&lt;<span class="name">small</span>&gt;</span>Secondary text<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="页面主体"><a href="#页面主体" class="headerlink" title="页面主体"></a>页面主体</h4><blockquote>
+<p>​    Bootstrap 将全局 <code>font-size</code> 设置为 <strong>14px</strong>，<code>line-height</code> 设置为 <strong>1.428</strong>。这些属性直接赋予 <code>&lt;body&gt;</code> 元素和所有段落元素。另外，<code>&lt;p&gt;</code> （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-04.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="中心内容"><a href="#中心内容" class="headerlink" title="中心内容"></a>中心内容</h4><blockquote>
+<p>通过添加 <code>.lead</code> 类可以让段落突出显示。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-05.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"lead"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h4><blockquote>
+<p>通过文本对齐类，可以简单方便的将文字重新对齐。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-06.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-left"</span>&gt;</span>Left aligned text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-center"</span>&gt;</span>Center aligned text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-right"</span>&gt;</span>Right aligned text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-justify"</span>&gt;</span>Justified text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>		<span class="comment">&lt;!--内容两端对齐--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-nowrap"</span>&gt;</span>No wrap text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>		<span class="comment">&lt;!--文本不换行--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="改变大小写"><a href="#改变大小写" class="headerlink" title="改变大小写"></a>改变大小写</h4><p><img src="/franksunhd.github.io/bootstrap/bootstrap-07.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-lowercase"</span>&gt;</span>Lowercased text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>		<span class="comment">&lt;!--全部转换为小写--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-uppercase"</span>&gt;</span>Uppercased text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>		<span class="comment">&lt;!--全部转换为大写--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-capitalize"</span>&gt;</span>Capitalized text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>	<span class="comment">&lt;!--单词首字母大写--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="缩略语"><a href="#缩略语" class="headerlink" title="缩略语"></a>缩略语</h4><ul>
+<li>当鼠标悬停在缩写和缩写词上时就会显示完整内容，Bootstrap 实现了对 HTML 的 <code>&lt;abbr&gt;</code> 元素的增强样式。缩略语元素带有 <code>title</code> 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。</li>
+</ul>
+<h5 id="基本缩略语"><a href="#基本缩略语" class="headerlink" title="基本缩略语"></a>基本缩略语</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"attribute"</span>&gt;</span>attr<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="首字母缩略语"><a href="#首字母缩略语" class="headerlink" title="首字母缩略语"></a>首字母缩略语</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"HyperText Markup Language"</span> <span class="attr">class</span>=<span class="string">"initialism"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h5 id="无样式列表"><a href="#无样式列表" class="headerlink" title="无样式列表"></a>无样式列表</h5><ul>
+<li>移除了默认的 <code>list-style</code> 样式和左侧外边距的一组元素（只针对直接子元素）。<strong>这是针对直接子元素的</strong>，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-08.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-unstyled"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>li 元素<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>li 元素<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>li 元素<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>li 元素<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>li 元素<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>li 元素<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="内联列表"><a href="#内联列表" class="headerlink" title="内联列表"></a>内联列表</h5><ul>
+<li>通过设置 <code>display: inline-block;</code> 并添加少量的内补（padding），将所有元素放置于同一行。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-09.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>...<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><h4 id="基本实例"><a href="#基本实例" class="headerlink" title="基本实例"></a>基本实例</h4><ul>
+<li>为任意 <code>&lt;table&gt;</code> 标签添加 <code>.table</code> 类可以为其赋予基本的样式 — 少量的内补（padding）和水平方向的分隔线。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="条纹状表格"><a href="#条纹状表格" class="headerlink" title="条纹状表格"></a>条纹状表格</h4><ul>
+<li>通过 <code>.table-striped</code> 类可以给 <code>&lt;tbody&gt;</code> 之内的每一行增加斑马条纹样式。</li>
+</ul>
+<blockquote>
+<h4 id="跨浏览器兼容问题"><a href="#跨浏览器兼容问题" class="headerlink" title="跨浏览器兼容问题"></a>跨浏览器兼容问题</h4><p>条纹状表格是依赖 <code>:nth-child</code> CSS 选择器实现的，而这一功能不被 Internet Explorer 8 支持。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-striped"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="带边框的表格"><a href="#带边框的表格" class="headerlink" title="带边框的表格"></a>带边框的表格</h4><ul>
+<li>添加 <code>.table-bordered</code> 类为表格和其中的每个单元格增加边框。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-bordered"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="鼠标悬停"><a href="#鼠标悬停" class="headerlink" title="鼠标悬停"></a>鼠标悬停</h4><ul>
+<li>通过添加 <code>.table-hover</code> 类可以让 <code>&lt;tbody&gt;</code> 中的每一行对鼠标悬停状态作出响应。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-hover"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="紧缩表格"><a href="#紧缩表格" class="headerlink" title="紧缩表格"></a>紧缩表格</h4><ul>
+<li>通过添加 <code>.table-condensed</code> 类可以让表格更加紧凑，单元格中的内补（padding）均会减半。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-condensed"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="状态类-颜色"><a href="#状态类-颜色" class="headerlink" title="状态类(颜色)"></a>状态类(颜色)</h4><ul>
+<li>通过这些状态类可以为行或单元格设置颜色。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-10.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- On rows --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"success"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"warning"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"danger"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"info"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- On cells (`td` or `th`) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"success"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"warning"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"danger"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"info"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.active</code></td>
+<td>鼠标悬停在行或单元格上时所设置的颜色</td>
+</tr>
+<tr>
+<td><code>.success</code></td>
+<td>标识成功或积极的动作</td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td>标识普通的提示信息或动作</td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
+<td>标识警告或需要用户注意</td>
+</tr>
+<tr>
+<td><code>.danger</code></td>
+<td>标识危险或潜在的带来负面影响的动作</td>
+</tr>
+</tbody>
+</table>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><h4 id="基本实例-1"><a href="#基本实例-1" class="headerlink" title="基本实例"></a>基本实例</h4><ul>
+<li>单独的表单控件会被自动赋予一些全局样式。所有设置了 <code>.form-control</code> 类的 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 元素都将被默认设置宽度属性为 <code>width: 100%;</code>。 将 <code>label</code> 元素和前面提到的控件包裹在 <code>.form-group</code> 中可以获得最好的排列。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-11.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- label的for属性和input的id一致，可以使input获得焦点  --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"address"</span>&gt;</span>Email address<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"address"</span> <span class="attr">placeholder</span>=<span class="string">"Email"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Password1"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"Password1"</span> <span class="attr">placeholder</span>=<span class="string">"Password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"exampleInputFile"</span>&gt;</span>File input<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"exampleInputFile"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"help-block"</span>&gt;</span>Example block-level help text here.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span></span></span><br><span class="line">  &lt;div class="checkbox"&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> Check me out</span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="内联表单"><a href="#内联表单" class="headerlink" title="内联表单"></a>内联表单</h4><ul>
+<li>为 <code>&lt;form&gt;</code> 元素添加 <code>.form-inline</code> 类可使其内容左对齐并且表现为 <code>inline-block</code> 级别的控件。<strong>只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话就会使表单折叠）。</strong></li>
+</ul>
+<blockquote>
+<p>可能需要手动设置宽度</p>
+<p>在 Bootstrap 中，输入框和单选/多选框控件默认被设置为 <code>width: 100%;</code> 宽度。在内联表单，我们将这些元素的宽度设置为 <code>width: auto;</code>，因此，多个控件可以排列在同一行。根据你的布局需求，可能需要一些额外的定制化组件。</p>
+</blockquote>
+<blockquote>
+<p>一定要添加 <code>label</code> 标签</p>
+<p>如果你没有为每个输入控件设置 <code>label</code> 标签，屏幕阅读器将无法正确识别。对于这些内联表单，你可以通过为 <code>label</code> 设置 <code>.sr-only</code> 类将其隐藏。还有一些辅助技术提供label标签的替代方案，比如 <code>aria-label</code>、<code>aria-labelledby</code> 或 <code>title</code> 属性。如果这些都不存在，屏幕阅读器可能会采取使用 <code>placeholder</code> 属性，如果存在的话，使用占位符来替代其他的标记，但要注意，这种方法是不妥当的。</p>
+</blockquote>
+<ul>
+<li>实例一(有lable类型)</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-12.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 转换到一行 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"exampleInputName2"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"exampleInputName2"</span> <span class="attr">placeholder</span>=<span class="string">"Jane Doe"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"exampleInputEmail2"</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"exampleInputEmail2"</span> <span class="attr">placeholder</span>=<span class="string">"jane.doe@example.com"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>Send invitation<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例二(无lable类型)</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-13.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"sr-only"</span> <span class="attr">for</span>=<span class="string">"exampleInputEmail3"</span>&gt;</span>Email address<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"exampleInputEmail3"</span> <span class="attr">placeholder</span>=<span class="string">"Email"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"sr-only"</span> <span class="attr">for</span>=<span class="string">"exampleInputPassword3"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"exampleInputPassword3"</span> <span class="attr">placeholder</span>=<span class="string">"Password"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> Remember me</span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例三(提示框类型)</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-14.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"sr-only"</span> <span class="attr">for</span>=<span class="string">"exampleInputAmount"</span>&gt;</span>Amount (in dollars)<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span>$<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"exampleInputAmount"</span> <span class="attr">placeholder</span>=<span class="string">"Amount"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span>.00<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Transfer cash<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="水平排列的表单"><a href="#水平排列的表单" class="headerlink" title="水平排列的表单"></a>水平排列的表单</h4><p><img src="/franksunhd.github.io/bootstrap/bootstrap-15.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"inputEmail3"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"inputEmail3"</span> <span class="attr">placeholder</span>=<span class="string">"Email"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"inputPassword3"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"inputPassword3"</span> <span class="attr">placeholder</span>=<span class="string">"Password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-offset-2 col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> Remember me</span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-offset-2 col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="被支持的控件"><a href="#被支持的控件" class="headerlink" title="被支持的控件"></a>被支持的控件</h4><h5 id="输入框"><a href="#输入框" class="headerlink" title="输入框"></a>输入框</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"Text input"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="文本域"><a href="#文本域" class="headerlink" title="文本域"></a>文本域</h5><ul>
+<li>支持多行文本的表单控件。可根据需要改变 <code>rows</code> 属性。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">rows</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="多选和单选框"><a href="#多选和单选框" class="headerlink" title="多选和单选框"></a>多选和单选框</h5><ul>
+<li>多选框（checkbox）用于选择列表中的一个或多个选项，而单选框（radio）用于从多个选项中只选择一个。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-16.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    Option one is this and that&amp;mdash;be sure to include why it's great</span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox disabled"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">disabled</span>&gt;</span></span><br><span class="line">    Option two is disabled</span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"radio"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"optionsRadios"</span> <span class="attr">id</span>=<span class="string">"optionsRadios1"</span> <span class="attr">value</span>=<span class="string">"option1"</span> <span class="attr">checked</span>&gt;</span></span><br><span class="line">    Option one is this and that&amp;mdash;be sure to include why it's great</span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"radio"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"optionsRadios"</span> <span class="attr">id</span>=<span class="string">"optionsRadios2"</span> <span class="attr">value</span>=<span class="string">"option2"</span>&gt;</span></span><br><span class="line">    Option two can be something else and selecting it will deselect option one</span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"radio disabled"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"optionsRadios"</span> <span class="attr">id</span>=<span class="string">"optionsRadios3"</span> <span class="attr">value</span>=<span class="string">"option3"</span> <span class="attr">disabled</span>&gt;</span></span><br><span class="line">    Option three is disabled</span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="内联单选和多选框"><a href="#内联单选和多选框" class="headerlink" title="内联单选和多选框"></a>内联单选和多选框</h5><ul>
+<li>通过将 <code>.checkbox-inline</code> 或 <code>.radio-inline</code> 类应用到一系列的多选框（checkbox）或单选框（radio）控件上，可以使这些控件排列在一行。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-17.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"checkbox-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"inlineCheckbox1"</span> <span class="attr">value</span>=<span class="string">"option1"</span>&gt;</span> 1</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"checkbox-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"inlineCheckbox2"</span> <span class="attr">value</span>=<span class="string">"option2"</span>&gt;</span> 2</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"checkbox-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"inlineCheckbox3"</span> <span class="attr">value</span>=<span class="string">"option3"</span>&gt;</span> 3</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"radio-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"inlineRadioOptions"</span> <span class="attr">id</span>=<span class="string">"inlineRadio1"</span> <span class="attr">value</span>=<span class="string">"option1"</span>&gt;</span> 1</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"radio-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"inlineRadioOptions"</span> <span class="attr">id</span>=<span class="string">"inlineRadio2"</span> <span class="attr">value</span>=<span class="string">"option2"</span>&gt;</span> 2</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"radio-inline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"inlineRadioOptions"</span> <span class="attr">id</span>=<span class="string">"inlineRadio3"</span> <span class="attr">value</span>=<span class="string">"option3"</span>&gt;</span> 3</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="不带label文本的Checkbox-和-radio"><a href="#不带label文本的Checkbox-和-radio" class="headerlink" title="不带label文本的Checkbox 和 radio"></a>不带label文本的Checkbox 和 radio</h5><ul>
+<li>如果需要 <code>&lt;label&gt;</code> 内没有文字，输入框（input）正是你所期望的。 <strong>目前只适用于非内联的 checkbox 和 radio。</strong> 请记住，仍然需要为使用辅助技术的用户提供某种形式的 label（例如，使用 <code>aria-label</code>）。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"blankCheckbox"</span> <span class="attr">value</span>=<span class="string">"option1"</span> <span class="attr">aria-label</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"radio"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"blankRadio"</span> <span class="attr">id</span>=<span class="string">"blankRadio1"</span> <span class="attr">value</span>=<span class="string">"option1"</span> <span class="attr">aria-label</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="下拉列表（select）"><a href="#下拉列表（select）" class="headerlink" title="下拉列表（select）"></a>下拉列表（select）</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>  <span class="attr">multiple</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>5<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于标记了 <code>multiple</code> 属性的 <code>&lt;select&gt;</code> 控件来说，默认显示多选项。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">multiple</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>5<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="静态控件"><a href="#静态控件" class="headerlink" title="静态控件"></a>静态控件</h5><ul>
+<li>如果需要在表单中将一行纯文本和 <code>label</code> 元素放置于同一行，为 <code>&lt;p&gt;</code> 元素添加 <code>.form-control-static</code> 类即可。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-18.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"form-control-static"</span>&gt;</span>email@example.com<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"inputPassword"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"inputPassword"</span> <span class="attr">placeholder</span>=<span class="string">"Password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="禁用状态"><a href="#禁用状态" class="headerlink" title="禁用状态"></a>禁用状态</h5><ul>
+<li>为输入框设置 <code>disabled</code> 属性可以禁止其与用户有任何交互（焦点、输入等）。被禁用的输入框颜色更浅，并且还添加了 <code>not-allowed</code> 鼠标状态。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"disabledInput"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"Disabled input here..."</span> <span class="attr">disabled</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="只读状态"><a href="#只读状态" class="headerlink" title="只读状态"></a>只读状态</h5><ul>
+<li>为输入框设置 <code>readonly</code> 属性可以禁止用户修改输入框中的内容。处于只读状态的输入框颜色更浅（就像被禁用的输入框一样），但是仍然保留标准的鼠标状态。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"Readonly input here…"</span> <span class="attr">readonly</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="控件尺寸"><a href="#控件尺寸" class="headerlink" title="控件尺寸"></a>控件尺寸</h5><ul>
+<li><p>高度尺寸</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control input-lg"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">".input-lg"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"Default input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control input-sm"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">".input-sm"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control input-lg"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control input-sm"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>水平排列的表单组尺寸</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group form-group-lg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span> <span class="attr">for</span>=<span class="string">"formGroupInputLarge"</span>&gt;</span>Large label<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"formGroupInputLarge"</span> <span class="attr">placeholder</span>=<span class="string">"Large input"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group form-group-sm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span> <span class="attr">for</span>=<span class="string">"formGroupInputSmall"</span>&gt;</span>Small label<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"formGroupInputSmall"</span> <span class="attr">placeholder</span>=<span class="string">"Small input"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><h4 id="可作为按钮使用的标签或元素"><a href="#可作为按钮使用的标签或元素" class="headerlink" title="可作为按钮使用的标签或元素"></a>可作为按钮使用的标签或元素</h4><ul>
+<li>为 <code>&lt;a&gt;</code>、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮类（button class）即可使用 Bootstrap 提供的样式。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">role</span>=<span class="string">"button"</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="针对组件的注意事项"><a href="#针对组件的注意事项" class="headerlink" title="针对组件的注意事项"></a>针对组件的注意事项</h4><p>虽然按钮类可以应用到 <code>&lt;a&gt;</code> 和 <code>&lt;button&gt;</code> 元素上，但是，导航和导航条组件只支持 <code>&lt;button&gt;</code> 元素。</p>
+</blockquote>
+<blockquote>
+<h4 id="链接被作为按钮使用时的注意事项"><a href="#链接被作为按钮使用时的注意事项" class="headerlink" title="链接被作为按钮使用时的注意事项"></a>链接被作为按钮使用时的注意事项</h4><p>如果 <code>&lt;a&gt;</code> 元素被作为按钮使用 – 并用于在当前页面触发某些功能 – 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 <code>role=&quot;button&quot;</code> 属性。</p>
+</blockquote>
+<h4 id="预定义样式"><a href="#预定义样式" class="headerlink" title="预定义样式"></a>预定义样式</h4><ul>
+<li>使用下面列出的类可以快速创建一个带有预定义样式的按钮。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-19.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Standard button --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>（默认样式）Default<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Provides extra visual weight and identifies the primary action in a set of buttons --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>（首选项）Primary<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Indicates a successful or positive action --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span>&gt;</span>（成功）Success<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Contextual button for informational alert messages --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-info"</span>&gt;</span>（一般信息）Info<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Indicates caution should be taken with this action --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-warning"</span>&gt;</span>（警告）Warning<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Indicates a dangerous or potentially negative action --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span>&gt;</span>（危险）Danger<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Deemphasize a button by making it look like a link while maintaining button behavior --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-link"</span>&gt;</span>（链接）Link<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h4><ul>
+<li>需要让按钮具有不同尺寸吗？使用 <code>.btn-lg</code>、<code>.btn-sm</code> 或 <code>.btn-xs</code> 就可以获得不同尺寸的按钮。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-20.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-lg"</span>&gt;</span>（大按钮）Large button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-lg"</span>&gt;</span>（大按钮）Large button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>（默认尺寸）Default button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>（默认尺寸）Default button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm"</span>&gt;</span>（小按钮）Small button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-sm"</span>&gt;</span>（小按钮）Small button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-xs"</span>&gt;</span>（超小尺寸）Extra small button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-xs"</span>&gt;</span>（超小尺寸）Extra small button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过给按钮添加 <code>.btn-block</code> 类可以将其拉伸至父元素100%的宽度，而且按钮也变为了块级（block）元素。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-21.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-lg btn-block"</span>&gt;</span>（块级元素）Block level button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-lg btn-block"</span>&gt;</span>（块级元素）Block level button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="激活状态"><a href="#激活状态" class="headerlink" title="激活状态"></a>激活状态</h4><ul>
+<li>当按钮处于激活状态时，其表现为被按压下去（底色更深、边框夜色更深、向内投射阴影）。对于 <code>&lt;button&gt;</code> 元素，是通过 <code>:active</code> 状态实现的。对于 <code>&lt;a&gt;</code> 元素，是通过 <code>.active</code> 类实现的。然而，你还可以将 <code>.active</code> 应用到 <code>&lt;button&gt;</code> 上（包含 <code>aria-pressed=&quot;true&quot;</code> 属性)），并通过编程的方式使其处于激活状态。</li>
+</ul>
+<h5 id="button-元素"><a href="#button-元素" class="headerlink" title="button 元素"></a>button 元素</h5><ul>
+<li>由于 <code>:active</code> 是伪状态，因此无需额外添加，但是在需要让其表现出同样外观的时候可以添加 <code>.active</code> 类。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-lg active"</span>&gt;</span>Primary button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-lg active"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="链接（-lt-a-gt-）元素"><a href="#链接（-lt-a-gt-）元素" class="headerlink" title="链接（&lt;a&gt;）元素"></a>链接（<code>&lt;a&gt;</code>）元素</h5><ul>
+<li>可以为基于 <code>&lt;a&gt;</code> 元素创建的按钮添加 <code>.active</code> 类。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-lg active"</span> <span class="attr">role</span>=<span class="string">"button"</span>&gt;</span>Primary link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-lg active"</span> <span class="attr">role</span>=<span class="string">"button"</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="禁用状态-1"><a href="#禁用状态-1" class="headerlink" title="禁用状态"></a>禁用状态</h4><ul>
+<li>通过为按钮的背景设置 <code>opacity</code> 属性就可以呈现出无法点击的效果。</li>
+</ul>
+<h5 id="button-元素-1"><a href="#button-元素-1" class="headerlink" title="button 元素"></a>button 元素</h5><ul>
+<li>为 <code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性，使其表现出禁用状态。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-primary"</span> <span class="attr">disabled</span>=<span class="string">"disabled"</span>&gt;</span>Primary button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-lg"</span> <span class="attr">disabled</span>=<span class="string">"disabled"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-22.png" alt=""></p>
+<h5 id="链接（-lt-a-gt-）元素-1"><a href="#链接（-lt-a-gt-）元素-1" class="headerlink" title="链接（&lt;a&gt;）元素"></a>链接（<code>&lt;a&gt;</code>）元素</h5><ul>
+<li>为基于 <code>&lt;a&gt;</code> 元素创建的按钮添加 <code>.disabled</code> 类。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-lg disabled"</span> <span class="attr">role</span>=<span class="string">"button"</span>&gt;</span>Primary link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-default btn-lg disabled"</span> <span class="attr">role</span>=<span class="string">"button"</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><h4 id="响应式图片"><a href="#响应式图片" class="headerlink" title="响应式图片"></a>响应式图片</h4><ul>
+<li>在 Bootstrap 版本 3 中，通过为图片添加 <code>.img-responsive</code> 类可以让图片支持响应式布局。其实质是为图片设置了 <code>max-width: 100%;</code>、 <code>height: auto;</code> 和 <code>display: block;</code> 属性，从而让图片在其父元素中更好的缩放。</li>
+<li>如果需要让使用了 <code>.img-responsive</code> 类的图片水平居中，请使用 <code>.center-block</code> 类，不要用 <code>.text-center</code>。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/01.png"</span> <span class="attr">class</span>=<span class="string">"img-responsive center-block"</span> <span class="attr">alt</span>=<span class="string">"Responsive image"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="图片形状"><a href="#图片形状" class="headerlink" title="图片形状"></a>图片形状</h4><ul>
+<li>通过为 <code>&lt;img&gt;</code> 元素添加以下相应的类，可以让图片呈现不同的形状。</li>
+</ul>
+<blockquote>
+<h4 id="跨浏览器兼容性"><a href="#跨浏览器兼容性" class="headerlink" title="跨浏览器兼容性"></a>跨浏览器兼容性</h4><p>请时刻牢记：Internet Explorer 8 不支持 CSS3 中的圆角属性。</p>
+</blockquote>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-23.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/1.webp"</span> <span class="attr">alt</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"img-rounded"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/2.webp"</span> <span class="attr">alt</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"img-circle"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/3.webp"</span> <span class="attr">alt</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"img-thumbnail"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="响应式工具"><a href="#响应式工具" class="headerlink" title="响应式工具"></a>响应式工具</h3><h4 id="可用的类"><a href="#可用的类" class="headerlink" title="可用的类"></a>可用的类</h4><ul>
+<li>通过单独或联合使用以下列出的类，可以针对不同屏幕尺寸隐藏或显示页面内容。</li>
+</ul>
+<p><img src="/franksunhd.github.io/bootstrap/bootstrap-24.png" alt=""></p>
+<ul>
+<li>从 v3.2.0 版本起，形如 <code>.visible-*-*</code> 的类针对每种屏幕大小都有了三种变体，每个针对 CSS 中不同的 <code>display</code> 属性，列表如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类组</th>
+<th>CSS <code>display</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.visible-*-block</code></td>
+<td><code>display: block;</code></td>
+</tr>
+<tr>
+<td><code>.visible-*-inline</code></td>
+<td><code>display: inline;</code></td>
+</tr>
+<tr>
+<td><code>.visible-*-inline-block</code></td>
+<td><code>display: inline-block;</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>因此，以超小屏幕（<code>xs</code>）为例，可用的 <code>.visible-*-*</code> 类是：<code>.visible-xs-block</code>、<code>.visible-xs-inline</code> 和 <code>.visible-xs-inline-block</code>。</p>
+<p><code>.visible-xs</code>、<code>.visible-sm</code>、<code>.visible-md</code> 和 <code>.visible-lg</code> 类也同时存在。但是<strong>从 v3.2.0 版本开始不再建议使用</strong>。除了 <code>&lt;table&gt;</code> 相关的元素的特殊情况外，它们与 <code>.visible-*-block</code> 大体相同。</p>
+</li>
+</ul>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="代码块-pre"><a href="#代码块-pre" class="headerlink" title="代码块(pre)"></a>代码块(pre)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">    看说就看过看到机会大家好看到机会就的客户机  到说建行卡的建行卡     的建行卡</span><br><span class="line"> <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">    var a = 10;</span><br><span class="line">    for(var i = 0;i <span class="tag">&lt;<span class="name">10;</span> <span class="attr">i</span>++)&#123;</span></span><br><span class="line"><span class="tag">       <span class="attr">console.log</span>(<span class="attr">i</span>);</span></span><br><span class="line"><span class="tag">    &#125;</span></span><br><span class="line">&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/10/BFC/" rel="next" title="块级格式化范围">
+                <i class="fa fa-chevron-left"></i> 块级格式化范围
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/10/bootstrap-advance/" rel="prev" title="BootStrap组件/字体图标">
+                BootStrap组件/字体图标 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BootStrap-起步-全局CSS样式-栅格系统-排版-表格-表单-按钮-图片-响应式工具-代码块"><span class="nav-number">1.</span> <span class="nav-text">BootStrap/起步/全局CSS样式(栅格系统/排版/表格/表单/按钮/图片/响应式工具/代码块)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#起步"><span class="nav-number">2.</span> <span class="nav-text">起步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是BootStrap"><span class="nav-number">2.1.</span> <span class="nav-text">什么是BootStrap?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用BootStrap"><span class="nav-number">2.2.</span> <span class="nav-text">为什么使用BootStrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BootStrap包的内容"><span class="nav-number">2.3.</span> <span class="nav-text">BootStrap包的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载BootStrap源码"><span class="nav-number">2.4.</span> <span class="nav-text">下载BootStrap源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包含的内容"><span class="nav-number">2.5.</span> <span class="nav-text">包含的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bootstrap-插件全部依赖-jQuery"><span class="nav-number">2.5.1.</span> <span class="nav-text">Bootstrap 插件全部依赖 jQuery</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档结构"><span class="nav-number">2.5.2.</span> <span class="nav-text">文档结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本模板"><span class="nav-number">2.6.</span> <span class="nav-text">基本模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE-兼容模式"><span class="nav-number">2.7.</span> <span class="nav-text">IE 兼容模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#国产浏览器高速模式"><span class="nav-number">2.8.</span> <span class="nav-text">国产浏览器高速模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局CSS样式"><span class="nav-number">3.</span> <span class="nav-text">全局CSS样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备优先"><span class="nav-number">3.1.</span> <span class="nav-text">移动设备优先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Normalize-css"><span class="nav-number">3.2.</span> <span class="nav-text">Normalize.css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局容器"><span class="nav-number">3.3.</span> <span class="nav-text">布局容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栅格系统"><span class="nav-number">3.4.</span> <span class="nav-text">栅格系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">3.4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栅格参数"><span class="nav-number">3.4.2.</span> <span class="nav-text">栅格参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例：从堆叠到水平排列"><span class="nav-number">3.4.3.</span> <span class="nav-text">实例：从堆叠到水平排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例：流式布局容器"><span class="nav-number">3.4.4.</span> <span class="nav-text">实例：流式布局容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列偏移"><span class="nav-number">3.4.5.</span> <span class="nav-text">列偏移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套列"><span class="nav-number">3.4.6.</span> <span class="nav-text">嵌套列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列排序"><span class="nav-number">3.4.7.</span> <span class="nav-text">列排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排版"><span class="nav-number">3.5.</span> <span class="nav-text">排版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标题"><span class="nav-number">3.5.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面主体"><span class="nav-number">3.5.2.</span> <span class="nav-text">页面主体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中心内容"><span class="nav-number">3.5.3.</span> <span class="nav-text">中心内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对齐"><span class="nav-number">3.5.4.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改变大小写"><span class="nav-number">3.5.5.</span> <span class="nav-text">改变大小写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缩略语"><span class="nav-number">3.5.6.</span> <span class="nav-text">缩略语</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本缩略语"><span class="nav-number">3.5.6.1.</span> <span class="nav-text">基本缩略语</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#首字母缩略语"><span class="nav-number">3.5.6.2.</span> <span class="nav-text">首字母缩略语</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">3.5.7.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#无样式列表"><span class="nav-number">3.5.7.1.</span> <span class="nav-text">无样式列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内联列表"><span class="nav-number">3.5.7.2.</span> <span class="nav-text">内联列表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">3.6.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本实例"><span class="nav-number">3.6.1.</span> <span class="nav-text">基本实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条纹状表格"><span class="nav-number">3.6.2.</span> <span class="nav-text">条纹状表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨浏览器兼容问题"><span class="nav-number">3.6.3.</span> <span class="nav-text">跨浏览器兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带边框的表格"><span class="nav-number">3.6.4.</span> <span class="nav-text">带边框的表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标悬停"><span class="nav-number">3.6.5.</span> <span class="nav-text">鼠标悬停</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#紧缩表格"><span class="nav-number">3.6.6.</span> <span class="nav-text">紧缩表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#状态类-颜色"><span class="nav-number">3.6.7.</span> <span class="nav-text">状态类(颜色)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-number">3.7.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本实例-1"><span class="nav-number">3.7.1.</span> <span class="nav-text">基本实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内联表单"><span class="nav-number">3.7.2.</span> <span class="nav-text">内联表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平排列的表单"><span class="nav-number">3.7.3.</span> <span class="nav-text">水平排列的表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#被支持的控件"><span class="nav-number">3.7.4.</span> <span class="nav-text">被支持的控件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入框"><span class="nav-number">3.7.4.1.</span> <span class="nav-text">输入框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本域"><span class="nav-number">3.7.4.2.</span> <span class="nav-text">文本域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多选和单选框"><span class="nav-number">3.7.4.3.</span> <span class="nav-text">多选和单选框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内联单选和多选框"><span class="nav-number">3.7.4.4.</span> <span class="nav-text">内联单选和多选框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不带label文本的Checkbox-和-radio"><span class="nav-number">3.7.4.5.</span> <span class="nav-text">不带label文本的Checkbox 和 radio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下拉列表（select）"><span class="nav-number">3.7.4.6.</span> <span class="nav-text">下拉列表（select）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态控件"><span class="nav-number">3.7.4.7.</span> <span class="nav-text">静态控件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#禁用状态"><span class="nav-number">3.7.4.8.</span> <span class="nav-text">禁用状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#只读状态"><span class="nav-number">3.7.4.9.</span> <span class="nav-text">只读状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#控件尺寸"><span class="nav-number">3.7.4.10.</span> <span class="nav-text">控件尺寸</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按钮"><span class="nav-number">3.8.</span> <span class="nav-text">按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可作为按钮使用的标签或元素"><span class="nav-number">3.8.1.</span> <span class="nav-text">可作为按钮使用的标签或元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对组件的注意事项"><span class="nav-number">3.8.2.</span> <span class="nav-text">针对组件的注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链接被作为按钮使用时的注意事项"><span class="nav-number">3.8.3.</span> <span class="nav-text">链接被作为按钮使用时的注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预定义样式"><span class="nav-number">3.8.4.</span> <span class="nav-text">预定义样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尺寸"><span class="nav-number">3.8.5.</span> <span class="nav-text">尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#激活状态"><span class="nav-number">3.8.6.</span> <span class="nav-text">激活状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#button-元素"><span class="nav-number">3.8.6.1.</span> <span class="nav-text">button 元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链接（-lt-a-gt-）元素"><span class="nav-number">3.8.6.2.</span> <span class="nav-text">链接（&lt;a&gt;）元素</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用状态-1"><span class="nav-number">3.8.7.</span> <span class="nav-text">禁用状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#button-元素-1"><span class="nav-number">3.8.7.1.</span> <span class="nav-text">button 元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链接（-lt-a-gt-）元素-1"><span class="nav-number">3.8.7.2.</span> <span class="nav-text">链接（&lt;a&gt;）元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片"><span class="nav-number">3.9.</span> <span class="nav-text">图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式图片"><span class="nav-number">3.9.1.</span> <span class="nav-text">响应式图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片形状"><span class="nav-number">3.9.2.</span> <span class="nav-text">图片形状</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨浏览器兼容性"><span class="nav-number">3.9.3.</span> <span class="nav-text">跨浏览器兼容性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式工具"><span class="nav-number">3.10.</span> <span class="nav-text">响应式工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可用的类"><span class="nav-number">3.10.1.</span> <span class="nav-text">可用的类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充内容"><span class="nav-number">4.</span> <span class="nav-text">补充内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块-pre"><span class="nav-number">4.1.</span> <span class="nav-text">代码块(pre)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
