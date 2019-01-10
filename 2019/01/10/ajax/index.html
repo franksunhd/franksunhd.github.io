@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ajax,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Ajax应用/图灵完备123456789101112AJAX即“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页应用的网页开发技术。AJAX是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的局部进行更新。传统的网页（不使">
+<meta name="keywords" content="ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax应用&#x2F;图灵完备">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/10/ajax/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="Ajax应用/图灵完备123456789101112AJAX即“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页应用的网页开发技术。AJAX是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的局部进行更新。传统的网页（不使">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/CGI.jpg">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/xhr01.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/xhr02.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/onreadystatechange.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/readyState.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/response.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/status.png">
+<meta property="og:updated_time" content="2019-01-10T06:05:01.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax应用&#x2F;图灵完备">
+<meta name="twitter:description" content="Ajax应用/图灵完备123456789101112AJAX即“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页应用的网页开发技术。AJAX是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的局部进行更新。传统的网页（不使">
+<meta name="twitter:image" content="https://franksunhd.github.io/franksunhd.github.io/images/CGI.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/10/ajax/">
+
+
+
+
+
+  <title>Ajax应用/图灵完备 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/10/ajax/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Ajax应用/图灵完备</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T13:20:57+08:00">
+                2019-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/ajax/" itemprop="url" rel="index">
+                    <span itemprop="name">ajax</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Ajax应用-图灵完备"><a href="#Ajax应用-图灵完备" class="headerlink" title="Ajax应用/图灵完备"></a>Ajax应用/图灵完备</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">AJAX即“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页应用的网页开发技术。</span><br><span class="line">AJAX是一种用于创建快速动态网页的技术。</span><br><span class="line">通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。</span><br><span class="line">这意味着可以在不重新加载整个网页的情况下，对网页的局部进行更新。</span><br><span class="line">传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。</span><br><span class="line">(引自百度百科)</span><br><span class="line">Ajax 技术的核心是 XMLHttpRequest 对象（简称 XHR）</span><br><span class="line">XHR 为向服务器发送请求和解析服务器响应提供了流畅的接口。</span><br><span class="line">能够以异步方式从服务器取得更多信息，意味着用户单击后，可以不必刷新页面也能取得新数据。</span><br><span class="line">也就是说，可以使用 XHR 对象取得新数据，然后再通过DOM将新数据插入到页面中。</span><br><span class="line">另外，虽然名字中包含 XML 的成分，但 Ajax通信与数据格式无关；</span><br><span class="line">这种技术就是无须刷新页面即可从服务器取得数据，但不一定是 XML 数据。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">XML　　中文名　：可扩展标记语言</span><br><span class="line">是一种用于标记电子文件使其具有结构性的标记语言。</span><br><span class="line"></span><br><span class="line">１、什么是可扩展标记语言？</span><br><span class="line">    可扩展标记语言是一种很像超文本标记语言的标记语言。</span><br><span class="line">    它的设计宗旨是传输数据，而不是显示数据。</span><br><span class="line">    它的标签没有被预定义。您需要自行定义标签。</span><br><span class="line">    它被设计为具有自我描述性。</span><br><span class="line">    它是W3C的推荐标准。</span><br><span class="line">2、可扩展标记语言和超文本标记语言之间的差异</span><br><span class="line"></span><br><span class="line">	它不是超文本标记语言的替代。</span><br><span class="line">	它是对超文本标记语言的补充。</span><br><span class="line">	它和超文本标记语言为不同的目的而设计：</span><br><span class="line"></span><br><span class="line">    它被设计用来传输和存储数据，其焦点是数据的内容。</span><br><span class="line">    超文本标记语言被设计用来显示数据，其焦点是数据的外观。</span><br><span class="line"></span><br><span class="line">	超文本标记语言旨在显示信息，而它旨在传输信息。</span><br><span class="line">	对它最好的描述是：它是独立于软件和硬件的信息传输工具。</span><br><span class="line">３、可扩展标记语言是W3C的推荐标准</span><br><span class="line">	XML 于 1998 年 2 月 10 日成为 W3C 的推荐标准。</span><br><span class="line">４、可扩展标记语言无所不在</span><br><span class="line">	超文本标记语言。</span><br><span class="line">	XML 是各种应用程序之间进行数据传输的最常用的工具。</span><br></pre></td></tr></table></figure>
+<h3 id="apache-Web服务器的安装与CGI的配置"><a href="#apache-Web服务器的安装与CGI的配置" class="headerlink" title="apache Web服务器的安装与CGI的配置"></a>apache Web服务器的安装与CGI的配置</h3><h4 id="apache-web服务器的安装"><a href="#apache-web服务器的安装" class="headerlink" title="apache web服务器的安装"></a>apache web服务器的安装</h4><ol>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install tasksel</li>
+<li>sudo tasksel</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tasksel -- ubuntu里面方便安装服务的软件，用这个软件可以方便安装</span><br><span class="line">dns server, lamp, kubuntu desktop, ubuntu desktop, xubuntu之类的软件包。</span><br><span class="line">这个软件在ubuntu server里是预装的，而在桌面版里是不预装的，想用的话得安装一下。</span><br></pre></td></tr></table></figure>
+<h4 id="CGI的配置"><a href="#CGI的配置" class="headerlink" title="CGI的配置"></a>CGI的配置</h4><ul>
+<li><p>CGI(Common Gateway Interface) 是WWW技术中最重要的技术之一，有着不可替代的重要地位。CGI是外部应用（CGI程序）与Web服务器之间的接口标准，是在CGI程序和Web服务器之间传递信息的过程。(引自百度百科)</p>
+</li>
+<li><p>CGI  通用网关接口  （网关是在传输层）</p>
+</li>
+<li><p>LAMP，L是指Linux，A是指apache，M是指MySql，P是指PHP，Prel，Python</p>
+</li>
+<li><p>CGI程序:工作的原理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.浏览器通过HTML表单或超链接请求指上一个CGI应用程序的URL。</span><br><span class="line">2.服务器收发到请求。</span><br><span class="line">3.服务器执行指定所CGI应用程序。</span><br><span class="line">4.CGI应用程序执行所需要的操作，通常是基于浏览者输人的内容。</span><br><span class="line">5.CGI应用程序把结果格式化为网络服务器和浏览器能够理解的文档（通常是HTML网页）。</span><br><span class="line">6.网络服务器把结果返回到浏览器中。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="../../../../images/CGI.jpg" alt=""></p>
+<ul>
+<li>CGI 程序是实现了网页动态交互能力</li>
+<li>CGI应用程序主要的用途有以下几种</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 根据浏览者填写的HTML表单发送定制的答复。</span><br><span class="line">2. 创建可单击的图像缩小图。</span><br><span class="line">3. 创建一个浏览者可以搜索内容的数据库</span><br><span class="line">4. 提供服务器与数据库的接口，并把结果转换为HTML文档制作动态HTML文档</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如何配置？</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/cgi.load</span><br><span class="line">重启 apache 服务器 service apache2 restart</span><br><span class="line">需要运行的cgi文件的存放路径为 /usr/lib/cgi-bin</span><br></pre></td></tr></table></figure>
+<h3 id="Ajax的定义"><a href="#Ajax的定义" class="headerlink" title="Ajax的定义"></a>Ajax的定义</h3><ul>
+<li>Asynchronous JavaScript and XML(异步的 JavaScript 和 XML)</li>
+<li>ajax是用于客户端和服务端进行异步数据交互，在无需刷新整个页面的情况下实现局部数据更新的一种技术。</li>
+</ul>
+<h3 id="Ajax的特点"><a href="#Ajax的特点" class="headerlink" title="Ajax的特点"></a>Ajax的特点</h3><ul>
+<li>前后端通信，异步方式通信，无刷新，局部更新。</li>
+<li>前后端通信，异步方式通信，无刷新，局部更新。</li>
+</ul>
+<h3 id="Ajax的优缺点"><a href="#Ajax的优缺点" class="headerlink" title="Ajax的优缺点"></a>Ajax的优缺点</h3><h4 id="优点-无需刷新页面-异步通信-降低服务端的压力，原则是”按需取数据”"><a href="#优点-无需刷新页面-异步通信-降低服务端的压力，原则是”按需取数据”" class="headerlink" title="优点:无需刷新页面,异步通信,降低服务端的压力，原则是”按需取数据”"></a>优点:无需刷新页面,异步通信,降低服务端的压力，原则是”按需取数据”</h4><h4 id="缺点-浏览器没有历史记录（无法后退）-对搜索引擎不友好，破坏了程序的异常机制，且不容易调试。"><a href="#缺点-浏览器没有历史记录（无法后退）-对搜索引擎不友好，破坏了程序的异常机制，且不容易调试。" class="headerlink" title="缺点:浏览器没有历史记录（无法后退）,   对搜索引擎不友好，破坏了程序的异常机制，且不容易调试。"></a>缺点:浏览器没有历史记录（无法后退）,   对搜索引擎不友好，破坏了程序的异常机制，且不容易调试。</h4><h3 id="Ajax-技术核心"><a href="#Ajax-技术核心" class="headerlink" title="Ajax 技术核心"></a>Ajax 技术核心</h3><ul>
+<li>是 XMLHttpRequest 对象</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">原文链接</a></li>
+<li>XMLHttpRequest 是一个API, 它为客户端提供了在客户端和服务器之间传输数据的功能。它提供了一个通过 URL 来获取数据的简单方式，并且不会使整个页面刷新。</li>
+<li>XMLHttpRequest对象的属性:</li>
+</ul>
+<p><img src="../../../../images/xhr01.png" alt=""></p>
+<ul>
+<li>XMLHttpRequest对象的方法:</li>
+</ul>
+<p><img src="../../../../images/xhr02.png" alt=""></p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><ul>
+<li>XMLHttpRequest()</li>
+<li>构造函数初始化一个XMLHttpRequest对象. 必须在<strong>所有其他方法被调用前</strong>调用构造函数。</li>
+</ul>
+<h3 id="原生的Ajax使用的基本步骤"><a href="#原生的Ajax使用的基本步骤" class="headerlink" title="原生的Ajax使用的基本步骤"></a>原生的Ajax使用的基本步骤</h3><p>1).创建XMLHttpRequest对象(Ajax技术的核心)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 兼容低版本ie浏览器的代码,对于现代浏览器可以省略部分代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> versions = [ <span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</span><br><span class="line">            <span class="string">"MSXML2.XMLHttp"</span>], i, len;</span><br><span class="line">            <span class="keyword">for</span> (i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">new</span> ActiveXObject(versions[i]);</span><br><span class="line">                    <span class="built_in">arguments</span>.callee.activeXString = versions[i];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (ex)&#123;</span><br><span class="line">                    <span class="comment">//跳过</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此处的xhr用于ajax通信</span></span><br><span class="line"><span class="keyword">var</span> xhr =  createXHR();</span><br><span class="line"></span><br><span class="line"><span class="comment">//高版本浏览器 直接执行以下代码</span></span><br><span class="line"> <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+<p>2).准备向服务器发送一次http请求(get, post)                 open()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void open(</span><br><span class="line">   DOMString method,</span><br><span class="line">   DOMString url,</span><br><span class="line">   optional boolean async,</span><br><span class="line">   optional DOMString user,</span><br><span class="line">   optional DOMString password</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">参数</span><br><span class="line">- method</span><br><span class="line">    请求所使用的HTTP方法; 例如 "GET", "POST", "PUT", "DELETE"等. 如果下个参数是非HTTP(S)的URL,则忽略该参数.</span><br><span class="line">- url</span><br><span class="line">    该请求所要访问的URL</span><br><span class="line">- async</span><br><span class="line">    一个可选的布尔值参数，默认为true,意味着执行异步操作，如果值为false,则send()方法不会返回任何东西，直到接受到了服务器的返回数据。</span><br><span class="line">    如果为值为true，一个对开发者透明的通知会发送到相关的事件监听者。</span><br><span class="line">    这个值必须是true,如果multipart 属性是true，否则将会出现一个意外。</span><br><span class="line">- user</span><br><span class="line">    用户名,可选参数,为授权使用;默认参数为空string.</span><br><span class="line">- password</span><br><span class="line">    密码,可选参数,为授权使用;默认参数为空string.</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//true表示是异步请求</span></span><br><span class="line"><span class="comment">//    异步：客户端发送请求之后，不用死等服务端的响应，可以继续先做自己的事。</span></span><br><span class="line"><span class="comment">//         服务端什么时候响应，那客户端就什么时候接收响应。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数据格式  url?key=value&amp;key=value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//请求所使用的HTTP方法 "get"　数据含在ＵＲＬ中</span></span><br><span class="line">xhr.open(<span class="string">"get"</span>, <span class="string">"http://127.0.0.1:8000/index?name=张三&amp;age=22&amp;score=88"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">//用于转码用的</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">encodeURIComponent</span>(<span class="string">"张三 李四 xxx yyy ))) * /~skjkjh"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//请求所使用的HTTP方法 "post"　数据不再ＵＲＬ中　而是在http包的ｂｏｄｙ中</span></span><br><span class="line">xhr.open(<span class="string">"post"</span>, <span class="string">"http://127.0.0.1:8000/index"</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//用于转码用的,控制台输出对应的编码</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">encodeURIComponent</span>(<span class="string">"name=lisi&amp;age=22&amp;score=88"</span>));</span><br></pre></td></tr></table></figure>
+<p>3).真正发送一次请求   send()</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//get请求，数据携带在url上，所有send为空即可</span></span><br><span class="line">xhr.send();</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送post数据时，按照form表单的数据格式进行发送</span></span><br><span class="line"><span class="comment">//需要设置http的头部来指定要发送的数据格式</span></span><br><span class="line"></span><br><span class="line">xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">xhr.send(<span class="string">"name=lisi&amp;age=22&amp;score=88"</span>);</span><br></pre></td></tr></table></figure>
+<p>4).用于时刻准备接受服务端的响应  onreadystatechange</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//4. 用于时刻准备接受服务端的响应</span></span><br><span class="line">      xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      	<span class="built_in">console</span>.log(<span class="string">"当前状态： "</span> + xhr.readyState);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//当状态为4时，表示响应完成， 失败？成功？</span></span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">          <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span>) &amp;&amp; (xhr.status &lt; <span class="number">400</span>))&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//通过xhr.response得到后端发送来的数据</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"recv from server: "</span>, xhr.response);</span><br><span class="line"></span><br><span class="line">            $(<span class="string">"&lt;h1&gt;success&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $(<span class="string">"&lt;h1&gt;fail&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">&lt;--</span><br><span class="line">控制台输出为：</span><br><span class="line">当前状态： <span class="number">2</span></span><br><span class="line">当前状态： <span class="number">3</span></span><br><span class="line">当前状态： <span class="number">4</span></span><br><span class="line">recv <span class="keyword">from</span> server:  &#123;</span><br><span class="line">  <span class="string">"one"</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="string">"two"</span>: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"> --&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="../../../../images/onreadystatechange.png" alt=""></p>
+<p><img src="../../../../images/readyState.png" alt=""></p>
+<p><img src="../../../../images/response.png" alt=""></p>
+<p><img src="../../../../images/status.png" alt=""></p>
+<h3 id="jQuery中的Ajax的使用"><a href="#jQuery中的Ajax的使用" class="headerlink" title="jQuery中的Ajax的使用"></a>jQuery中的Ajax的使用</h3><ul>
+<li>执行一个异步的HTTP（Ajax）的请求。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">         method: <span class="string">"post"</span>,</span><br><span class="line">         url: <span class="string">"/index"</span>,		<span class="comment">//直接填写路由即可</span></span><br><span class="line">         data: &#123;<span class="attr">name</span>:<span class="string">'lisi'</span>, <span class="attr">age</span>: <span class="number">22</span>, <span class="attr">score</span>:<span class="number">59</span>&#125;,</span><br><span class="line">         success: <span class="function"><span class="keyword">function</span>(<span class="params">data, textStatus, jqXHR</span>)</span>&#123;	<span class="comment">//success: 请求成功后的回调函数</span></span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"recv from server: "</span>,data);		<span class="comment">//data 发送到服务器的数据</span></span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"http status code : "</span> + textStatus);</span><br><span class="line">           <span class="keyword">if</span>(data==<span class="string">"OK"</span>)&#123;&#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line">           <span class="comment">//跳转页面</span></span><br><span class="line">           <span class="built_in">window</span>.location = <span class="string">"https://www.jd.com/"</span>;</span><br><span class="line">         &#125;,</span><br><span class="line">         error: <span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus, error</span>)</span>&#123;		<span class="comment">//error: 请求失败后的回调函数</span></span><br><span class="line">           <span class="built_in">console</span>.log(error);		<span class="comment">//error错误原因</span></span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"http status code : "</span> + textStatus);</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ./node-v6.10.2-linux-x64/bin/node server.js</span><br><span class="line">$ sudo chmod a+x ./node-v6.10.2-linux-x64/bin/node</span><br><span class="line">$ ./node-v6.10.2-linux-x64/bin/node server.js</span><br></pre></td></tr></table></figure>
+<h2 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h2><h4 id="get方法发送的源码"><a href="#get方法发送的源码" class="headerlink" title="get方法发送的源码"></a>get方法发送的源码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ajax使用的基本步骤(get)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"start"</span>&gt;</span>ajax<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 兼容低版本ie浏览器的代码,对于现代浏览器可以省略部分代码</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> versions = [ <span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</span></span><br><span class="line"><span class="javascript">          <span class="string">"MSXML2.XMLHttp"</span>], i, len;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">for</span> (i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">new</span> ActiveXObject(versions[i]);</span></span><br><span class="line"><span class="javascript">              <span class="built_in">arguments</span>.callee.activeXString = versions[i];</span></span><br><span class="line"><span class="javascript">              <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">catch</span> (ex)&#123;</span></span><br><span class="line"><span class="javascript">              <span class="comment">//跳过</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="string">"#start"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//1. 想要使用ajax，必须要先创建xhr对象</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//此处的xhr用于ajax通信</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> xhr = createXHR();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//高版本浏览器</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// var xhr = new XMLHttpRequest();</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//2. 准备向服务器发送一次http请求(get, post)</span></span></span><br><span class="line"><span class="undefined">      /*</span></span><br><span class="line"><span class="javascript">      <span class="literal">true</span>表示是异步请求</span></span><br><span class="line"><span class="undefined">      异步：客户端发送请求之后，不用死等服务端的响应，可以继续先做自己的事。</span></span><br><span class="line"><span class="undefined">      服务端什么时候响应，那客户端就什么时候接收响应。</span></span><br><span class="line"><span class="undefined">      */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//数据格式  url?key=value&amp;key=value</span></span></span><br><span class="line"><span class="javascript">      xhr.open(<span class="string">"get"</span>, <span class="string">"http://127.0.0.1:8000/index?name=张三&amp;age=22&amp;score=88"</span>, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//用于转码用的</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// console.log(encodeURIComponent("张三 李四 xxx yyy ))) * /~skjkjh"));</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//4. 用于时刻准备接受服务端的响应</span></span></span><br><span class="line"><span class="javascript">      xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">"当前状态： "</span> + xhr.readyState);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//当状态为4时，表示响应完成， 失败？成功？</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>)&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span>) &amp;&amp; (xhr.status &lt; <span class="number">400</span>))&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">//通过xhr.response得到后端发送来的数据</span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">"recv from server: "</span>, xhr.response);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            $(<span class="string">"&lt;h1&gt;success&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span></span><br><span class="line"><span class="javascript">          &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">"&lt;h1&gt;fail&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//3. 真正发送一次请求</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//get请求，数据携带在url上，所有send为空即可</span></span></span><br><span class="line"><span class="undefined">      xhr.send();</span></span><br><span class="line"><span class="javascript">      $(<span class="string">"&lt;h1&gt;send完毕!&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="post方法发送源码"><a href="#post方法发送源码" class="headerlink" title="post方法发送源码"></a>post方法发送源码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ajax使用的基本步骤(post)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"start"</span>&gt;</span>ajax<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 兼容低版本ie浏览器的代码,对于现代浏览器可以省略部分代码</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> versions = [ <span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</span></span><br><span class="line"><span class="javascript">          <span class="string">"MSXML2.XMLHttp"</span>], i, len;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">for</span> (i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">new</span> ActiveXObject(versions[i]);</span></span><br><span class="line"><span class="javascript">              <span class="built_in">arguments</span>.callee.activeXString = versions[i];</span></span><br><span class="line"><span class="javascript">              <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">catch</span> (ex)&#123;</span></span><br><span class="line"><span class="javascript">              <span class="comment">//跳过</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="string">"#start"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//1. 想要使用ajax，必须要先创建xhr对象</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//此处的xhr用于ajax通信</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> xhr = createXHR();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//2. 准备向服务器发送一次http请求(get, post)</span></span></span><br><span class="line"><span class="undefined">      /*</span></span><br><span class="line"><span class="javascript">      <span class="literal">true</span>表示是异步请求</span></span><br><span class="line"><span class="undefined">      异步：客户端发送请求之后，不用死等服务端的响应，可以继续先做自己的事。</span></span><br><span class="line"><span class="undefined">      服务端什么时候响应，那客户端就什么时候接收响应。</span></span><br><span class="line"><span class="undefined">      */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      xhr.open(<span class="string">"post"</span>, <span class="string">"http://127.0.0.1:8000/index"</span>, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//4. 用于时刻准备接受服务端的响应</span></span></span><br><span class="line"><span class="javascript">      xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// console.log("当前状态： " + xhr.readyState);</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//当状态为4时，表示响应完成， 失败？成功？</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>)&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span>) &amp;&amp; (xhr.status &lt; <span class="number">400</span>))&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">"&lt;h1&gt;success&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span></span><br><span class="line"><span class="javascript">          &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">"&lt;h1&gt;fail&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;;</span></span><br><span class="line"><span class="javascript">      <span class="comment">//3. 真正发送一次请求</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//post请求，数据应该在send中发送！！！！！</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//发送post数据时，按照form表单的数据格式进行发送</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//需要设置http的头部来指定要发送的数据格式</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span></span><br><span class="line"><span class="javascript">      xhr.send(<span class="string">"name=lisi&amp;age=22&amp;score=88"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//控制台输出对应的编码</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="built_in">encodeURIComponent</span>(<span class="string">"name=lisi&amp;age=22&amp;score=88"</span>));</span></span><br><span class="line"><span class="javascript">      $(<span class="string">"&lt;h1&gt;send完毕!&lt;/h1&gt;"</span>).appendTo(<span class="string">"body"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="jQuery中的Ajax实现登录功能的源码"><a href="#jQuery中的Ajax实现登录功能的源码" class="headerlink" title="jQuery中的Ajax实现登录功能的源码"></a>jQuery中的Ajax实现登录功能的源码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    * &#123;</span></span><br><span class="line"><span class="undefined">      margin: 0;</span></span><br><span class="line"><span class="undefined">      padding: 0;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .login &#123;</span></span><br><span class="line"><span class="undefined">      width: 500px;</span></span><br><span class="line"><span class="undefined">      margin: 50px auto;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .login &gt; p &#123;</span></span><br><span class="line"><span class="undefined">      color: red;</span></span><br><span class="line"><span class="undefined">      visibility: hidden;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"login"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名或者密码不能为空！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span> 密 码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"passwd"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> username = $(<span class="string">".login input[name=username]"</span>).val();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> password = $(<span class="string">".login input[name=password]"</span>).val();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ((!username) || (!password))&#123;</span></span><br><span class="line"><span class="javascript">          <span class="comment">//如果为空的情况要执行</span></span></span><br><span class="line"><span class="javascript">          $(<span class="string">".login &gt; p"</span>).css(<span class="string">"visibility"</span>, <span class="string">"visible"</span>);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">return</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        /*</span></span><br><span class="line"><span class="undefined">        用户的输入都是合法的，发送ajax登录请求</span></span><br><span class="line"><span class="undefined">        */</span></span><br><span class="line"><span class="javascript">        $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">           method: <span class="string">"post"</span>,</span></span><br><span class="line"><span class="javascript">           url: <span class="string">"/login"</span>,</span></span><br><span class="line"><span class="undefined">           data: &#123;name: username, passwd: password&#125;,</span></span><br><span class="line"><span class="javascript">           success: <span class="function"><span class="keyword">function</span>(<span class="params">data, textStatus, jqXHR</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">             <span class="keyword">if</span> (data == <span class="string">"OK"</span>)&#123;</span></span><br><span class="line"><span class="javascript">               <span class="comment">//登录</span></span></span><br><span class="line"><span class="javascript">               <span class="built_in">window</span>.location = <span class="string">"https://www.baidu.com"</span>;</span></span><br><span class="line"><span class="javascript">             &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">               <span class="comment">//将input的值设置为空</span></span></span><br><span class="line"><span class="javascript">               $(<span class="string">".login input"</span>).val(<span class="string">""</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">               alert(<span class="string">"用户名和密码错误"</span>);</span></span><br><span class="line"><span class="undefined">             &#125;</span></span><br><span class="line"><span class="undefined">           &#125;,</span></span><br><span class="line"><span class="javascript">           error: <span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus, error</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">             <span class="built_in">console</span>.error(error);</span></span><br><span class="line"><span class="undefined">           &#125;</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">二者都可以实现登录功能,他们的区别在于使用form表单不能从服务器取得数据,只是单纯的提交,而ajax则可以实现局部页面的刷新.</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用form表单实现登录功能源码-不使用Ajax"><a href="#使用form表单实现登录功能源码-不使用Ajax" class="headerlink" title="使用form表单实现登录功能源码(不使用Ajax)"></a>使用form表单实现登录功能源码(不使用Ajax)</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      * &#123;</span></span><br><span class="line"><span class="undefined">        margin: 0;</span></span><br><span class="line"><span class="undefined">        padding: 0;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      #account &gt; p &#123;</span></span><br><span class="line"><span class="undefined">        color: red;</span></span><br><span class="line"><span class="undefined">        visibility: hidden;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"account"</span>  <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名或者密码！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- input的name属性值必须和后端保持一致！！！！  --&gt;</span></span><br><span class="line">      username: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">      password: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"passwd"</span> <span class="attr">name</span>=<span class="string">"passwd"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//submit事件</span></span></span><br><span class="line"><span class="javascript">      $(<span class="string">"#account"</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> username = $(<span class="string">"#account input[name=name]"</span>).val();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> password = $(<span class="string">"#account input[name=passwd]"</span>).val();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ((!username) || (!password))&#123;</span></span><br><span class="line"><span class="javascript">          $(<span class="string">"#account &gt; p"</span>).css(<span class="string">"visibility"</span>, <span class="string">"visible"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">          <span class="comment">//阻止提交</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//成功，就自动提交</span></span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Post和Get的区别"><a href="#Post和Get的区别" class="headerlink" title="Post和Get的区别"></a>Post和Get的区别</h3><ol>
+<li>在客户端，Get方式在通过URL提交数据，数据在URL中可以看到；POST方式，数据放在HTTP包的body中。</li>
+<li>GET方式提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST则没有此限制。</li>
+<li>安全性问题。正如在（1）中提到，使用 Get 的时候，参数会显示在地址栏上，而 Post 不会。所以，如果这些数据是中文数据而且是非敏感数据，那么使用 get；如果用户输入的数据不是中文字符而且包含敏感数据，那么还是使用 post为好。</li>
+<li>服务器取值方式不一样。GET方式取值，如php可以使用\$_GET来取得变量的值，而POST方式通过\$_POST来获取变量的值。</li>
+</ol>
+<h3 id="什么是图灵完备？"><a href="#什么是图灵完备？" class="headerlink" title="什么是图灵完备？"></a>什么是图灵完备？</h3><ul>
+<li>图灵完备是指 一切可计算的问题都可以被计算。</li>
+</ul>
+<h3 id="ajax的跨域请求由哪些部分组成"><a href="#ajax的跨域请求由哪些部分组成" class="headerlink" title="ajax的跨域请求由哪些部分组成"></a>ajax的跨域请求由哪些部分组成</h3><ul>
+<li>HTTP请求的方法和动作 (post 和 get) 默认为 “get”</li>
+<li>请求的URL</li>
+<li>请求头</li>
+<li>请求体</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/franksunhd.github.io/tags/ajax/" rel="tag"># ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/10/structure-c/" rel="next" title="C语言结构体">
+                <i class="fa fa-chevron-left"></i> C语言结构体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/10/ajax-post-get/" rel="prev" title="PHP中与ajax的交互/跨域请求 jsonp">
+                PHP中与ajax的交互/跨域请求 jsonp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax应用-图灵完备"><span class="nav-number">1.</span> <span class="nav-text">Ajax应用/图灵完备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apache-Web服务器的安装与CGI的配置"><span class="nav-number">1.1.</span> <span class="nav-text">apache Web服务器的安装与CGI的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#apache-web服务器的安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">apache web服务器的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CGI的配置"><span class="nav-number">1.1.2.</span> <span class="nav-text">CGI的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的定义"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的特点"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的优缺点"><span class="nav-number">1.4.</span> <span class="nav-text">Ajax的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-无需刷新页面-异步通信-降低服务端的压力，原则是”按需取数据”"><span class="nav-number">1.4.1.</span> <span class="nav-text">优点:无需刷新页面,异步通信,降低服务端的压力，原则是”按需取数据”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-浏览器没有历史记录（无法后退）-对搜索引擎不友好，破坏了程序的异常机制，且不容易调试。"><span class="nav-number">1.4.2.</span> <span class="nav-text">缺点:浏览器没有历史记录（无法后退）,   对搜索引擎不友好，破坏了程序的异常机制，且不容易调试。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-技术核心"><span class="nav-number">1.5.</span> <span class="nav-text">Ajax 技术核心</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.5.1.</span> <span class="nav-text">构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原生的Ajax使用的基本步骤"><span class="nav-number">1.6.</span> <span class="nav-text">原生的Ajax使用的基本步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery中的Ajax的使用"><span class="nav-number">1.7.</span> <span class="nav-text">jQuery中的Ajax的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务器"><span class="nav-number">1.8.</span> <span class="nav-text">启动服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附："><span class="nav-number">2.</span> <span class="nav-text">附：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get方法发送的源码"><span class="nav-number">2.0.1.</span> <span class="nav-text">get方法发送的源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#post方法发送源码"><span class="nav-number">2.0.2.</span> <span class="nav-text">post方法发送源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery中的Ajax实现登录功能的源码"><span class="nav-number">2.0.3.</span> <span class="nav-text">jQuery中的Ajax实现登录功能的源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用form表单实现登录功能源码-不使用Ajax"><span class="nav-number">2.0.4.</span> <span class="nav-text">使用form表单实现登录功能源码(不使用Ajax)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post和Get的区别"><span class="nav-number">2.1.</span> <span class="nav-text">Post和Get的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是图灵完备？"><span class="nav-number">2.2.</span> <span class="nav-text">什么是图灵完备？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax的跨域请求由哪些部分组成"><span class="nav-number">2.3.</span> <span class="nav-text">ajax的跨域请求由哪些部分组成</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
