@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="font,background,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CSS文本属性font-size－    font-size属性用于设置字号，该属性的值可以使用相对长度单位，也可以使用绝对长度单位。其中，相对长度单位比较常用，推荐使用像素单位px，绝对长度单位使用较少。">
+<meta name="keywords" content="font,background">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS文本属性&#x2F;文本外观属性&#x2F;背景属性&#x2F;滤镜效果">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/12/css-font/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="CSS文本属性font-size－    font-size属性用于设置字号，该属性的值可以使用相对长度单位，也可以使用绝对长度单位。其中，相对长度单位比较常用，推荐使用像素单位px，绝对长度单位使用较少。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/font-size.jpg">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/unicode.jpg">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/line-height.jpg">
+<meta property="og:updated_time" content="2019-01-12T06:15:17.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS文本属性&#x2F;文本外观属性&#x2F;背景属性&#x2F;滤镜效果">
+<meta name="twitter:description" content="CSS文本属性font-size－    font-size属性用于设置字号，该属性的值可以使用相对长度单位，也可以使用绝对长度单位。其中，相对长度单位比较常用，推荐使用像素单位px，绝对长度单位使用较少。">
+<meta name="twitter:image" content="https://franksunhd.github.io/franksunhd.github.io/images/font-size.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/12/css-font/">
+
+
+
+
+
+  <title>CSS文本属性/文本外观属性/背景属性/滤镜效果 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/12/css-font/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">CSS文本属性/文本外观属性/背景属性/滤镜效果</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T19:02:57+08:00">
+                2019-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/font/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  font</a>
+              
+                <a href="/franksunhd.github.io/tags/background/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  background</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CSS文本属性"><a href="#CSS文本属性" class="headerlink" title="CSS文本属性"></a>CSS文本属性</h2><h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><p>－    font-size属性用于设置<strong>字号</strong>，该属性的值可以使用相对长度单位，也可以使用绝对长度单位。其中，相对长度单位比较常用，推荐使用像素<strong>单位px</strong>，绝对长度单位使用较少。<br><a id="more"></a><br><img src="/franksunhd.github.io/images/font-size.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">1em = 当前的字体大小(可以是继承过来的)</span></span><br><span class="line"><span class="comment">font-size: 2em;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">css3新特性: 新单位 rem</span></span><br><span class="line"><span class="comment">需要设置根节点的字体,相当于参考字体</span></span><br><span class="line"><span class="comment">html &#123;</span></span><br><span class="line"><span class="comment">	font-size:16px;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">p &#123;</span></span><br><span class="line"><span class="comment">	font-size:1.5rem; //相当于24px</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="font-familm-字体"><a href="#font-familm-字体" class="headerlink" title="font-familm 字体"></a>font-familm 字体</h3><p>－    font-family属性用于设置字体。网页中常用的字体有宋体、微软雅黑、黑体等，例如将网页中所有段落文本的字体设置为微软雅黑，可以使用如下CSS样式代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">	font-family: “宋体”,“微软雅黑”;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以同时指定多个字体，中间以逗号隔开，表示如果浏览器不支持第一个字体，则会尝试下一个，直到找到合适的字体。</li>
+</ul>
+<p><strong>注意以下几点</strong></p>
+<ul>
+<li>各种字体之间必须使用英文状态下的逗号隔开。</li>
+<li>中文字体需要加英文状态下的引号，英文字体一般不需要加引号。当需要设置英文字体时，英文字体名必须位于中文字体名之前。</li>
+<li>如果字体名中包含空格、#、$等符号，则该字体必须加英文状态下的单引号或双引号，例如font-family: “Times New Roman”;。</li>
+<li>尽量使用系统默认字体，保证在任何用户的浏览器中都能正确显示。</li>
+<li>使用unicode对中文字体进行编码。</li>
+</ul>
+<p><img src="/franksunhd.github.io/images/unicode.jpg" alt=""></p>
+<h3 id="font-weight-加粗"><a href="#font-weight-加粗" class="headerlink" title="font-weight 加粗"></a>font-weight 加粗</h3><ul>
+<li>font-weight属性用于定义字体的粗细，其可用属性值：</li>
+<li>normal</li>
+<li>bold</li>
+<li>bolder　加粗</li>
+<li>lighter</li>
+<li>100~900 100的整数倍</li>
+</ul>
+<h3 id="font-style-斜体"><a href="#font-style-斜体" class="headerlink" title="font-style 斜体"></a>font-style 斜体</h3><p>font-style属性用于定义字体风格，如设置斜体、倾斜或正常字体，其可用属性值如下：</p>
+<ul>
+<li>normal：默认值，浏览器会显示标准的字体样式。</li>
+<li><strong>italic：浏览器会显示斜体的字体样式。</strong></li>
+<li>oblique：浏览器会显示倾斜的字体样式。</li>
+</ul>
+<h3 id="font综合设置"><a href="#font综合设置" class="headerlink" title="font综合设置"></a>font综合设置</h3><ul>
+<li>font属性用于对字体样式进行综合设置，其基本语法格式如下：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*必须保留font-size和font-family属性，否则font属性将不起作用。*/</span><br><span class="line">/*font: bolder italic 40px "宋体";*/</span><br><span class="line">  font: 40px "宋体";</span><br></pre></td></tr></table></figure>
+<h2 id="文本外观属性"><a href="#文本外观属性" class="headerlink" title="文本外观属性"></a>文本外观属性</h2><h3 id="文本颜色-color"><a href="#文本颜色-color" class="headerlink" title="文本颜色 color"></a>文本颜色 color</h3><p>－    <strong>表示方法多样</strong></p>
+<ul>
+<li>英文单词表示; red/green;yellow;blue;</li>
+<li>16进制表示法　#000000</li>
+<li>RGB三色法　R:0~255   G:0~255   B:0~255（可以是0~255 的数字，也可以是百分比）</li>
+<li>hsla</li>
+<li>color: lighten(#ccc, 10%) == #e6e6e6 /  color:darken(#ccc,10%); #b3b3b3</li>
+</ul>
+<h3 id="字间距-letter-spacing"><a href="#字间距-letter-spacing" class="headerlink" title="字间距 letter-spacing"></a>字间距 letter-spacing</h3><p>－    letter-spacing属性用于定义字间距，所谓字间距就是<strong>字符与字符</strong>之间的空白。其属性值可为不同单位的数值，<strong>允许使用负值</strong>，默认为normal。</p>
+<h3 id="单词间距-word-spacing"><a href="#单词间距-word-spacing" class="headerlink" title="单词间距 word-spacing"></a>单词间距 word-spacing</h3><ul>
+<li>word-spacing属性用于定义英文单词之间的间距，对中文字符无效。和letter-spacing一样，其属性值可为不同单位的数值，允许使用负值，默认为normal。</li>
+<li>word-spacing和letter-spacing均可对英文进行设置。不同的是letter-spacing定义的为字母之间的间距，而word-spacing定义的为英文单词之间的间距。</li>
+</ul>
+<h3 id="行间距-行高-line-height"><a href="#行间距-行高-line-height" class="headerlink" title="行间距(行高) line-height"></a>行间距(行高) line-height</h3><p>－    line-height属性用于设置行间距，就是行与行之间的距离，即字符的垂直间距，一般称为行高。line-height常用的属性值单位有三种，分别为<strong>像素px</strong>，<strong>相对值em</strong>和<strong>百分比%</strong>，实际工作中使用最多的是像素px。</p>
+<p><img src="/franksunhd.github.io/images/line-height.jpg" alt=""></p>
+<p><strong>行高是指两条基线之间的距离</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*line-height: 120%;*/</span><br><span class="line">/*line-height: 36px;*/</span><br><span class="line">/*line-height: 1.2em;*/</span><br><span class="line">/*</span><br><span class="line">      three的行高为 36px</span><br><span class="line">      以上3种方式设置的line-height都会让后代继承：继承祖先元素的行高！</span><br><span class="line">*/</span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">      后代会继承该因子而不是继承父元素行高！！！！</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">      line-height: 1.2;   !!!!!!!!!!!!</span><br></pre></td></tr></table></figure>
+<h3 id="文本修饰-text-decoration"><a href="#文本修饰-text-decoration" class="headerlink" title="文本修饰 text-decoration"></a>文本修饰 text-decoration</h3><ul>
+<li>none：没有装饰（正常文本默认值）。</li>
+<li>underline：下划线。</li>
+<li>overline：上划线。</li>
+<li><strong>line-through</strong>：删除线。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--text-decoration后可以赋多个值，用于给文本添加多种显示效果--&gt;</span></span><br><span class="line"></span><br><span class="line">text-decoration: underline overline line-through;</span><br></pre></td></tr></table></figure>
+<h3 id="水平对齐方式-text-align"><a href="#水平对齐方式-text-align" class="headerlink" title="水平对齐方式 text-align"></a>水平对齐方式 text-align</h3><p>－    text-align属性用于设置文本内容的水平对齐，相当于html中的align对齐属性。其可用属性值如下：</p>
+<ul>
+<li>left：左对齐（默认值）</li>
+<li>right：右对齐</li>
+<li>center：居中对齐</li>
+</ul>
+<h3 id="垂直对齐方式-vertical-align"><a href="#垂直对齐方式-vertical-align" class="headerlink" title="垂直对齐方式 vertical-align"></a>垂直对齐方式 vertical-align</h3><ul>
+<li>(适用于行内元素)</li>
+<li>vertical-align 常用属性值：</li>
+<li>baseline： 将支持valign特性的对象的内容与基线对齐</li>
+<li>sub： 垂直对齐文本的下标</li>
+<li>super： 垂直对齐文本的上标</li>
+<li>top： 将支持valign特性的对象的内容与对象顶端对齐</li>
+<li>text-top： 将支持valign特性的对象的文本与对象顶端对齐</li>
+<li>middle： 将支持valign特性的对象的内容与对象中部对齐</li>
+<li><strong>bottom： 将支持valign特性的对象的文本与对象底端对齐</strong></li>
+<li>text-bottom： 将支持valign特性的对象的文本与对象顶端对齐</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.middle</span><span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">	<span class="attribute">content</span>:<span class="string">""</span> ;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#dac</span>;</span><br><span class="line">	<span class="attribute">display</span>: inline-block;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">visibility</span>: hidden;</span><br><span class="line">	<span class="attribute">vertical-align</span>:middle;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="首行缩进-text-indent"><a href="#首行缩进-text-indent" class="headerlink" title="首行缩进 text-indent"></a>首行缩进 text-indent</h3><p>－    text-indent属性用于设置首行文本的缩进，其属性值可为不同单位的数值、<strong>em字符</strong>宽度的倍数、或相对于浏览器窗口宽度的百分比%，允许使用负值, 建议使用em作为设置单位。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text-indent:2em;	<span class="comment">&lt;!--首行缩进２字符--&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="去掉项目符号-line-style"><a href="#去掉项目符号-line-style" class="headerlink" title="去掉项目符号 line-style"></a>去掉项目符号 line-style</h3><ul>
+<li>line-style : none;</li>
+</ul>
+<h3 id="文本在垂直方向居中-line-height"><a href="#文本在垂直方向居中-line-height" class="headerlink" title="文本在垂直方向居中 line-height"></a>文本在垂直方向居中 line-height</h3><ul>
+<li>height : (xxx) px ;</li>
+<li>line-height : (height) ;</li>
+</ul>
+<h3 id="大小写转换-text-transform"><a href="#大小写转换-text-transform" class="headerlink" title="大小写转换 text-transform"></a>大小写转换 text-transform</h3><ul>
+<li>uppercase 转换为大写</li>
+<li>lowercase 转换为小写</li>
+<li>capitalize 首字母大写</li>
+</ul>
+<h3 id="自学属性"><a href="#自学属性" class="headerlink" title="自学属性"></a>自学属性</h3><p>－    <strong>空白符处理 white-space</strong></p>
+<p>使用HTML制作网页时，不论源代码中有多少空格，在浏览器中只会显示一个字符的空白。在CSS中，使用white-space属性可设置空白符的处理方式，其属性值如下：</p>
+<ul>
+<li>normal：常规（默认值），文本中的空格、空行无效，满行（到达区域边界）后自动换行。</li>
+<li>pre：预格式化，按文档的书写格式保留空格、空行原样显示。</li>
+<li>nowrap：空格空行无效，强制文本不能换行，除非遇到换行标记。内容超出元素的边界也不换行，若超出浏览器页面则会自动增加滚动条。</li>
+</ul>
+<p>－　<strong>自动换行 word-break</strong></p>
+<ul>
+<li>normal 使用浏览器默认的换行规则。</li>
+<li>break-all 允许在单词内换行。</li>
+<li>keep-all 只能在半角空格或连字符处换行。</li>
+</ul>
+<p>－　<strong>word-wrap</strong></p>
+<p>属性允许长单词或 URL 地址换行到下一行normal</p>
+<ul>
+<li>normal 只在允许的断字点换行（浏览器保持默认处理）。</li>
+<li>break-word 在长单词或 URL 地址内部进行换行,几乎得到了浏览器的支持。</li>
+</ul>
+<p><strong>背景样式是使用CSS对标签元素进行样式设置</strong></p>
+<h2 id="背景具体属性"><a href="#背景具体属性" class="headerlink" title="背景具体属性"></a>背景具体属性</h2><h3 id="颜色-background-color"><a href="#颜色-background-color" class="headerlink" title="颜色 background-color"></a>颜色 background-color</h3><ul>
+<li>三种方式表示</li>
+<li>background-color : red ;</li>
+<li>background-color : #F00 ;</li>
+<li>background-color : RGB(255,0,0) ;</li>
+</ul>
+<h3 id="图片-background-image"><a href="#图片-background-image" class="headerlink" title="图片 background-image"></a>图片 background-image</h3><ul>
+<li>background-image  url(“图片相对路径”);</li>
+</ul>
+<h3 id="平铺-background-repeat"><a href="#平铺-background-repeat" class="headerlink" title="平铺 background-repeat"></a>平铺 background-repeat</h3><ul>
+<li>no-repeat : 不平铺</li>
+<li>repeat : 默认平铺</li>
+<li>repeat - x : 沿Ｘ轴平铺</li>
+<li>repeat - y : 沿Ｙ轴平铺</li>
+</ul>
+<h3 id="位置-background-position"><a href="#位置-background-position" class="headerlink" title="位置 background-position"></a>位置 background-position</h3><ul>
+<li>两种方式表示</li>
+<li>background-position : top center ;</li>
+<li>background-position : 100px  100px ;</li>
+</ul>
+<h3 id="固定-background-attachement"><a href="#固定-background-attachement" class="headerlink" title="固定 background-attachement"></a>固定 background-attachement</h3><ul>
+<li>background-attachement : fixed ;    fixed 表示固定</li>
+<li>应用场景:背景比较大,视窗口比较小,视窗口的滚动可以看见图片</li>
+</ul>
+<h3 id="大小-background-size"><a href="#大小-background-size" class="headerlink" title="大小 background-size"></a>大小 background-size</h3><h4 id="尺寸-background-size"><a href="#尺寸-background-size" class="headerlink" title="尺寸 background-size"></a>尺寸 background-size</h4><p>属性值有:</p>
+<ul>
+<li><strong>cover</strong>会自动调整缩放比例，背景大小 &gt;  元素大小，如有溢出部分则会被隐藏。</li>
+<li><strong>contain</strong>会自动调整缩放比例，元素大小  &gt;  背景大小  。</li>
+<li>也可以使用<strong>长度单位或百分比</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">contain: 背景图片 小于等于 元素</span></span><br><span class="line"><span class="comment">  cover: 背景图片 大于等于 元素</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">background-size: cover;</span></span><br><span class="line"><span class="comment">background-size: 520px 320px;</span></span><br><span class="line"><span class="comment">/*width, height*/</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line">/*一步到位，和元素宽高一致*/</span><br><span class="line">background-size: 100% 100%;</span><br></pre></td></tr></table></figure>
+<h3 id="综合表示"><a href="#综合表示" class="headerlink" title="综合表示"></a>综合表示</h3><ul>
+<li>background: red url(“./images/zhaosi.jpg”) no-repeat 10px 20px fixed ;</li>
+</ul>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="cursor"><a href="#cursor" class="headerlink" title="cursor"></a>cursor</h3><ul>
+<li>设置光标类型</li>
+<li><strong>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。</strong></li>
+<li>cursor: pointer;  <strong>鼠标为小手样式</strong></li>
+</ul>
+<h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><ul>
+<li>设置透明度</li>
+<li>值为０，不显示。</li>
+<li>不适合的情况：只想使背景透明，文本无影响。</li>
+</ul>
+<h3 id="css-滤镜效果"><a href="#css-滤镜效果" class="headerlink" title="css 滤镜效果"></a>css 滤镜效果</h3><h4 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h4><ul>
+<li>filter:blur(10px);</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 高斯模糊</span></span><br><span class="line">btns.eq(<span class="number">1</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"img"</span>).css(&#123;</span><br><span class="line">        <span class="string">"filter"</span>:<span class="string">"blur(10px)"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="复古"><a href="#复古" class="headerlink" title="复古"></a>复古</h4><ul>
+<li>filter:sepia(100%)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复古</span></span><br><span class="line">btns.eq(<span class="number">2</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"img"</span>).css(&#123;</span><br><span class="line">        <span class="string">"filter"</span>:<span class="string">"sepia(100%)"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="饱和度"><a href="#饱和度" class="headerlink" title="饱和度"></a>饱和度</h4><ul>
+<li>filter:saturate(700%)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 饱和度</span></span><br><span class="line">btns.eq(<span class="number">3</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"img"</span>).css(&#123;</span><br><span class="line">        <span class="string">"filter"</span>:<span class="string">"saturate(700%)"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="图像阴影"><a href="#图像阴影" class="headerlink" title="图像阴影"></a>图像阴影</h4><ul>
+<li>filter:drop-shadow()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 阴影</span></span><br><span class="line">btns.eq(<span class="number">4</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"img"</span>).css(&#123;</span><br><span class="line">        <span class="string">"filter"</span>:<span class="string">"drop-shadow(8px,8px,10px,red)"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="图像透明"><a href="#图像透明" class="headerlink" title="图像透明"></a>图像透明</h4><ul>
+<li>filter:opacity(30%)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 透明</span></span><br><span class="line">btns.eq(<span class="number">5</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"img"</span>).css(&#123;</span><br><span class="line">        <span class="string">"filter"</span>:<span class="string">"opacity(30%)"</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.runoob.com/cssref/css3-pr-filter.html" target="_blank" rel="noopener">菜鸟教程实例</a></p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/12/css-beta/" rel="next" title="CSS层叠样式表/选择器/样式类型/三大特性">
+                <i class="fa fa-chevron-left"></i> CSS层叠样式表/选择器/样式类型/三大特性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/12/css-address/" rel="prev" title="CSS盒子模型/浮动问题/定位问题">
+                CSS盒子模型/浮动问题/定位问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS文本属性"><span class="nav-number">1.</span> <span class="nav-text">CSS文本属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#font-size"><span class="nav-number">1.1.</span> <span class="nav-text">font-size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-familm-字体"><span class="nav-number">1.2.</span> <span class="nav-text">font-familm 字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-weight-加粗"><span class="nav-number">1.3.</span> <span class="nav-text">font-weight 加粗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-style-斜体"><span class="nav-number">1.4.</span> <span class="nav-text">font-style 斜体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font综合设置"><span class="nav-number">1.5.</span> <span class="nav-text">font综合设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本外观属性"><span class="nav-number">2.</span> <span class="nav-text">文本外观属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本颜色-color"><span class="nav-number">2.1.</span> <span class="nav-text">文本颜色 color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字间距-letter-spacing"><span class="nav-number">2.2.</span> <span class="nav-text">字间距 letter-spacing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词间距-word-spacing"><span class="nav-number">2.3.</span> <span class="nav-text">单词间距 word-spacing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行间距-行高-line-height"><span class="nav-number">2.4.</span> <span class="nav-text">行间距(行高) line-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本修饰-text-decoration"><span class="nav-number">2.5.</span> <span class="nav-text">文本修饰 text-decoration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平对齐方式-text-align"><span class="nav-number">2.6.</span> <span class="nav-text">水平对齐方式 text-align</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直对齐方式-vertical-align"><span class="nav-number">2.7.</span> <span class="nav-text">垂直对齐方式 vertical-align</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首行缩进-text-indent"><span class="nav-number">2.8.</span> <span class="nav-text">首行缩进 text-indent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去掉项目符号-line-style"><span class="nav-number">2.9.</span> <span class="nav-text">去掉项目符号 line-style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本在垂直方向居中-line-height"><span class="nav-number">2.10.</span> <span class="nav-text">文本在垂直方向居中 line-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大小写转换-text-transform"><span class="nav-number">2.11.</span> <span class="nav-text">大小写转换 text-transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自学属性"><span class="nav-number">2.12.</span> <span class="nav-text">自学属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景具体属性"><span class="nav-number">3.</span> <span class="nav-text">背景具体属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色-background-color"><span class="nav-number">3.1.</span> <span class="nav-text">颜色 background-color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片-background-image"><span class="nav-number">3.2.</span> <span class="nav-text">图片 background-image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平铺-background-repeat"><span class="nav-number">3.3.</span> <span class="nav-text">平铺 background-repeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置-background-position"><span class="nav-number">3.4.</span> <span class="nav-text">位置 background-position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#固定-background-attachement"><span class="nav-number">3.5.</span> <span class="nav-text">固定 background-attachement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大小-background-size"><span class="nav-number">3.6.</span> <span class="nav-text">大小 background-size</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尺寸-background-size"><span class="nav-number">3.6.1.</span> <span class="nav-text">尺寸 background-size</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合表示"><span class="nav-number">3.7.</span> <span class="nav-text">综合表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充内容"><span class="nav-number">4.</span> <span class="nav-text">补充内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cursor"><span class="nav-number">4.1.</span> <span class="nav-text">cursor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#opacity"><span class="nav-number">4.2.</span> <span class="nav-text">opacity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css-滤镜效果"><span class="nav-number">4.3.</span> <span class="nav-text">css 滤镜效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高斯模糊"><span class="nav-number">4.3.1.</span> <span class="nav-text">高斯模糊</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复古"><span class="nav-number">4.3.2.</span> <span class="nav-text">复古</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#饱和度"><span class="nav-number">4.3.3.</span> <span class="nav-text">饱和度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像阴影"><span class="nav-number">4.3.4.</span> <span class="nav-text">图像阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像透明"><span class="nav-number">4.3.5.</span> <span class="nav-text">图像透明</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

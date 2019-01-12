@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="form,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="表单 表单在网页中主要负责数据采集功能。">
+<meta name="keywords" content="form">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML-form表单">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/HTML-form/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="表单 表单在网页中主要负责数据采集功能。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/form.png">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/input.jpg">
+<meta property="og:image" content="https://franksunhd.github.io/franksunhd.github.io/images/option.jpg">
+<meta property="og:updated_time" content="2019-01-12T08:13:48.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML-form表单">
+<meta name="twitter:description" content="表单 表单在网页中主要负责数据采集功能。">
+<meta name="twitter:image" content="https://franksunhd.github.io/franksunhd.github.io/images/form.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/HTML-form/">
+
+
+
+
+
+  <title>HTML-form表单 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/HTML-form/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">HTML-form表单</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T16:01:43+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/form/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  form</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><ul>
+<li>表单在网页中主要负责数据采集功能。</li>
+</ul>
+<a id="more"></a>
+<p><img src="/franksunhd.github.io/images/form.png" alt=""></p>
+<h4 id="表单组成"><a href="#表单组成" class="headerlink" title="表单组成"></a>表单组成</h4><ul>
+<li>对于表单构成中的表单控件、提示信息和表单域，初学者可能比较难理解，对他们的具体解释如下：</li>
+<li>表单控件：包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</li>
+<li>提示信息：一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</li>
+<li>表单域：他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。</li>
+</ul>
+<h4 id="form标签"><a href="#form标签" class="headerlink" title="form标签"></a>form标签</h4><ul>
+<li>在HTML中，form标记被用于定义表单域，即创建一个表单，以实现用户信息的收集和传递，form中的所有内容都会被提交给服务器。创建表单的基本语法格式如下：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">name</span>=<span class="string">"form1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>form标签具体属性解释：</li>
+</ul>
+<ul>
+<li>action, 属性用于指定接收并处理表单数据的服务器程序的URL地址。</li>
+<li>method, 属性用于设置表单数据的提交方式，其取值为get或post。</li>
+<li>name, 属性用于指定表单的名称，以区分同一个页面中的多个表单。</li>
+</ul>
+<h4 id="input控件"><a href="#input控件" class="headerlink" title="input控件"></a>input控件</h4><ul>
+<li>input控件的基本语法格式为：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"类型"</span> <span class="attr">...</span>　/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--在上面的语法中，</span></span><br><span class="line"><span class="comment">&lt;input /&gt;标记为单标记，type属性为其最基本的属性，其取值有多种，用于指定不同的控件类型。</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line">// 如何处理 input 表单获取焦点之后的 黄色背景</span><br><span class="line">input:-webkit-autofill &#123;</span><br><span class="line">	-webkit-box-shadow: 0px 0px 0px 100px white inset;</span><br><span class="line">	border:1px solid #ccc !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>除了type属性之外，&lt;input />标记</li>
+</ul>
+<p><img src="/franksunhd.github.io/images/input.jpg" alt=""></p>
+<ul>
+<li>value可以设置默认值</li>
+<li>实现单选功能，需要设置name的值相同</li>
+<li>当type类型选择file类型时　可以设置属性指定某种特殊类型</li>
+<li>accetp 用于指定类型</li>
+<li>multiple　允许多选</li>
+<li>readonly 只读，不能修改</li>
+<li>checked 默认选中</li>
+<li>disabled　禁止操作</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>表单<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- value设置默认值</span></span><br><span class="line"><span class="comment">      maxlength 最大字符个数</span></span><br><span class="line"><span class="comment">      --&gt;</span></span><br><span class="line"></span><br><span class="line">      用户名： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"admin"</span>  <span class="attr">maxlength</span>=<span class="string">"10"</span>&gt;</span>  <span class="tag">&lt;<span class="name">br</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">      密码： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"passwd"</span>  <span class="attr">value</span>=<span class="string">"123"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!--实现单选时，name要一样  --&gt;</span></span><br><span class="line">      性别： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span>  <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span> 男</span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>女 <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      课程： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>  <span class="attr">name</span>=<span class="string">"sx"</span>&gt;</span> 数学</span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"yw"</span>&gt;</span>语文   <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	  <span class="comment">&lt;!--hidden 设置input标签隐藏--&gt;</span></span><br><span class="line">      VIP: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- accept 用于指定图片的类型</span></span><br><span class="line"><span class="comment">      multiple允许多选</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">multiple</span> <span class="attr">accept</span>=<span class="string">"image/*"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">      readonly只读，不能修改</span></span><br><span class="line"><span class="comment">      checked 默认选中</span></span><br><span class="line"><span class="comment">      disabled 禁止操作</span></span><br><span class="line"><span class="comment">      --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"有本事你改一下"</span> <span class="attr">readonly</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span> <span class="attr">disabled</span> &gt;</span> 同意  <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span> <span class="attr">value</span>=<span class="string">"清空"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!--通过点击图片完成数据提交  --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"/franksunhd.github.io/images/zhaosi.jpg"</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="textarea控件"><a href="#textarea控件" class="headerlink" title="textarea控件"></a>textarea控件</h4><ul>
+<li>如果需要输入大量的信息，就需要用到textarea标记。</li>
+<li>通过textarea控件可以轻松地创建多行文本输入框，其基本语法格式如下：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"text"</span> <span class="attr">cols</span>=<span class="string">"列数"</span> <span class="attr">rows</span>=<span class="string">"行数"</span>&gt;</span></span><br><span class="line">....</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>表单<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"get"</span>  &gt;</span></span><br><span class="line">      <span class="comment">&lt;!--多行文本输入  设置 width height控制宽高 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"text"</span> <span class="attr">cols</span>=<span class="string">"80"</span> <span class="attr">rows</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="select控件"><a href="#select控件" class="headerlink" title="select控件"></a>select控件</h4><ul>
+<li>当点击下拉符号“ ”时，会出现一个选择列表。在HTML中，要想制作如下图所示的下拉菜单，就需要使用select控件。</li>
+<li>基本语法格式：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>select和option属性</li>
+</ul>
+<p><img src="/franksunhd.github.io/images/option.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>表单<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"get"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- select下拉菜单</span></span><br><span class="line"><span class="comment">      multiple="multiple" 多选，但是选项都显示</span></span><br><span class="line"><span class="comment">      size="1"控制显示选项的个数</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"food"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>小葱拌豆腐<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--默认选项  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>鱼香肉丝<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span>老虎菜<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"3"</span>&gt;</span>油条<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="fieldset组合控件"><a href="#fieldset组合控件" class="headerlink" title="fieldset组合控件"></a>fieldset组合控件</h4><ul>
+<li>用于将form中的控件进行分组，filedset没有必须或唯一的属性。</li>
+<li>legend用于给fieldset定义标题。</li>
+<li>语法格式如下：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="JQuery中的表单操作"><a href="#JQuery中的表单操作" class="headerlink" title="JQuery中的表单操作"></a>JQuery中的表单操作</h3><h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><ul>
+<li>:button</li>
+<li>:checkbox</li>
+<li>:checked</li>
+<li>:disabled</li>
+<li>:enabled</li>
+<li>:focus</li>
+<li>:file</li>
+<li>:image</li>
+<li>:input</li>
+<li>:password</li>
+<li>:radio</li>
+<li>:reset</li>
+<li>:selected</li>
+<li>:submit</li>
+<li>:text</li>
+</ul>
+<h4 id="表单元素操作"><a href="#表单元素操作" class="headerlink" title="表单元素操作"></a>表单元素操作</h4><ul>
+<li>val()　获取值</li>
+<li>.val(value)设置值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 从复选框获取选中值</span><br><span class="line">$( "input[type=checkbox][name=bar]:checked" ).val();</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//设置文本框的值</span><br><span class="line">$("input").val(text);</span><br></pre></td></tr></table></figure>
+<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><ul>
+<li><p>GET 方法用于获取由 Request-URI 所标识的资源的信息，常见的形式是：<br>GET Request-URI HTTP/1.1</p>
+</li>
+<li><p>GET方法是默认的HTTP请求方法，例如当我们通过在浏览器的地址栏中直接输入网址的方式去访问网页的时候，浏览器采用的就是 GET 方法向服务器获取资源。</p>
+</li>
+<li><p>我们可以使用GET方法来提交表单数据，用GET方法提交的表单数据只经过了简单的编码，同时它将作为URL的一部分向服务器发送，因此，如果使用GET方法来提交表单数据就存在着安全隐患上。例如：</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/login.php?username=aa&amp;password=1234</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>从上面的URL请求中，很容易就可以辩认出表单提交的内容。（？之后的内容）另外由于GET方法提交的数据是作为URL请求的一部分所以提交的数据量不能太大。这是因为浏览器对url的长度有限制</p>
+</li>
+<li><p>各种浏览器也会对url的长度有所限制，下面是几种常见浏览器的url长度限制:(单位:字符)</p>
+<p>IE : 2803<br>Firefox:65536<br>Chrome:8182<br>Safari:80000<br>Opera:190000</p>
+</li>
+</ul>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><ul>
+<li>POST方法是GET方法的一个替代方法，它主要是向Web服务器提交表单数据，尤其是大批量的数据。 在请求头信息结束之后的两个回车换行之后（实际是空一行），就是表单提交的数据。如上面提到的post表单数据：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=aa&amp;password=1234</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>POST方法克服了GET方法的一些缺点。通过POST方法提交表单数据时，数据不是作为URL请求的一部分而是作为标准数据传送给Web服务器，这就克服了GET方法中的信息无法保密和数据量太小的缺点。因此，出于安全的考虑以及对用户隐私的尊重，通常表单提交时采用POST方法。</p>
+</li>
+<li><p>从编程的角度来讲，如果用户通过GET方法提交数据，则数据存放在QUERY＿STRING环境变量中，而POST方法提交的数据则可以从标准输入流中获取。</p>
+</li>
+</ul>
+<h3 id="GET和POST方法区别"><a href="#GET和POST方法区别" class="headerlink" title="GET和POST方法区别"></a>GET和POST方法区别</h3><ol>
+<li>在客户端，Get方式在通过URL提交数据，数据在URL中可以看到；POST方式，数据放在HTTP包的body中。</li>
+<li>GET方式提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST则没有此限制。</li>
+<li>安全性问题。正如在（1）中提到，使用 Get 的时候，参数会显示在地址栏上，而 Post 不会。所以，如果这些数据是中文数据而且是非敏感数据，那么使用 get；如果用户输入的数据不是中文字符而且包含敏感数据，那么还是使用 post为好。</li>
+<li>服务器取值方式不一样。GET方式取值，如php可以使用\$_GET来取得变量的值，而POST方式通过\$_POST来获取变量的值。</li>
+</ol>
+<h3 id="placeholder-浏览器兼容性问题"><a href="#placeholder-浏览器兼容性问题" class="headerlink" title="placeholder 浏览器兼容性问题"></a>placeholder 浏览器兼容性问题</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 兼容谷歌和苹果 --&gt;</span></span><br><span class="line">.two::-webkit-input-placeholder&#123;</span><br><span class="line">       color: blue;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">&lt;!-- 兼容IE --&gt;</span></span><br><span class="line"> .two::-ms-input-placeholder &#123;</span><br><span class="line">       color: blue;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">&lt;!-- 兼容火狐 --&gt;</span></span><br><span class="line"> .two::-moz-placeholder &#123;</span><br><span class="line">       color:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTML-框架-iframe"><a href="#HTML-框架-iframe" class="headerlink" title="HTML 框架 iframe"></a>HTML 框架 iframe</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是 SVG<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">name</span>=<span class="string">"iframe_a"</span> <span class="attr">src</span>=<span class="string">"./02-html框架iframe.html"</span> <span class="attr">width</span>=<span class="string">"1000"</span> <span class="attr">height</span>=<span class="string">"500"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"./01.svg"</span> <span class="attr">target</span>=<span class="string">"iframe_a"</span>&gt;</span>链接本页面<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">		移除 iframe 的边框</span></span><br><span class="line"><span class="comment">		frameborder="0"</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="数学标记语言-MathML"><a href="#数学标记语言-MathML" class="headerlink" title="数学标记语言 MathML"></a>数学标记语言 MathML</h3><ul>
+<li>MathML 是数学标记语言,是一种基于 XML 的标准.用来在网页上书写数学符号和公式的置标语言</li>
+<li>使用具有局限性 只可以在Firefox 和 Safari 上使用, Chrome 和 Opera 上无效</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">math</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1998/Math/MathML"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">mrow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">msup</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>a<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mo</span>&gt;</span>+<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">msup</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>b<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mo</span>&gt;</span>=<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">msup</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>c<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mrow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">math</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">math</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mrow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">msup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mi</span>&gt;</span>x<span class="tag">&lt;/<span class="name">mi</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mo</span>&gt;</span>+<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mrow</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mn</span>&gt;</span>4<span class="tag">&lt;/<span class="name">mn</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mi</span>&gt;</span>x<span class="tag">&lt;/<span class="name">mi</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mrow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mo</span>&gt;</span>+<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mn</span>&gt;</span>4<span class="tag">&lt;/<span class="name">mn</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mo</span>&gt;</span>=<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">mn</span>&gt;</span>0<span class="tag">&lt;/<span class="name">mn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mrow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">math</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">math</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mrow</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">mi</span>&gt;</span>A<span class="tag">&lt;/<span class="name">mi</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">mo</span>&gt;</span>=<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">mfenced</span> <span class="attr">open</span>=<span class="string">"["</span> <span class="attr">close</span>=<span class="string">"]"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mtable</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mtr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mtd</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>x<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;/<span class="name">mtd</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mtd</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>y<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;/<span class="name">mtd</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;/<span class="name">mtr</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mtr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mtd</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>z<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;/<span class="name">mtd</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mtd</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>w<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;/<span class="name">mtd</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;/<span class="name">mtr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mtable</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">mfenced</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mrow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">math</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/HTML-tags/" rel="next" title="HTML基本标签(table/div)/标签分类/语义化标签">
+                <i class="fa fa-chevron-left"></i> HTML基本标签(table/div)/标签分类/语义化标签
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/HTML-5/" rel="prev" title="HTML5 新增特性/智能表单">
+                HTML5 新增特性/智能表单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-number">1.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表单组成"><span class="nav-number">1.1.</span> <span class="nav-text">表单组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#form标签"><span class="nav-number">1.2.</span> <span class="nav-text">form标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#input控件"><span class="nav-number">1.3.</span> <span class="nav-text">input控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#textarea控件"><span class="nav-number">1.4.</span> <span class="nav-text">textarea控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select控件"><span class="nav-number">1.5.</span> <span class="nav-text">select控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fieldset组合控件"><span class="nav-number">1.6.</span> <span class="nav-text">fieldset组合控件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery中的表单操作"><span class="nav-number">2.</span> <span class="nav-text">JQuery中的表单操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器"><span class="nav-number">2.1.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单元素操作"><span class="nav-number">2.2.</span> <span class="nav-text">表单元素操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get"><span class="nav-number">3.</span> <span class="nav-text">Get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST"><span class="nav-number">4.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET和POST方法区别"><span class="nav-number">5.</span> <span class="nav-text">GET和POST方法区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#placeholder-浏览器兼容性问题"><span class="nav-number">6.</span> <span class="nav-text">placeholder 浏览器兼容性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-框架-iframe"><span class="nav-number">7.</span> <span class="nav-text">HTML 框架 iframe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学标记语言-MathML"><span class="nav-number">8.</span> <span class="nav-text">数学标记语言 MathML</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

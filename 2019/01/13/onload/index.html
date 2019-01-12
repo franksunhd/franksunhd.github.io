@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="console,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="解析HTML文件，创建DOM树 自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。">
+<meta name="keywords" content="console">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解浏览器渲染页面过程&#x2F;控制台输出">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/onload/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="解析HTML文件，创建DOM树 自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T07:25:21.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解浏览器渲染页面过程&#x2F;控制台输出">
+<meta name="twitter:description" content="解析HTML文件，创建DOM树 自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/onload/">
+
+
+
+
+
+  <title>详解浏览器渲染页面过程/控制台输出 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/onload/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">详解浏览器渲染页面过程/控制台输出</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T15:20:44+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/渲染/" itemprop="url" rel="index">
+                    <span itemprop="name">渲染</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/console/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  console</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="解析HTML文件，创建DOM树"><a href="#解析HTML文件，创建DOM树" class="headerlink" title="解析HTML文件，创建DOM树"></a>解析HTML文件，创建DOM树</h3><ul>
+<li>自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。</li>
+</ul>
+<a id="more"></a>
+<h3 id="解析CSS"><a href="#解析CSS" class="headerlink" title="解析CSS"></a>解析CSS</h3><ul>
+<li>优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式；</li>
+<li>特定级：id数<em>100+类或伪类数</em>10+tag名称<em>1</em></li>
+</ul>
+<h3 id="将CSS与DOM合并"><a href="#将CSS与DOM合并" class="headerlink" title="将CSS与DOM合并"></a>将CSS与DOM合并</h3><ul>
+<li>构建渲染树（renderingtree）</li>
+<li>DOM树与HTML一一对应，渲染树会忽略诸如head、display:none的元素</li>
+</ul>
+<h3 id="布局和绘制"><a href="#布局和绘制" class="headerlink" title="布局和绘制"></a>布局和绘制</h3><ul>
+<li>重绘（repaint）和重排（reflow）</li>
+<li>重排：若渲染树的一部分更新，且尺寸变化，就会发生重排；</li>
+<li>重绘：部分节点需要更新，但不改变其他集合形状。如改变某个元素的颜色，就会发生重绘。</li>
+</ul>
+<h4 id="重绘和重排何时会发生："><a href="#重绘和重排何时会发生：" class="headerlink" title="重绘和重排何时会发生："></a>重绘和重排何时会发生：</h4><p>（1）增加或删除DOM节点；</p>
+<p>（2）display:none（重排并重绘）；visibility:hidden（重排）；</p>
+<p>（3）移动页面中的元素；</p>
+<p>（4）增加或修改样式；（5）用户改变窗口大小，滚动页面等。</p>
+<h4 id="如何减少重绘和重排以提升页面性能："><a href="#如何减少重绘和重排以提升页面性能：" class="headerlink" title="如何减少重绘和重排以提升页面性能："></a>如何减少重绘和重排以提升页面性能：</h4><p>（1）不要一个个修改属性，应通过一个class来修改<br>错误写法：div.style.width=”50px”;div.style.top=”60px”;<br>正确写法：div.className+=” modify”;<br>（2）clone节点，在副本中修改，然后直接替换当前的节点；<br>（3）若要频繁获取计算后的样式，请暂存起来；<br>（4）降低受影响的节点：在页面顶部插入节点将影响后续所有节点。而绝对定位的元素改变会影响较少的元素；<br>（5）批量添加DOM：多个DOM插入或修改，应组成一个长的字符串后一次性放入DOM。使用innerHTML永远比DOM操作快。（特别注意：innerHTML不会执行字符串中的嵌入脚本，因此不会产生XSS漏洞）。</p>
+<h3 id="控制台-console"><a href="#控制台-console" class="headerlink" title="控制台(console)"></a>控制台(console)</h3><h4 id="控制台打印日志"><a href="#控制台打印日志" class="headerlink" title="控制台打印日志"></a>控制台打印日志</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"log"</span>);</span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">"info"</span>);</span><br><span class="line"><span class="built_in">console</span>.debug(<span class="string">"debug"</span>);</span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">"error"</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">"warn"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="打印方法中的占位符"><a href="#打印方法中的占位符" class="headerlink" title="打印方法中的占位符"></a>打印方法中的占位符</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'%s 买了%d个西瓜,花了%f元钱.'</span>,<span class="string">'小明'</span>,<span class="number">2</span>,<span class="number">21.5</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="控制台分组打印"><a href="#控制台分组打印" class="headerlink" title="控制台分组打印"></a>控制台分组打印</h4><ul>
+<li>console.group()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.group(<span class="string">'第一组'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第一组-1'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第一组-2'</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.group(<span class="string">'第二组'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第二组-1'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第二组-2'</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br></pre></td></tr></table></figure>
+<h4 id="控制台打印对象信息"><a href="#控制台打印对象信息" class="headerlink" title="控制台打印对象信息"></a>控制台打印对象信息</h4><ul>
+<li>console.dir()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> svendInfo = &#123;</span><br><span class="line">  site:<span class="string">"http:svend.cc"</span>,</span><br><span class="line">  github:<span class="string">"https://github.com/JSW5297"</span>,</span><br><span class="line">  email:<span class="string">"jinshouw@163.com"</span>,</span><br><span class="line">  sayHi:<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span>+ name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 控制台打印对象信息</span></span><br><span class="line"><span class="built_in">console</span>.dir(svendInfo);</span><br></pre></td></tr></table></figure>
+<h4 id="控制台打印-DOM-节点或-XML"><a href="#控制台打印-DOM-节点或-XML" class="headerlink" title="控制台打印 DOM 节点或 XML"></a>控制台打印 DOM 节点或 XML</h4><ul>
+<li>console.dirxml()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 控制台打印DOM节点或XML</span></span><br><span class="line"><span class="keyword">var</span> svendInfo = <span class="built_in">document</span>.getElementById(<span class="string">'svendInfo'</span>);</span><br><span class="line"><span class="built_in">console</span>.dirxml(svendInfo);</span><br></pre></td></tr></table></figure>
+<h4 id="判断表达式是否为真"><a href="#判断表达式是否为真" class="headerlink" title="判断表达式是否为真"></a>判断表达式是否为真</h4><ul>
+<li>console.assert()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断表达式是否为真</span></span><br><span class="line"><span class="built_in">console</span>.assert(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.assert(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.assert(<span class="literal">true</span> == <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="将数据表格打印"><a href="#将数据表格打印" class="headerlink" title="将数据表格打印"></a>将数据表格打印</h4><ul>
+<li>console.table()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将数据表格打印</span></span><br><span class="line"><span class="keyword">var</span> data = [</span><br><span class="line">  &#123;<span class="string">'索引'</span>:<span class="string">'1'</span>,<span class="string">'名称'</span>:<span class="string">'蛋糕'</span>,<span class="string">'数量'</span>:<span class="number">5</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'索引'</span>:<span class="string">'2'</span>,<span class="string">'名称'</span>:<span class="string">'啤酒'</span>,<span class="string">'数量'</span>:<span class="number">2</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="built_in">console</span>.table(data);</span><br></pre></td></tr></table></figure>
+<h4 id="计时"><a href="#计时" class="headerlink" title="计时"></a>计时</h4><ul>
+<li>console.time()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">'time-1'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'time-1'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="清空控制台"><a href="#清空控制台" class="headerlink" title="清空控制台"></a>清空控制台</h4><ul>
+<li>console.clear()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 清空控制台</span></span><br><span class="line"><span class="built_in">console</span>.clear();</span><br></pre></td></tr></table></figure>
+<h4 id="输出样式"><a href="#输出样式" class="headerlink" title="输出样式"></a>输出样式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'%cHello World!'</span>, <span class="string">'font-size:50px; color:green;'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="性能分析器"><a href="#性能分析器" class="headerlink" title="性能分析器"></a>性能分析器</h4><ul>
+<li>console.profile()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">All</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">    funcA(<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'----------'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  funcB(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcA</span>(<span class="params">count</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;count;i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcB</span>(<span class="params">count</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;count;i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.profile(<span class="string">'性能分析器'</span>);</span><br><span class="line">All();  <span class="comment">// funA 执行10次, funB打印20个数</span></span><br><span class="line"><span class="built_in">console</span>.profileEnd(<span class="string">'性能分析器'</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/exam-first/" rel="next" title="问答">
+                <i class="fa fa-chevron-left"></i> 问答
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/git/" rel="prev" title="源码管理工具GIT 的使用">
+                源码管理工具GIT 的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML文件，创建DOM树"><span class="nav-number">1.</span> <span class="nav-text">解析HTML文件，创建DOM树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析CSS"><span class="nav-number">2.</span> <span class="nav-text">解析CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将CSS与DOM合并"><span class="nav-number">3.</span> <span class="nav-text">将CSS与DOM合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局和绘制"><span class="nav-number">4.</span> <span class="nav-text">布局和绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重绘和重排何时会发生："><span class="nav-number">4.1.</span> <span class="nav-text">重绘和重排何时会发生：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何减少重绘和重排以提升页面性能："><span class="nav-number">4.2.</span> <span class="nav-text">如何减少重绘和重排以提升页面性能：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制台-console"><span class="nav-number">5.</span> <span class="nav-text">控制台(console)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台打印日志"><span class="nav-number">5.1.</span> <span class="nav-text">控制台打印日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印方法中的占位符"><span class="nav-number">5.2.</span> <span class="nav-text">打印方法中的占位符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台分组打印"><span class="nav-number">5.3.</span> <span class="nav-text">控制台分组打印</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台打印对象信息"><span class="nav-number">5.4.</span> <span class="nav-text">控制台打印对象信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台打印-DOM-节点或-XML"><span class="nav-number">5.5.</span> <span class="nav-text">控制台打印 DOM 节点或 XML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断表达式是否为真"><span class="nav-number">5.6.</span> <span class="nav-text">判断表达式是否为真</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将数据表格打印"><span class="nav-number">5.7.</span> <span class="nav-text">将数据表格打印</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计时"><span class="nav-number">5.8.</span> <span class="nav-text">计时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清空控制台"><span class="nav-number">5.9.</span> <span class="nav-text">清空控制台</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样式"><span class="nav-number">5.10.</span> <span class="nav-text">输出样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能分析器"><span class="nav-number">5.11.</span> <span class="nav-text">性能分析器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
