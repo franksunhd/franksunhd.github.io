@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,ueditor,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="定义 富文本编辑器，Rich Text Editor, 简称 RTE, 是一种可内嵌于浏览器，所见即所得的文本编辑器。">
+<meta name="keywords" content="javascript,ueditor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="富文本编辑器">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/ueditor/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="定义 富文本编辑器，Rich Text Editor, 简称 RTE, 是一种可内嵌于浏览器，所见即所得的文本编辑器。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T10:14:56.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="富文本编辑器">
+<meta name="twitter:description" content="定义 富文本编辑器，Rich Text Editor, 简称 RTE, 是一种可内嵌于浏览器，所见即所得的文本编辑器。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/ueditor/">
+
+
+
+
+
+  <title>富文本编辑器 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/ueditor/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">富文本编辑器</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T18:04:38+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/JS插件/" itemprop="url" rel="index">
+                    <span itemprop="name">JS插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/javascript/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  javascript</a>
+              
+                <a href="/franksunhd.github.io/tags/ueditor/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  ueditor</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>富文本编辑器，Rich Text Editor, 简称 RTE, 是一种可内嵌于浏览器，所见即所得的文本编辑器。<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">对于支持富文本编辑的浏览器来说，事实上就是设置 document 的 designMode 属性为 on 后，再通过运行 document.execCommand('commandName'[, UIFlag[, value]]) 就可以。commandName 和 value 能够在MSDN 上和MDC 上找到，它们就是我们创建各种格式的命令，例如说，我们要加粗字体，运行 document.execCommand('bold', false) 就可以。可是值得注意的是，一般是选中了文本后才运行命令，被选中的文本才被格式化。对于未选中的文本进行这个命令，各浏览器有不同的处理方式，例如 IE 可能是对位于光标中的标签内容进行格式化，而其他浏览器不做不论什么处理，。同一时候须要注意的是，UIFlag 这个參数设置为 true 表示 display any user interface triggered by the command (if any)</span><br><span class="line">    注释1.designMode属性用来指定整个页面是否可编辑，当页面可编辑时，页面中任何支持上文所述的contentEditable属性的元素都变成了可编</span><br><span class="line">辑状态。designMode属性只能在JavaScript脚本里被编辑修改。该属性有两个值—“on”与“off”。属性被指定为“on”时，页面可</span><br><span class="line">编辑；被指定为“off”时，页面不可编辑。使用JavaScript脚本来指定designMode属性的方法如下所示：</span><br><span class="line">document.designMode="on"</span><br><span class="line">针对designMode属性，各浏览器的支持情况也各不相同：</span><br><span class="line">IE8：出于安全考虑，不允许使用designMode属性让页面进入编辑状态。</span><br><span class="line">IE9：允许使用designMode属性让页面进入编辑状态。</span><br><span class="line">Chrome 3和Safari：使用内嵌frame的方式,该内嵌frame是可编辑的。</span><br><span class="line">Firefox和Opera：允许使用designMode属性让页面进入编辑状态。</span><br><span class="line">注释2:execCommand方法是执行一个对当前文档，当前选择或者给出范围的命令。</span><br><span class="line">document.execCommand()方法处理Html数据时常用语法格式如下: 复制内容到剪贴板</span><br><span class="line">代码:</span><br><span class="line">document.execCommand(sCommand[,交互方式, 动态参数]) 其中：sCommand为指令参数（如下例中的"2D-Position"），交互方式参数如果是true的话将显示对话框，如果为false的话，则不显示对话框（下例中的"false"即表示不显示对话框），动态参数一般为一可用值或属性值</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.引入三个js</span><br><span class="line">2.实例化编辑器</span><br><span class="line">UEDITOR_CONFIG.UEDITOR_HOME_URL = ‘/pugilist_system/ueditor/’;这个是重点，可以配置在所有的实例化编辑器前面，配置在ueditor.config.js中，指明了编辑器的具体位置</span><br><span class="line">3.修改配置文件</span><br><span class="line">4.补充一，修改配置文件ueditor.config.js，配置Ueditor路径</span><br><span class="line">window.UEDITOR_HOME_URL = &quot;/Ueditor/&quot;;//&quot;相对于网站根目录的相对路径&quot;也就是以斜杠开头的形如&quot;/myProject/ueditor/&quot;这样的路径。</span><br><span class="line">  var URL = window.UEDITOR_HOME_URL || getUEBasePath();//获取Ueditor的路径</span><br><span class="line"> , imagePath: URL + &quot;../&quot;</span><br><span class="line"> //图片修正地址，引用了fixedImagePath,如有特殊需求，可自行配置</span><br></pre></td></tr></table></figure>
+<h3 id="使用百度富文本编辑器UEditor碰到的问题"><a href="#使用百度富文本编辑器UEditor碰到的问题" class="headerlink" title="使用百度富文本编辑器UEditor碰到的问题"></a>使用百度富文本编辑器UEditor碰到的问题</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">问题1：配置问题。</span><br><span class="line"></span><br><span class="line">原因：下面的配置的顺序不能错，顺序错了可能会导致加载不出来的情况。</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 配置文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/common/ueditor/ueditor.config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 编辑器源码文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/common/ueditor/ueditor.all.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">下面是我的配置</span><br><span class="line"></span><br><span class="line">复制代码</span><br><span class="line"><span class="comment">&lt;!-- 实例化编辑器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    UEDITOR_CONFIG.UEDITOR_HOME_URL = <span class="string">'/common/ueditor/'</span>;<span class="comment">//一定要用这句话，否则你需要去ueditor.config.js修改路径的配置信息</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ue = UE.getEditor(<span class="string">'container'</span>,&#123;</span></span><br><span class="line"><span class="undefined">        toolbars: [</span></span><br><span class="line"><span class="javascript">            [<span class="string">'fullscreen'</span>, <span class="string">'source'</span>, <span class="string">'undo'</span>, <span class="string">'redo'</span>, <span class="string">'|'</span>, <span class="string">'fontsize'</span>, <span class="string">'|'</span>, <span class="string">'blockquote'</span>, <span class="string">'horizontal'</span>, <span class="string">'|'</span>, <span class="string">'removeformat'</span>, <span class="string">'formatmatch'</span>, <span class="string">'link'</span>, <span class="string">'unlink'</span>, <span class="string">'&#125;'</span>, <span class="string">'simpleupload'</span>, <span class="string">'insertimage'</span>, <span class="string">'preview'</span>],</span></span><br><span class="line"><span class="javascript">            [<span class="string">'bold'</span>, <span class="string">'italic'</span>, <span class="string">'underline'</span>, <span class="string">'forecolor'</span>, <span class="string">'backcolor'</span>, <span class="string">'|'</span>, <span class="string">'indent'</span>, <span class="string">'|'</span>, <span class="string">'justifyleft'</span>, <span class="string">'justifycenter'</span>, <span class="string">'justifyright'</span>, <span class="string">'justifyjustify'</span>, <span class="string">'|'</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">'rowspacingtop'</span>, <span class="string">'rowspacingbottom'</span>, <span class="string">'lineheight'</span>, <span class="string">'|'</span>, <span class="string">'insertorderedlist'</span>, <span class="string">'insertunorderedlist'</span>, <span class="string">'|'</span>, <span class="string">'imagenone'</span>, <span class="string">'imageleft'</span>, <span class="string">'imageright'</span>, <span class="string">'imagecenter'</span>]</span></span><br><span class="line"><span class="undefined">        ]</span></span><br><span class="line"><span class="javascript">        ,<span class="attr">autoHeightEnabled</span>: <span class="literal">false</span></span></span><br><span class="line"><span class="javascript">        ,<span class="attr">autoFloatEnabled</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">        ,<span class="attr">initialFrameWidth</span> : <span class="number">1000</span><span class="comment">//编辑器宽度，默认1000</span></span></span><br><span class="line"><span class="javascript">        ,<span class="attr">initialFrameHeight</span> : <span class="number">500</span><span class="comment">//编辑器高度，默认320</span></span></span><br><span class="line"><span class="javascript">        ,<span class="attr">maximumWords</span> : <span class="number">1000</span><span class="comment">//最大字符数</span></span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">复制代码</span><br><span class="line"></span><br><span class="line">问题2：上传图片功能加载失败</span><br><span class="line"></span><br><span class="line">　　我使用的是springmvc idea</span><br><span class="line"></span><br><span class="line">总的原因：编辑器初始化的时候会发送一个请求，去请求ueditor/jsp/controller.jsp文件，但是它报了500错误，不能正确的返回json配置。</span><br><span class="line"></span><br><span class="line">原因1：jar包没有导入到项目中。</span><br><span class="line"></span><br><span class="line">解决：在ueditor/jsp/lib下面有几个jar文件，需要把这几个jar文件导入到项目中，最好是直接复制到WEB-INF/lib下面，不然可能也会出现问题。　</span><br><span class="line"></span><br><span class="line">问题又来了，我使用的是maven管理项目的，这个ueditor-1.1.2.jar在中央仓库里面没有，需要自己手动添加到本地仓库中</span><br><span class="line"></span><br><span class="line">ueditor/jsp/lib目录下打开命令窗口，运行下面代码</span><br><span class="line"></span><br><span class="line">mvn install:install-file -Dfile=ueditor-1.1.2.jar -Dpackaging=jar -DgroupId=com.baidu.ueditor -DartifactId=ueditor -Dversion=1.1.2</span><br></pre></td></tr></table></figure>
+<h3 id="命令集"><a href="#命令集" class="headerlink" title="命令集"></a>命令集</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br></pre></td><td class="code"><pre><span class="line">document.execCommand()方法可用来执行很多我们无法实现的操作.</span><br><span class="line"></span><br><span class="line">execCommand方法是执行一个对当前文档，当前选择或者给出范围的命令。</span><br><span class="line"></span><br><span class="line">document.execCommand()方法处理Html数据时常用语法格式如下: 复制内容到剪贴板</span><br><span class="line">代码:</span><br><span class="line">document.execCommand(sCommand[,交互方式, 动态参数]) 其中：sCommand为指令参数（如下例中的"2D-Position"），交互方式参数如果是true的话将显示对话框，如果为false的话，则不显示对话框（下例中的"false"即表示不显示对话框），动态参数一般为一可用值或属性值（如下例中的"true"）。</span><br><span class="line"></span><br><span class="line">document.execCommand("2D-Position","false","true");</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">调用execCommand()可以实现浏览器菜单的很多功能. 如保存文件,打开新文件,撤消、重做操作...等等. 有了这个方法,就可以很容易的实现网页中的文本编辑器.</span><br><span class="line"></span><br><span class="line">如果灵活运用,可以很好的辅助我们完成各种项目.</span><br><span class="line"></span><br><span class="line">使用的例子如下:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1、〖全选〗命令的实现</span><br><span class="line">[格式]:document.execCommand("selectAll")</span><br><span class="line">[说明]将选种网页中的全部内容！</span><br><span class="line">[举例]在<span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span>之间加入：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">document.execCommand(</span>"<span class="attr">selectAll</span>")&gt;</span>全选<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">2、〖打开〗命令的实现</span><br><span class="line">[格式]:document.execCommand("open")</span><br><span class="line">[说明]这跟VB等编程设计中的webbrowser控件中的命令有些相似，大家也可依此琢磨琢磨。</span><br><span class="line">[举例]在<span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span>之间加入：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">document.execCommand(</span>"<span class="attr">open</span>")&gt;</span>打开<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">3、〖另存为〗命令的实现</span><br><span class="line">[格式]:document.execCommand("saveAs")</span><br><span class="line">[说明]将该网页保存到本地盘的其它目录！</span><br><span class="line">[举例]在<span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span>之间加入：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">document.execCommand(</span>"<span class="attr">saveAs</span>")&gt;</span>另存为<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">4、〖打印〗命令的实现</span><br><span class="line">[格式]:document.execCommand("print")</span><br><span class="line">[说明]当然，你必须装了打印机！</span><br><span class="line">[举例]在<span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span>之间加入：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">document.execCommand(</span>"<span class="attr">print</span>")&gt;</span>打印<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">Js代码 下面列出的是指令参数及意义</span><br><span class="line"></span><br><span class="line">//相当于单击文件中的打开按钮</span><br><span class="line">document.execCommand("Open");</span><br><span class="line"></span><br><span class="line">//将当前页面另存为</span><br><span class="line">document.execCommand("SaveAs");</span><br><span class="line"></span><br><span class="line">//剪贴选中的文字到剪贴板;</span><br><span class="line">document.execCommand("Cut","false",null);</span><br><span class="line"></span><br><span class="line">//删除选中的文字;</span><br><span class="line">document.execCommand("Delete","false",null);</span><br><span class="line"></span><br><span class="line">//改变选中区域的字体;</span><br><span class="line">document.execCommand("FontName","false",sFontName);</span><br><span class="line"></span><br><span class="line">//改变选中区域的字体大小</span><br><span class="line">document.execCommand("FontSize","false",sSize|iSize);</span><br><span class="line"></span><br><span class="line">//设置前景颜色;</span><br><span class="line">document.execCommand("ForeColor","false",sColor);</span><br><span class="line"></span><br><span class="line">//使绝对定位的对象可直接拖动;</span><br><span class="line">document.execCommand("2D-Position","false","true");</span><br><span class="line"></span><br><span class="line">//使对象定位变成绝对定位;</span><br><span class="line">document.execCommand("AbsolutePosition","false","true");</span><br><span class="line"></span><br><span class="line">//设置背景颜色;</span><br><span class="line">document.execCommand("BackColor","false",sColor);</span><br><span class="line"></span><br><span class="line">//使选中区域的文字加粗;</span><br><span class="line">document.execCommand("Bold","false",null);</span><br><span class="line"></span><br><span class="line">//复制选中的文字到剪贴板;</span><br><span class="line">document.execCommand("Copy","false",null);</span><br><span class="line"></span><br><span class="line">//设置指定锚点为书签;</span><br><span class="line">document.execCommand("CreateBookmark","false",sAnchorName);</span><br><span class="line"></span><br><span class="line">//将选中文本变成超连接,若第二个参数为true,会出现参数设置对话框;</span><br><span class="line">document.execCommand("CreateLink","false",sLinkURL);</span><br><span class="line"></span><br><span class="line">//设置当前块的标签名;</span><br><span class="line">document.execCommand("FormatBlock","false",sTagName); </span><br><span class="line"></span><br><span class="line">//相当于单击文件中的打开按钮 </span><br><span class="line">document.execCommand("Open");</span><br><span class="line"></span><br><span class="line">//将当前页面另存为 </span><br><span class="line">document.execCommand("SaveAs");</span><br><span class="line"></span><br><span class="line">//剪贴选中的文字到剪贴板;</span><br><span class="line">document.execCommand("Cut","false",null);</span><br><span class="line"></span><br><span class="line">//删除选中的文字;</span><br><span class="line">document.execCommand("Delete","false",null);</span><br><span class="line"></span><br><span class="line">//改变选中区域的字体;</span><br><span class="line">document.execCommand("FontName","false",sFontName);</span><br><span class="line"></span><br><span class="line">//改变选中区域的字体大小;</span><br><span class="line">document.execCommand("FontSize","false",sSize|iSize);</span><br><span class="line"></span><br><span class="line">//设置前景颜色;</span><br><span class="line">document.execCommand("ForeColor","false",sColor);</span><br><span class="line"></span><br><span class="line">//使绝对定位的对象可直接拖动;</span><br><span class="line">document.execCommand("2D-Position","false","true");</span><br><span class="line"></span><br><span class="line">//使对象定位变成绝对定位;</span><br><span class="line">document.execCommand("AbsolutePosition","false","true");</span><br><span class="line"></span><br><span class="line">//设置背景颜色;</span><br><span class="line">document.execCommand("BackColor","false",sColor);</span><br><span class="line"></span><br><span class="line">//使选中区域的文字加粗;</span><br><span class="line">document.execCommand("Bold","false",null);</span><br><span class="line"></span><br><span class="line">//复制选中的文字到剪贴板;</span><br><span class="line">document.execCommand("Copy","false",null);</span><br><span class="line"></span><br><span class="line">//设置指定锚点为书签;</span><br><span class="line">document.execCommand("CreateBookmark","false",sAnchorName);</span><br><span class="line"></span><br><span class="line">//将选中文本变成超连接,若第二个参数为true,会出现参数设置对话框;</span><br><span class="line">document.execCommand("CreateLink","false",sLinkURL);</span><br><span class="line"></span><br><span class="line">//设置当前块的标签名;</span><br><span class="line">document.execCommand("FormatBlock","false",sTagName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">另外:document.execCommand()还有很多的其它属性.以下是我搜集整理的.可能还漏了很多,希望大家多多补充!</span><br><span class="line"></span><br><span class="line">2D-Position 允许通过拖曳移动绝对定位的对象。</span><br><span class="line"></span><br><span class="line">AbsolutePosition 设定元素的 position 属性为“absolute”(绝对)。</span><br><span class="line"></span><br><span class="line">BackColor 设置或获取当前选中区的背景颜色。</span><br><span class="line"></span><br><span class="line">Bold 切换当前选中区的粗体显示与否。</span><br><span class="line"></span><br><span class="line">Copy 将当前选中区复制到剪贴板。</span><br><span class="line"></span><br><span class="line">CreateBookmark 创建一个书签锚或获取当前选中区或插入点的书签锚的名称。</span><br><span class="line"></span><br><span class="line">CreateLink 在当前选中区上插入超级链接，或显示一个对话框允许用户指定要为当前选中区插入的超级链接的 URL。</span><br><span class="line"></span><br><span class="line">Cut 将当前选中区复制到剪贴板并删除之。</span><br><span class="line"></span><br><span class="line">Delete 删除当前选中区。</span><br><span class="line"></span><br><span class="line">FontName 设置或获取当前选中区的字体。</span><br><span class="line"></span><br><span class="line">FontSize 设置或获取当前选中区的字体大小。</span><br><span class="line"></span><br><span class="line">ForeColor 设置或获取当前选中区的前景(文本)颜色。</span><br><span class="line"></span><br><span class="line">FormatBlock 设置当前块格式化标签。</span><br><span class="line"></span><br><span class="line">Indent 增加选中文本的缩进。</span><br><span class="line"></span><br><span class="line">InsertButton 用按钮控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertFieldset 用方框覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertHorizontalRule 用水平线覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertIFrame 用内嵌框架覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertImage 用图像覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputButton 用按钮控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputCheckbox 用复选框控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputFileUpload 用文件上载控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputHidden 插入隐藏控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputImage 用图像控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputPassword 用密码控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputRadio 用单选钮控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputReset 用重置控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputSubmit 用提交控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertInputText 用文本控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertMarquee 用空字幕覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertOrderedList 切换当前选中区是编号列表还是常规格式化块。</span><br><span class="line"></span><br><span class="line">InsertParagraph 用换行覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertSelectDropdown 用下拉框控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertSelectListbox 用列表框控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertTextArea 用多行文本输入控件覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">InsertUnorderedList 切换当前选中区是项目符号列表还是常规格式化块。</span><br><span class="line"></span><br><span class="line">Italic 切换当前选中区斜体显示与否。</span><br><span class="line"></span><br><span class="line">JustifyCenter 将当前选中区在所在格式化块置中。</span><br><span class="line"></span><br><span class="line">JustifyLeft 将当前选中区所在格式化块左对齐。</span><br><span class="line"></span><br><span class="line">JustifyRight 将当前选中区所在格式化块右对齐。</span><br><span class="line"></span><br><span class="line">LiveResize 迫使 MSHTML 编辑器在缩放或移动过程中持续更新元素外观，而不是只在移动或缩放完成后更新。</span><br><span class="line"></span><br><span class="line">MultipleSelection 允许当用户按住 Shift 或 Ctrl 键时一次选中多于一个站点可选元素。</span><br><span class="line"></span><br><span class="line">Open 打开一个文档。</span><br><span class="line"></span><br><span class="line">Outdent 减少选中区所在格式化块的缩进。</span><br><span class="line"></span><br><span class="line">OverWrite 切换文本状态的插入和覆盖。</span><br><span class="line"></span><br><span class="line">Paste 用剪贴板内容覆盖当前选中区。</span><br><span class="line"></span><br><span class="line">Print 打开打印对话框以便用户可以打印当前页。</span><br><span class="line"></span><br><span class="line">Redo 撤消操作,相当于Ctrl+Z。</span><br><span class="line"></span><br><span class="line">Undo 重做。</span><br><span class="line"></span><br><span class="line">Refresh 刷新当前文档。</span><br><span class="line"></span><br><span class="line">RemoveFormat 从当前选中区中删除格式化标签。</span><br><span class="line"></span><br><span class="line">RemoveParaFormat 目前尚未支持。</span><br><span class="line"></span><br><span class="line">SaveAs 将当前 Web 页面保存为文件。</span><br><span class="line"></span><br><span class="line">SelectAll 选中整个文档。</span><br><span class="line"></span><br><span class="line">UnBookmark 从当前选中区中删除全部书签。</span><br><span class="line"></span><br><span class="line">Underline 切换当前选中区的下划线显示与否。</span><br><span class="line"></span><br><span class="line">Unlink 从当前选中区中删除全部超级链接。</span><br><span class="line"></span><br><span class="line">Unselect 清除当前选中区的选中状态。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line">Javascript的世界真是奇妙. 有时,只是一次不经意的google,都会发现一些以前没见过,或忽略的语法. 当用起来的时候,才发现它的威力. 不知还有多少正隐藏在暗处的方法,等着你我去发现?</span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line">(部分内容来源于百度搜索)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">document.execCommand()函数可用参数解析</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>javascript--execcommand指令集<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">&lt;!--</span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>执行<span class="title">copy</span>指令</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_doufucopy</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">edit.select();</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Copy'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>执行<span class="title">paste</span>指令</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_doufupaste</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">tt.focus();</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'paste'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来创建一个超链接</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_creatlink</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'CreateLink'</span>,<span class="literal">true</span>,<span class="string">'true'</span>);<span class="comment">//弹出一个对话框输入URL</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//document.execCommand('CreateLink',false,'http://bbs.tc800.com');</span></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来将选中的区块设为指定的背景色</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_change_backcolor</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'BackColor'</span>,<span class="literal">true</span>,<span class="string">'#FFbbDD'</span>);<span class="comment">//true或false都可以</span></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来将选中的区块设为指定的前景色,改变选中区块的字体大小,改变字体,字体变粗变斜</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_change_forecolor</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">//指定前景色</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'ForeColor'</span>,<span class="literal">false</span>,<span class="string">'#BBDDCC'</span>);<span class="comment">//true或false都可以</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//指定背景色</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'FontSize'</span>,<span class="literal">false</span>,<span class="number">7</span>);<span class="comment">//true或false都可以</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//字体必须是系统支持的字体</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'FontName'</span>,<span class="literal">false</span>,<span class="string">'标楷体'</span>);<span class="comment">//true或false都可以</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//字体变粗</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Bold'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//变斜体</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Italic'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来将选中的区块加上不同的线条</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_change_selection</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">//将选中的文字加下划线</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Underline'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//在选中的文字上划粗线</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'StrikeThrough'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//将选中的部分文字变细</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'SuperScript'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//将选中区块的下划线取消掉</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Underline'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来将选中的区块排成不同的格式</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_format</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">//有序列排列</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'InsertOrderedList'</span>);</span></span><br><span class="line"><span class="javascript"><span class="comment">//实心无序列排列</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'InsertUnorderedList'</span>);</span></span><br><span class="line"><span class="javascript"><span class="comment">//空心无序列排列</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Indent'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来将选中的区块剪下或是删除掉</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">fn_CutOrDel</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">//删除选中的区块</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//document.execCommand('Delete');</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//剪下选中的区块</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand(<span class="string">'Cut'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">*该<span class="function"><span class="keyword">function</span>用来将选中的区块重设为一个相应的物件</span></span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand()的应用实例</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.execCommand()的应用实例</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"剪切"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Cut')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"拷贝"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Copy')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"粘贴"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Paste')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"撤消"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Undo')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"重做"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Redo')"</span> <span class="attr">id</span>=<span class="string">"button2"</span> <span class="attr">name</span>=<span class="string">"button2"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"删除"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Delete')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"黑体"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Bold')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"斜体"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Italic')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"下划线"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Underline')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"停止"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('stop')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"保存"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('SaveAs')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"另存为"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('Saveas',false,'c:\\test.htm')"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"字体"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('FontName',false,fn)"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"字体大小"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('FontSize',false,fs)"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"刷新"</span> <span class="attr">onclick</span>=<span class="string">"document.execCommand('refresh',false,0)"</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>完整demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=utf-8"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">src</span>=<span class="string">"ueditor.config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">src</span>=<span class="string">"ueditor.all.min.js"</span>&gt;</span><span class="undefined"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">src</span>=<span class="string">"lang/zh-cn/zh-cn.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        div&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>完整demo<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"editor"</span> <span class="attr">type</span>=<span class="string">"text/plain"</span> <span class="attr">style</span>=<span class="string">"width:1024px;height:500px;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"btns"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"getAllHtml()"</span>&gt;</span>获得整个html的内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"getContent()"</span>&gt;</span>获得内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"setContent()"</span>&gt;</span>写入内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"setContent(true)"</span>&gt;</span>追加内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"getContentTxt()"</span>&gt;</span>获得纯文本<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"getPlainTxt()"</span>&gt;</span>获得带格式的纯文本<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"hasContent()"</span>&gt;</span>判断是否有内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"setFocus()"</span>&gt;</span>使编辑器获得焦点<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onmousedown</span>=<span class="string">"isFocus(event)"</span>&gt;</span>编辑器是否获得焦点<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onmousedown</span>=<span class="string">"setblur(event)"</span> &gt;</span>编辑器失去焦点<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"getText()"</span>&gt;</span>获得当前选中的文本<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"insertHtml()"</span>&gt;</span>插入给定的内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"enable"</span> <span class="attr">onclick</span>=<span class="string">"setEnabled()"</span>&gt;</span>可以编辑<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"setDisabled()"</span>&gt;</span>不可编辑<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">" UE.getEditor('editor').setHide()"</span>&gt;</span>隐藏编辑器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">" UE.getEditor('editor').setShow()"</span>&gt;</span>显示编辑器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">" UE.getEditor('editor').setHeight(300)"</span>&gt;</span>设置高度为300默认关闭了自动长高<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"getLocalData()"</span> &gt;</span>获取草稿箱内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"clearLocalData()"</span> &gt;</span>清空草稿箱<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"createEditor()"</span>&gt;</span></span><br><span class="line">    创建编辑器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"deleteEditor()"</span>&gt;</span></span><br><span class="line">    删除编辑器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//实例化编辑器</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ue = UE.getEditor(<span class="string">'editor'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">// 这些是对编辑框的操作和将修改完的内容获取到而后进行各种操作</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">isFocus</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(UE.getEditor(<span class="string">'editor'</span>).isFocus());</span></span><br><span class="line"><span class="undefined">        UE.dom.domUtils.preventDefault(e)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">setblur</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).blur();</span></span><br><span class="line"><span class="undefined">        UE.dom.domUtils.preventDefault(e)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">insertHtml</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> value = prompt(<span class="string">'插入html代码'</span>, <span class="string">''</span>);</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).execCommand(<span class="string">'insertHtml'</span>, value)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">createEditor</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        enableBtn();</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getAllHtml</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(UE.getEditor(<span class="string">'editor'</span>).getAllHtml())</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getContent</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = [];</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"使用editor.getContent()方法可以获得编辑器的内容"</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"内容为："</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(UE.getEditor(<span class="string">'editor'</span>).getContent());</span></span><br><span class="line"><span class="javascript">        alert(arr.join(<span class="string">"\n"</span>));</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getPlainTxt</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = [];</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容"</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"内容为："</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(UE.getEditor(<span class="string">'editor'</span>).getPlainTxt());</span></span><br><span class="line"><span class="javascript">        alert(arr.join(<span class="string">'\n'</span>))</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params">isAppendTo</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = [];</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容"</span>);</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).setContent(<span class="string">'欢迎使用ueditor'</span>, isAppendTo);</span></span><br><span class="line"><span class="javascript">        alert(arr.join(<span class="string">"\n"</span>));</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">setDisabled</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).setDisabled(<span class="string">'fullscreen'</span>);</span></span><br><span class="line"><span class="javascript">        disableBtn(<span class="string">"enable"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">setEnabled</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).setEnabled();</span></span><br><span class="line"><span class="undefined">        enableBtn();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getText</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> range = UE.getEditor(<span class="string">'editor'</span>).selection.getRange();</span></span><br><span class="line"><span class="undefined">        range.select();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> txt = UE.getEditor(<span class="string">'editor'</span>).selection.getText();</span></span><br><span class="line"><span class="undefined">        alert(txt)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getContentTxt</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = [];</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"使用editor.getContentTxt()方法可以获得编辑器的纯文本内容"</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"编辑器的纯文本内容为："</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(UE.getEditor(<span class="string">'editor'</span>).getContentTxt());</span></span><br><span class="line"><span class="javascript">        alert(arr.join(<span class="string">"\n"</span>));</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">hasContent</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = [];</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"使用editor.hasContents()方法判断编辑器里是否有内容"</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(<span class="string">"判断结果为："</span>);</span></span><br><span class="line"><span class="javascript">        arr.push(UE.getEditor(<span class="string">'editor'</span>).hasContents());</span></span><br><span class="line"><span class="javascript">        alert(arr.join(<span class="string">"\n"</span>));</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">setFocus</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).focus();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">deleteEditor</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        disableBtn();</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).destroy();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">disableBtn</span>(<span class="params">str</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'btns'</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> btns = UE.dom.domUtils.getElementsByTagName(div, <span class="string">"button"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, btn;btn = btns[i++];) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (btn.id == str) &#123;</span></span><br><span class="line"><span class="javascript">                UE.dom.domUtils.removeAttributes(btn, [<span class="string">"disabled"</span>]);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                btn.setAttribute(<span class="string">"disabled"</span>, <span class="string">"true"</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">enableBtn</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'btns'</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> btns = UE.dom.domUtils.getElementsByTagName(div, <span class="string">"button"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, btn;btn = btns[i++];) &#123;</span></span><br><span class="line"><span class="javascript">            UE.dom.domUtils.removeAttributes(btn, [<span class="string">"disabled"</span>]);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getLocalData</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(UE.getEditor(<span class="string">'editor'</span>).execCommand( <span class="string">"getlocaldata"</span> ));</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">clearLocalData</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        UE.getEditor(<span class="string">'editor'</span>).execCommand( <span class="string">"clearlocaldata"</span> );</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"已清空草稿箱"</span>)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/sqlite/" rel="next" title="Sqlite数据库">
+                <i class="fa fa-chevron-left"></i> Sqlite数据库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/zepTo/" rel="prev" title="ZepTo">
+                ZepTo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用百度富文本编辑器UEditor碰到的问题"><span class="nav-number">3.</span> <span class="nav-text">使用百度富文本编辑器UEditor碰到的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令集"><span class="nav-number">4.</span> <span class="nav-text">命令集</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

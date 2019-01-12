@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux软件包管理软件包管理机制 对操作系统上的软件进行管理的机制  Linux 常见的软件包机制:  RPM  软件包 (常用命令:rpm  yum) DEB  软件包  (常用命令:dpkg  apt-get)">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux软件包管理、文件传输服务(TFTP)器的配置、网络文件系统NFS的配置">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/Linux/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="Linux软件包管理软件包管理机制 对操作系统上的软件进行管理的机制  Linux 常见的软件包机制:  RPM  软件包 (常用命令:rpm  yum) DEB  软件包  (常用命令:dpkg  apt-get)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T08:54:40.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux软件包管理、文件传输服务(TFTP)器的配置、网络文件系统NFS的配置">
+<meta name="twitter:description" content="Linux软件包管理软件包管理机制 对操作系统上的软件进行管理的机制  Linux 常见的软件包机制:  RPM  软件包 (常用命令:rpm  yum) DEB  软件包  (常用命令:dpkg  apt-get)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/Linux/">
+
+
+
+
+
+  <title>Linux软件包管理、文件传输服务(TFTP)器的配置、网络文件系统NFS的配置 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/Linux/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Linux软件包管理、文件传输服务(TFTP)器的配置、网络文件系统NFS的配置</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T16:51:36+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/Linux/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  Linux</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Linux软件包管理"><a href="#Linux软件包管理" class="headerlink" title="Linux软件包管理"></a>Linux软件包管理</h3><h4 id="软件包管理机制"><a href="#软件包管理机制" class="headerlink" title="软件包管理机制"></a>软件包管理机制</h4><ul>
+<li>对操作系统上的软件进行管理的机制</li>
+</ul>
+<p>Linux 常见的软件包机制:</p>
+<ul>
+<li>RPM  软件包 (常用命令:rpm  yum)</li>
+<li>DEB  软件包  (常用命令:dpkg  apt-get)</li>
+</ul>
+<a id="more"></a>
+<h3 id="Deb软件包机制"><a href="#Deb软件包机制" class="headerlink" title="Deb软件包机制"></a>Deb软件包机制</h3><h4 id="本地安装包管理"><a href="#本地安装包管理" class="headerlink" title="本地安装包管理"></a>本地安装包管理</h4><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -i sl_3.03-17_amd64.deb</span><br></pre></td></tr></table></figure>
+<ul>
+<li>卸载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -r sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>彻底卸载(包括配置文件)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -P sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看安装状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -s sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看安装路径</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -L sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>列出所有安装的软件包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg --get-selections</span><br></pre></td></tr></table></figure>
+<h4 id="在线安装包管理"><a href="#在线安装包管理" class="headerlink" title="在线安装包管理"></a>在线安装包管理</h4><ul>
+<li>更新本地源</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ul>
+<li>软件包安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get install sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>软件包卸载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get remove sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>软件包彻底卸载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get remove --purge sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>二进制软件包下载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get download sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>软件包源码下载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get source sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看软件包的安装状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-cache policy sl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看软件包信息</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-cache show sl(无论是否安装)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>升级软件包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<h4 id="deb包相关配置文件"><a href="#deb包相关配置文件" class="headerlink" title="deb包相关配置文件"></a>deb包相关配置文件</h4><ul>
+<li>/ etc / apt / sources.list  包含deb软件包源的文件</li>
+<li>/ var / lib / apt / list / * 对软件源进行更新之后的本地软件</li>
+<li>/ var / cache / apt / archive 在线安装时的软件包下载目录</li>
+<li>/ var / log / dpkg.log 本地软件包管理的日志文件</li>
+<li>/ var / log / apt / .log  在线软件包管理的日志文件</li>
+</ul>
+<h3 id="文件传输服务器-TFTP-的配置和使用"><a href="#文件传输服务器-TFTP-的配置和使用" class="headerlink" title="文件传输服务器(TFTP)的配置和使用"></a>文件传输服务器(TFTP)的配置和使用</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>简单文件传输协议:是TCP/IP协议族中用来连接客户机和服务器之间进行简单文件传输的协议.(端口:69)</li>
+<li>它只可以实现上传和下载文件的功能</li>
+</ul>
+<h4 id="安装客户端和服务端"><a href="#安装客户端和服务端" class="headerlink" title="安装客户端和服务端"></a>安装客户端和服务端</h4><ul>
+<li>检查状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -s tftpd-hpa</span><br><span class="line"><span class="meta">$</span> sudo dpkg -s tftp-hpa</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install tftpd-hpa</span><br><span class="line"><span class="meta">$</span> sudo apt-get install tftp-hpa</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/default/tftpd-hpa</span><br><span class="line">//修改最后一行 --secure -c -l</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动服务(在root下)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tftpd-hpa start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tftpd-hpa restart</span><br></pre></td></tr></table></figure>
+<ul>
+<li>停止服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tftpd-hpa stop</span><br></pre></td></tr></table></figure>
+<h4 id="TFTP服务测试"><a href="#TFTP服务测试" class="headerlink" title="TFTP服务测试"></a>TFTP服务测试</h4><ul>
+<li>客户端连接服务器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tftp IP地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输入上传文件命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">put 文件名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输入下载文件命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get 文件名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>退出</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+<h3 id="Linux网络文件系统NFS配置和使用"><a href="#Linux网络文件系统NFS配置和使用" class="headerlink" title="Linux网络文件系统NFS配置和使用"></a>Linux网络文件系统NFS配置和使用</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>网络文件系统NFS是FreeBSD支持的文件系统的一种,它允许网络中的计算机通过TCP/IP网络共享资源.</li>
+</ul>
+<h4 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h4><ul>
+<li>检查状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo dpkg -s nfs-kernel-server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在线安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install nfs-kernel-server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/expotts</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>eg:  / nfs_dir  * (rw , sync ,  no_subtree_check , no_root_squash )</p>
+<p>nfs_dir 路径</p>
+<p>* 主机名</p>
+<p>sync操作同步</p>
+<p>no_subtree_check 不进行子目录检查</p>
+<p>no_root_squash 默认root下</p>
+</blockquote>
+<p>根目录下创建目录</p>
+<blockquote>
+<p>nfs_dir</p>
+<p>mkdir nfs_dir</p>
+<p>chmod 777 nfs_dir/</p>
+</blockquote>
+<ul>
+<li>启动服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nfs-kernel-server start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nfs-kernel-server restart</span><br></pre></td></tr></table></figure>
+<ul>
+<li>停止服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nfs-kernel-server stop</span><br></pre></td></tr></table></figure>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
+<li>创建一个挂载目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir /mount_nfs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>客户端挂载远程NFS服务器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mount -t nfs 192.168.1.100 : /nfs_root_dir / mount_nfs</span><br><span class="line">//              远程IP地址       远程目录		本地目录</span><br></pre></td></tr></table></figure>
+<ul>
+<li>挂载成功后操作本地,目录就相当于操作远端目录</li>
+<li>取消挂载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> umount /mnt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nfs_dir 远程目录 file1 file 2 file 3</p>
+<p>mnt 本地目录</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mount -t nfs 127.0.0.1 :/ nfs_dir / mnt</span><br></pre></td></tr></table></figure>
+<h3 id="Linux-系统"><a href="#Linux-系统" class="headerlink" title="Linux 系统"></a>Linux 系统</h3><h4 id="Linux文件系统"><a href="#Linux文件系统" class="headerlink" title="Linux文件系统"></a>Linux文件系统</h4><ul>
+<li>是操作系统用于明确存储设备或分区的文件和方法</li>
+</ul>
+<p><strong>分类</strong></p>
+<ul>
+<li>磁盘文件系统:本地主机实际可访问 eg:磁盘</li>
+<li>网络文件系统:可远程访问 eg:NFS</li>
+<li>专有/虚拟文件系统:不驻留在磁盘 eg:procsys</li>
+</ul>
+<h4 id="文件的归档和压缩"><a href="#文件的归档和压缩" class="headerlink" title="文件的归档和压缩"></a>文件的归档和压缩</h4><ul>
+<li>使用gzip和gunzip 对文件进行压缩和解压缩</li>
+<li>使用bzip2和bunzip2对文件进行压缩和解压缩</li>
+<li>使用tar对文件进行压缩和解压缩</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//压缩</span><br><span class="line">gzip 文件名.gz</span><br><span class="line">//解压缩</span><br><span class="line">gunzip 文件名</span><br><span class="line"></span><br><span class="line">//压缩</span><br><span class="line">bzip2 文件名.bz2</span><br><span class="line">//解压缩</span><br><span class="line">bunzip2 文件名.bz2</span><br><span class="line"></span><br><span class="line">//压缩</span><br><span class="line">tar czf 文件名.tar.gz		文件目录</span><br><span class="line">tar cjf 文件名.tar.bz2		文件目录</span><br><span class="line">tar cJf 文件名.tar.xz		文件目录</span><br><span class="line">(c:表示创建;	z:表示gz格式;	j:表示bz2格式;	J:表示xz格式;	f:文件目录;)</span><br><span class="line">// 解压缩</span><br><span class="line">tar xzf 文件名.tar.gz</span><br><span class="line">tar xf 文件名.tar.() 是什么就解成什么</span><br></pre></td></tr></table></figure>
+<h4 id="shell通配符"><a href="#shell通配符" class="headerlink" title="shell通配符"></a>shell通配符</h4><ul>
+<li>通配符是一种特殊的语句,由特殊字符构成,常用来模糊搜索,使用时可以代替一个或多个真正字符.</li>
+<li>*</li>
+</ul>
+<blockquote>
+<p>eg :ls *</p>
+<p>ls *.sh</p>
+<p>ls file*</p>
+</blockquote>
+<ul>
+<li>?(任意一个)</li>
+</ul>
+<blockquote>
+<p>ls file_?</p>
+</blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox"> (只指定[ ]中的字符)</li>
+</ul>
+<blockquote>
+<p>ls file_[0123]</p>
+</blockquote>
+<ul>
+<li>[ c1 - c2](指定c1 到c2 区间)</li>
+</ul>
+<blockquote>
+<p>ls file_[0-3]</p>
+</blockquote>
+<ul>
+<li>[! ](不取[ ]中的)</li>
+<li>[^ ]</li>
+</ul>
+<blockquote>
+<p>ls file_[!0-3]</p>
+<p>两位数:</p>
+<p>ls file_[0-9][0-9]</p>
+</blockquote>
+<ul>
+<li>^ 和 ! 效果相似</li>
+</ul>
+<blockquote>
+<p>ls file_[^ 0-5]*</p>
+</blockquote>
+<ul>
+<li>{ }</li>
+</ul>
+<blockquote>
+<p>ls file_{0,5,9}</p>
+</blockquote>
+<h4 id="用户和组"><a href="#用户和组" class="headerlink" title="用户和组"></a>用户和组</h4><ul>
+<li>用户分类<ul>
+<li>超级用户:具有最高权限</li>
+<li>系统用户:服务于应用维护系统运行不能登录</li>
+<li>普通用户:登录用户</li>
+</ul>
+</li>
+<li>组分类<ul>
+<li>主族</li>
+<li>附属组</li>
+</ul>
+</li>
+<li>用户和组相关文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/passwd		用户数据文件,包含用户数据信息</span><br><span class="line">/etc/group		描述组的文件</span><br><span class="line">/etc/shadow		用户加密的密码文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加用户和组</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">adduser / useradd</span><br><span class="line">addgroup / groupadd</span><br><span class="line"></span><br><span class="line">adduser ssy</span><br><span class="line">useradd -s /bin/bash -m -g linux ssy</span><br><span class="line"></span><br><span class="line">addgroup ssy</span><br><span class="line">groupadd ssy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对用户的操作</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">usermod -s /bin/sh newuser2		修改用户2的bash为sh</span><br><span class="line">usermod -G newuser1 newuser2	把用户2所属组再添加到组1中</span><br><span class="line"></span><br><span class="line">gpasswd -d newuser2 newuser1	使用户2从组1中删除</span><br><span class="line">gpasswd -a newuser2 newuser1	把用户2再添加回组1中</span><br><span class="line"></span><br><span class="line">passwd ssy	修改用户密码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对组的操作(删除用户和组)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deluser newuser --remove-home	删除用户同时删除目录</span><br><span class="line">userdel newuser		只删除newuser 不删除家目录</span><br><span class="line"></span><br><span class="line">groupdel / delgroup  newuser	删除组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>系统管理的相关命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> shutdown -r now/+60	重启 +60</span><br><span class="line"><span class="meta">$</span> shutdown -h now/+60	关机 +60</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看磁盘空间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> df -h		//直观看到有多少G</span><br><span class="line"><span class="meta">$</span> df -aTh 	//详细</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看目录和文件大小</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> du -h home	//Home目录下的文件目录和大小</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Samba软件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">windows的格式为NTFS,Linux的格式为EXT4,Samba软件用于两者之间的格式转换.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/kernel/" rel="next" title="主流浏览器内核介绍">
+                <i class="fa fa-chevron-left"></i> 主流浏览器内核介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/man/" rel="prev" title="Ubuntu中文版man手册配置方法">
+                Ubuntu中文版man手册配置方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux软件包管理"><span class="nav-number">1.</span> <span class="nav-text">Linux软件包管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件包管理机制"><span class="nav-number">1.1.</span> <span class="nav-text">软件包管理机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deb软件包机制"><span class="nav-number">2.</span> <span class="nav-text">Deb软件包机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地安装包管理"><span class="nav-number">2.1.</span> <span class="nav-text">本地安装包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线安装包管理"><span class="nav-number">2.2.</span> <span class="nav-text">在线安装包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#deb包相关配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">deb包相关配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件传输服务器-TFTP-的配置和使用"><span class="nav-number">3.</span> <span class="nav-text">文件传输服务器(TFTP)的配置和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装客户端和服务端"><span class="nav-number">3.2.</span> <span class="nav-text">安装客户端和服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TFTP服务测试"><span class="nav-number">3.3.</span> <span class="nav-text">TFTP服务测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux网络文件系统NFS配置和使用"><span class="nav-number">4.</span> <span class="nav-text">Linux网络文件系统NFS配置和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念-1"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装和配置"><span class="nav-number">4.2.</span> <span class="nav-text">安装和配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">4.3.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-系统"><span class="nav-number">5.</span> <span class="nav-text">Linux 系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux文件系统"><span class="nav-number">5.1.</span> <span class="nav-text">Linux文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件的归档和压缩"><span class="nav-number">5.2.</span> <span class="nav-text">文件的归档和压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell通配符"><span class="nav-number">5.3.</span> <span class="nav-text">shell通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户和组"><span class="nav-number">5.4.</span> <span class="nav-text">用户和组</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="weChat,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="申请账号 微信小程序的注册邮箱账号和注册微信公众平台的注册邮箱账号不能一致">
+<meta name="keywords" content="weChat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序的开发">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/weChat-beta/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="申请账号 微信小程序的注册邮箱账号和注册微信公众平台的注册邮箱账号不能一致">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T10:35:53.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序的开发">
+<meta name="twitter:description" content="申请账号 微信小程序的注册邮箱账号和注册微信公众平台的注册邮箱账号不能一致">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/weChat-beta/">
+
+
+
+
+
+  <title>微信小程序的开发 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/weChat-beta/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">微信小程序的开发</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T18:24:54+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/微信/" itemprop="url" rel="index">
+                    <span itemprop="name">微信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/weChat/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  weChat</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="申请账号"><a href="#申请账号" class="headerlink" title="申请账号"></a>申请账号</h3><ul>
+<li>微信小程序的注册邮箱账号和注册微信公众平台的注册邮箱账号不能一致<a id="more"></a>
+</li>
+</ul>
+<h3 id="新建的项目"><a href="#新建的项目" class="headerlink" title="新建的项目"></a>新建的项目</h3><ul>
+<li>项目目录不要出现 中文,项目名称也不要出现 中文</li>
+<li>APPID 在设置 -&gt; 开发设置 -&gt; 中复制</li>
+</ul>
+<h3 id="代码构成"><a href="#代码构成" class="headerlink" title="代码构成"></a>代码构成</h3><h4 id="JSON-配置"><a href="#JSON-配置" class="headerlink" title="JSON 配置"></a>JSON 配置</h4><ul>
+<li>我们可以看到在项目的根目录有一个 app.json 和 project.config.json，此外在 pages/logs 目录下还有一个 logs.json，我们依次来说明一下他们的用途。</li>
+<li><code>app.json</code>文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// 全局的 app.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"pages"</span>:[</span><br><span class="line">    <span class="string">"pages/index/index"</span>,</span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"window"</span>:&#123;</span><br><span class="line">    <span class="attr">"backgroundTextStyle"</span>:<span class="string">"light"</span>,</span><br><span class="line">    <span class="attr">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">    <span class="attr">"navigationBarTitleText"</span>: <span class="string">"WeChat"</span>,</span><br><span class="line">    <span class="attr">"navigationBarTextStyle"</span>:<span class="string">"black"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"tabBar"</span>: &#123;</span><br><span class="line">    <span class="attr">"list"</span>: [&#123;</span><br><span class="line">      <span class="attr">"pagePath"</span>: <span class="string">"pages/index/index"</span>,</span><br><span class="line">      <span class="attr">"text"</span>: <span class="string">"首页"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="attr">"pagePath"</span>: <span class="string">"pages/logs/logs"</span>,</span><br><span class="line">      <span class="attr">"text"</span>: <span class="string">"日志"</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"networkTimeout"</span>: &#123;</span><br><span class="line">    <span class="attr">"request"</span>: <span class="number">10000</span>,</span><br><span class="line">    <span class="attr">"downloadFile"</span>: <span class="number">10000</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"debug"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// pages字段 —— 用于描述当前小程序所有页面路径，这是为了让微信客户端知道当前你的小程序页面定义在哪个目录。</span><br><span class="line">// window字段 —— 小程序所有页面的顶部背景颜色，文字颜色定义在这里的。</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages" target="_blank" rel="noopener">pages</a></td>
+<td>String Array</td>
+<td>是</td>
+<td>设置页面路径</td>
+</tr>
+<tr>
+<td><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window" target="_blank" rel="noopener">window</a></td>
+<td>Object</td>
+<td>否</td>
+<td>设置默认页面的窗口表现</td>
+</tr>
+<tr>
+<td><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabbar" target="_blank" rel="noopener">tabBar</a></td>
+<td>Object</td>
+<td>否</td>
+<td>设置底部 tab 的表现</td>
+</tr>
+<tr>
+<td><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#networktimeout" target="_blank" rel="noopener">networkTimeout</a></td>
+<td>Object</td>
+<td>否</td>
+<td>设置网络超时时间</td>
+</tr>
+<tr>
+<td><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#debug" target="_blank" rel="noopener">debug</a></td>
+<td>Boolean</td>
+<td>否</td>
+<td>设置是否开启 debug 模式</td>
+</tr>
+</tbody>
+</table>
+<h5 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h5><ul>
+<li>文件名不需要写文件后缀，因为框架会自动去寻找路径下 <code>.json</code>, <code>.js</code>, <code>.wxml</code>, <code>.wxss</code> 四个文件进行整合。</li>
+</ul>
+<h5 id="window"><a href="#window" class="headerlink" title="window"></a>window</h5><ul>
+<li>用于设置小程序的状态栏、导航条、标题、窗口背景色。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+<th>最低版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">navigationBarBackgroundColor</td>
+<td>HexColor</td>
+<td>#000000</td>
+<td>导航栏背景颜色，如”#000000”</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">navigationBarTextStyle</td>
+<td>String</td>
+<td>white</td>
+<td>导航栏标题颜色，仅支持 black/white</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">navigationBarTitleText</td>
+<td>String</td>
+<td></td>
+<td>导航栏标题文字内容</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">navigationStyle</td>
+<td>String</td>
+<td>default</td>
+<td>导航栏样式，仅支持 default/custom。custom 模式可自定义导航栏，只保留右上角胶囊状的按钮</td>
+<td>微信版本 6.6.0</td>
+</tr>
+<tr>
+<td style="text-align:left">backgroundColor</td>
+<td>HexColor</td>
+<td>#ffffff</td>
+<td>窗口的背景色</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">backgroundTextStyle</td>
+<td>String</td>
+<td>dark</td>
+<td>下拉背景字体、loading 图的样式，仅支持 dark/light</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">backgroundColorTop</td>
+<td>String</td>
+<td>#ffffff</td>
+<td>顶部窗口的背景色，仅 iOS 支持</td>
+<td>微信版本 6.5.16</td>
+</tr>
+<tr>
+<td style="text-align:left">backgroundColorBottom</td>
+<td>String</td>
+<td>#ffffff</td>
+<td>底部窗口的背景色，仅 iOS 支持</td>
+<td>微信版本 6.5.16</td>
+</tr>
+<tr>
+<td style="text-align:left">enablePullDownRefresh</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否开启下拉刷新，详见<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/page.html#%E9%A1%B5%E9%9D%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">页面相关事件处理函数</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">onReachBottomDistance</td>
+<td>Number</td>
+<td>50</td>
+<td>页面上拉触底事件触发时距页面底部距离，单位为px</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>注：HexColor（十六进制颜色值），如”#ff00ff”</strong></li>
+<li><strong>注：navigationStyle 只在 app.json 中生效。开启 custom 后，低版本客户端需要做好兼容。开发者工具基础库版本切到 1.7.0（不代表最低版本，只供调试用） 可方便切到旧视觉</strong></li>
+</ul>
+<h5 id="工具配置-project-config-json"><a href="#工具配置-project-config-json" class="headerlink" title="工具配置 project.config.json"></a>工具配置 project.config.json</h5><ul>
+<li>通常大家在使用一个工具的时候，都会针对各自喜好做一些个性化配置，例如界面颜色、编译配置等等，当你换了另外一台电脑重新安装工具的时候，你还要重新配置。</li>
+<li>考虑到这点，小程序开发者工具在每个项目的根目录都会生成一个 project.config.json，你在工具上做的任何配置都会写入到这个文件，当你重新安装工具或者换电脑工作时，你只要载入同一个项目的代码包，开发者工具就自动会帮你恢复到当时你开发项目时的个性化配置，其中会包括编辑器的颜色、代码上传时自动压缩等等一系列选项。</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"项目配置文件。"</span>,</span><br><span class="line">  <span class="attr">"setting"</span>: &#123;</span><br><span class="line">  	<span class="attr">"urlCheck"</span>: <span class="literal">true</span>,</span><br><span class="line">  	<span class="attr">"es6"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"postcss"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"minified"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"newFeature"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"compileType"</span>: <span class="string">"miniprogram"</span>,</span><br><span class="line">  <span class="attr">"libVersion"</span>: <span class="string">"1.9.93"</span>,</span><br><span class="line">  <span class="attr">"appid"</span>: <span class="string">"wx1aa41fe88e50caa3"</span>,</span><br><span class="line">  <span class="attr">"projectname"</span>: <span class="string">"xiaochengxu"</span>,</span><br><span class="line">  <span class="attr">"isGameTourist"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"condition"</span>: &#123;</span><br><span class="line">  	<span class="attr">"search"</span>: &#123;</span><br><span class="line">  	  <span class="attr">"current"</span>: <span class="number">-1</span>,</span><br><span class="line">	  <span class="attr">"list"</span>: []</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"conversation"</span>: &#123;</span><br><span class="line">	  <span class="attr">"current"</span>: <span class="number">-1</span>,</span><br><span class="line">      <span class="attr">"list"</span>: []</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"game"</span>: &#123;</span><br><span class="line">	  <span class="attr">"currentL"</span>: <span class="number">-1</span>,</span><br><span class="line">	  <span class="attr">"list"</span>: []</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"miniprogram"</span>: &#123;</span><br><span class="line">	  <span class="attr">"current"</span>: <span class="number">-1</span>,</span><br><span class="line">	  <span class="attr">"list"</span>: []</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="WXML-模板-HTML-页面"><a href="#WXML-模板-HTML-页面" class="headerlink" title="WXML 模板 (HTML 页面)"></a>WXML 模板 (HTML 页面)</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"userinfo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">wx:if</span>=<span class="string">"&#123;&#123;!hasUserInfo &amp;&amp; canIUse&#125;&#125;"</span>&gt;</span> 获取头像昵称 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:else</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;userInfo.avatarUrl&#125;&#125;"</span> <span class="attr">background-size</span>=<span class="string">"cover"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"userinfo-nickname"</span>&gt;</span>&#123;&#123;userInfo.nickName&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"usermotto"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"user-motto"</span>&gt;</span>&#123;&#123;motto&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="WXSS-样式-CSS样式"><a href="#WXSS-样式-CSS样式" class="headerlink" title="WXSS 样式 (CSS样式)"></a>WXSS 样式 (CSS样式)</h4><p>WXSS 具有 CSS 大部分的特性，小程序在 WXSS 也做了一些扩充和修改。</p>
+<ol>
+<li>新增了尺寸单位。在写 CSS 样式时，开发者需要考虑到手机设备的屏幕会有不同的宽度和设备像素比，采用一些技巧来换算一些像素单位。WXSS 在底层支持新的尺寸单位 rpx ，开发者可以免去换算的烦恼，只要交给小程序底层来换算即可，由于换算采用的浮点数运算，所以运算结果会和预期结果有一点点偏差。</li>
+<li>提供了全局的样式和局部样式。和前边 app.json, page.json 的概念相同，你可以写一个 app.wxss 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 page.wxss 仅对当前页面生效。</li>
+<li>此外 WXSS 仅支持部分 CSS 选择器</li>
+</ol>
+<ul>
+<li>WXSS(WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式。</li>
+<li>WXSS 用来决定 WXML 的组件应该怎么显示。</li>
+<li>为了适应广大的前端开发者，WXSS 具有 CSS 大部分特性。同时为了更适合开发微信小程序，WXSS 对 CSS 进行了扩充以及修改。</li>
+<li>与 CSS 相比，WXSS 扩展的特性有：<ul>
+<li>尺寸单位</li>
+<li>样式导入</li>
+</ul>
+</li>
+</ul>
+<h5 id="尺寸单位"><a href="#尺寸单位" class="headerlink" title="尺寸单位"></a>尺寸单位</h5><ul>
+<li>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>rpx换算px (屏幕宽度/750)</th>
+<th>px换算rpx (750/屏幕宽度)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iPhone5</td>
+<td>1rpx = 0.42px</td>
+<td>1px = 2.34rpx</td>
+</tr>
+<tr>
+<td>iPhone6</td>
+<td>1rpx = 0.5px</td>
+<td>1px = 2rpx</td>
+</tr>
+<tr>
+<td>iPhone6 Plus</td>
+<td>1rpx = 0.552px</td>
+<td>1px = 1.81rpx</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>建议：</strong> 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。</li>
+<li><strong>注意：</strong> 在较小的屏幕上不可避免的会有一些毛刺，请在开发时尽量避免这种情况。</li>
+</ul>
+<h5 id="样式导入"><a href="#样式导入" class="headerlink" title="样式导入"></a>样式导入</h5><ul>
+<li>使用<code>@import</code>语句可以导入外联样式表，<code>@import</code>后跟需要导入的外联样式表的相对路径，用<code>;</code>表示语句结束。</li>
+</ul>
+<h5 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;view style="color:&#123;&#123;color&#125;&#125;;" /&gt;</span><br><span class="line">&lt;view class="normal_view" /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><ul>
+<li>目前支持的选择器有：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>样例</th>
+<th>样例描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.class</td>
+<td><code>.intro</code></td>
+<td>选择所有拥有 class=”intro” 的组件</td>
+</tr>
+<tr>
+<td>#id</td>
+<td><code>#firstname</code></td>
+<td>选择拥有 id=”firstname” 的组件</td>
+</tr>
+<tr>
+<td>element</td>
+<td><code>view</code></td>
+<td>选择所有 view 组件</td>
+</tr>
+<tr>
+<td>element, element</td>
+<td><code>view, checkbox</code></td>
+<td>选择所有文档的 view 组件和所有的 checkbox 组件</td>
+</tr>
+<tr>
+<td>::after</td>
+<td><code>view::after</code></td>
+<td>在 view 组件后边插入内容</td>
+</tr>
+<tr>
+<td>::before</td>
+<td><code>view::before</code></td>
+<td>在 view 组件前边插入内容</td>
+</tr>
+</tbody>
+</table>
+<h5 id="全局样式与局部样式"><a href="#全局样式与局部样式" class="headerlink" title="全局样式与局部样式"></a>全局样式与局部样式</h5><ul>
+<li>定义在 app.wxss 中的样式为全局样式，作用于每一个页面。在 page 的 wxss 文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖 app.wxss 中相同的选择器。</li>
+</ul>
+<h4 id="JS-交互逻辑"><a href="#JS-交互逻辑" class="headerlink" title="JS 交互逻辑"></a>JS 交互逻辑</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"clickMe"</span>&gt;</span>点击我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  clickMe: function() &#123;</span><br><span class="line">    this.setData(&#123; msg: "Hello World" &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="小程序能力"><a href="#小程序能力" class="headerlink" title="小程序能力"></a>小程序能力</h3><ul>
+<li>微信客户端在打开小程序之前，会把整个小程序的代码包下载到本地。</li>
+<li>紧接着通过 app.json 的 pages 字段就可以知道你当前小程序的所有页面路径:</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"pages"</span>:[</span><br><span class="line">    <span class="string">"pages/index/index"</span>,</span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个配置说明在 QuickStart 项目定义了两个页面，分别位于 pages/index/index 和 pages/logs/logs 目录。而写在 pages 字段的第一个页面就是这个小程序的首页(打开小程序看到的第一个页面)。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/weChat/" rel="next" title="微信公众号的开发">
+                <i class="fa fa-chevron-left"></i> 微信公众号的开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/weChat-advance/" rel="prev" title="微信小程序的组件">
+                微信小程序的组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#申请账号"><span class="nav-number">1.</span> <span class="nav-text">申请账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建的项目"><span class="nav-number">2.</span> <span class="nav-text">新建的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码构成"><span class="nav-number">3.</span> <span class="nav-text">代码构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-配置"><span class="nav-number">3.1.</span> <span class="nav-text">JSON 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#pages"><span class="nav-number">3.1.1.</span> <span class="nav-text">pages</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#window"><span class="nav-number">3.1.2.</span> <span class="nav-text">window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工具配置-project-config-json"><span class="nav-number">3.1.3.</span> <span class="nav-text">工具配置 project.config.json</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WXML-模板-HTML-页面"><span class="nav-number">3.2.</span> <span class="nav-text">WXML 模板 (HTML 页面)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WXSS-样式-CSS样式"><span class="nav-number">3.3.</span> <span class="nav-text">WXSS 样式 (CSS样式)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#尺寸单位"><span class="nav-number">3.3.1.</span> <span class="nav-text">尺寸单位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#样式导入"><span class="nav-number">3.3.2.</span> <span class="nav-text">样式导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内联样式"><span class="nav-number">3.3.3.</span> <span class="nav-text">内联样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择器"><span class="nav-number">3.3.4.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全局样式与局部样式"><span class="nav-number">3.3.5.</span> <span class="nav-text">全局样式与局部样式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS-交互逻辑"><span class="nav-number">3.4.</span> <span class="nav-text">JS 交互逻辑</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序能力"><span class="nav-number">4.</span> <span class="nav-text">小程序能力</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
