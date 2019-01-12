@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="分支语句123456789101112131415161718192021/* * 1. if()&amp;#123;&amp;#125; * 2. if()&amp;#123;&amp;#125; else &amp;#123;&amp;#125; * 2. if()&amp;#123;&amp;#125; else if()&amp;#123;&amp;#125; * 4. switch - case */$n = 200;switch($n) &amp;#123;    cas">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 分支语句&#x2F;循环语句&#x2F;字符串函数&#x2F;数组函数">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/php-advance/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="分支语句123456789101112131415161718192021/* * 1. if()&amp;#123;&amp;#125; * 2. if()&amp;#123;&amp;#125; else &amp;#123;&amp;#125; * 2. if()&amp;#123;&amp;#125; else if()&amp;#123;&amp;#125; * 4. switch - case */$n = 200;switch($n) &amp;#123;    cas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T12:10:10.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 分支语句&#x2F;循环语句&#x2F;字符串函数&#x2F;数组函数">
+<meta name="twitter:description" content="分支语句123456789101112131415161718192021/* * 1. if()&amp;#123;&amp;#125; * 2. if()&amp;#123;&amp;#125; else &amp;#123;&amp;#125; * 2. if()&amp;#123;&amp;#125; else if()&amp;#123;&amp;#125; * 4. switch - case */$n = 200;switch($n) &amp;#123;    cas">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/php-advance/">
+
+
+
+
+
+  <title>PHP 分支语句/循环语句/字符串函数/数组函数 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/php-advance/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP 分支语句/循环语句/字符串函数/数组函数</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T20:05:10+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/php/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  php</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 1. if()&#123;&#125;</span></span><br><span class="line"><span class="comment"> * 2. if()&#123;&#125; else &#123;&#125;</span></span><br><span class="line"><span class="comment"> * 2. if()&#123;&#125; else if()&#123;&#125;</span></span><br><span class="line"><span class="comment"> * 4. switch - case</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$n = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>($n) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'回家吧!'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">201</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'泡面一箱'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'送你气筒'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 循环语句:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= <span class="number">5</span>; $i++)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"这是第"</span>.$i.<span class="string">"次循环"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br/&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 求两个数的最大公约数</span></span><br><span class="line">$b = <span class="number">48</span>;</span><br><span class="line">$c = <span class="number">36</span>;</span><br><span class="line">$max = $b &gt; $c ? $b : $c;</span><br><span class="line">$min = $b &lt; $c ? $b : $c;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>($max%$min != <span class="number">0</span>) &#123;  <span class="comment">// 辗转相除法</span></span><br><span class="line">    $yu = $max % $min;</span><br><span class="line">    $max = $min;</span><br><span class="line">    $min = $yu;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"求出的数是&#123;$min&#125;"</span>;  <span class="comment">// 12</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foreach 经常遍历关联数组,关联数组不能用 for($i)遍历</span></span><br><span class="line">$arr1 = <span class="keyword">array</span>(<span class="string">"name"</span> =&gt; <span class="string">"李四"</span>, <span class="string">"age"</span> =&gt; <span class="number">17</span>, <span class="string">"sex"</span> =&gt; <span class="string">"男"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;ul&gt;'</span>;</span><br><span class="line"><span class="keyword">foreach</span>($arr1 <span class="keyword">as</span> $key=&gt; $value) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;li&gt;'</span>.$key.<span class="string">":"</span>.$value.<span class="string">"&lt;/li&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;/ul&gt;'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><h4 id="获得字符串的大小"><a href="#获得字符串的大小" class="headerlink" title="获得字符串的大小"></a>获得字符串的大小</h4><ul>
+<li>strlen(字符串)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$str = <span class="string">"myfirst"</span>;</span><br><span class="line">$length = strlen($str);</span><br><span class="line"><span class="keyword">echo</span> $length;  <span class="comment">// 7</span></span><br><span class="line"></span><br><span class="line">$str1 = <span class="string">"汉字"</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 1. strlen() 获取字符串的大小,1个英文字符占1B, 一个汉字占3B</span></span><br><span class="line"><span class="comment"> *	  	1B = 8bit;</span></span><br><span class="line"><span class="comment"> * 		1KB = 1024B;</span></span><br><span class="line"><span class="comment"> * 		1M = 1024KB;</span></span><br><span class="line"><span class="comment"> * 		1G = 1024M;</span></span><br><span class="line"><span class="comment"> * 		1T = 1024G;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> strlen($str1);  <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h4 id="字符串查找"><a href="#字符串查找" class="headerlink" title="字符串查找"></a>字符串查找</h4><ul>
+<li>strpos(操作的字符串,)</li>
+<li>返回所在下标</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 2.字符串查找</span></span><br><span class="line"><span class="comment"> * strpos('字符串','你要找的字符串','查找位置'[可选]);</span></span><br><span class="line"><span class="comment"> * 返回值:字符串所在下标,否则返回 false</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * stripos('字符串','你要找的字符串','查找位置'[可选]);</span></span><br><span class="line"><span class="comment"> * 区别:不区分大小写</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$str2 = <span class="string">"ABcdEf"</span>;</span><br><span class="line"><span class="keyword">echo</span> stripos($str2,<span class="string">'de'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="查找替换字符串"><a href="#查找替换字符串" class="headerlink" title="查找替换字符串"></a>查找替换字符串</h4><ul>
+<li>str_replace(‘要操作的字符串’,’要替换的字符串’,’操作字符串’,’替换次数’)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$str3 = <span class="string">"马滑霜浓"</span>;</span><br><span class="line">$cont = <span class="number">0</span>;</span><br><span class="line">show(str_replace(<span class="string">'马'</span>,<span class="string">'斯'</span>,$str3,$cont));  <span class="comment">// 斯滑霜浓</span></span><br><span class="line"><span class="keyword">echo</span> $str3;  <span class="comment">// 马滑霜浓</span></span><br><span class="line"><span class="keyword">echo</span> $cont; <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h4 id="substr-‘字符串’-’起始位置’-’截取长度’-截取字符串"><a href="#substr-‘字符串’-’起始位置’-’截取长度’-截取字符串" class="headerlink" title="substr(‘字符串’,’起始位置’,’截取长度’) 截取字符串"></a>substr(‘字符串’,’起始位置’,’截取长度’) 截取字符串</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$str4 = <span class="string">"梦回吹角连营"</span>;</span><br><span class="line">substr($str4,<span class="number">6</span>,<span class="number">9</span>);  <span class="comment">// 吹角连</span></span><br></pre></td></tr></table></figure>
+<h4 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h4><ul>
+<li>strstr(‘字符串’,’要查找的字符串’,bool值)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 5. 查找字符串</span></span><br><span class="line"><span class="comment"> * strstr('字符串','要查找的字符串',bool值)</span></span><br><span class="line"><span class="comment"> * 默认是 false, 若是 true, 返回查找字符串之前的字符串,不包含自身</span></span><br><span class="line"><span class="comment"> * 返回值:一个新的字符串,没有查到返回 false</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * stristr('字符串','要查找的字符串',bool值)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$str5 = <span class="string">"my name is ssy."</span>;</span><br><span class="line"><span class="keyword">echo</span> strstr($str5,<span class="string">'name'</span>,<span class="keyword">true</span>);  <span class="comment">// my</span></span><br><span class="line"><span class="keyword">echo</span> strstr($str5,<span class="string">'name'</span>,<span class="keyword">false</span>);  <span class="comment">// name is ssy.</span></span><br></pre></td></tr></table></figure>
+<h4 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 6. 大小写转换</span></span><br><span class="line"><span class="comment"> * strtoupper('字符串');</span></span><br><span class="line"><span class="comment"> * strtolower('字符串');</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$str6 = <span class="string">"HtMl5"</span>;</span><br><span class="line"><span class="keyword">echo</span> strtoupper($str6);  <span class="comment">// HTML5</span></span><br><span class="line"><span class="keyword">echo</span> strtolower($str6);  <span class="comment">// html5</span></span><br></pre></td></tr></table></figure>
+<h4 id="翻转字符串"><a href="#翻转字符串" class="headerlink" title="翻转字符串"></a>翻转字符串</h4><ul>
+<li>strrev(‘字符串’)<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 7. 翻转字符串</span></span><br><span class="line"><span class="comment"> * strrev('字符串');</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$str6 = <span class="string">"HtMl5"</span>;</span><br><span class="line"><span class="keyword">echo</span> strrev($str6);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="去除字符串的空格"><a href="#去除字符串的空格" class="headerlink" title="去除字符串的空格"></a>去除字符串的空格</h4><ul>
+<li>trim/ltrim/rtrim</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 8. trim 除去字符串首尾空格</span></span><br><span class="line"><span class="comment"> * 		ltrim 去除左空格</span></span><br><span class="line"><span class="comment"> * 		rtrim 去除右空格</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$str7 = <span class="string">'    trim    '</span>;</span><br><span class="line">show(<span class="string">'1'</span>.trim($str7).<span class="string">'1'</span>);  <span class="comment">// 1trim1</span></span><br><span class="line">show(<span class="string">'1'</span>.ltrim($str7));  <span class="comment">// 1trim</span></span><br><span class="line">show(rtrim($str7).<span class="string">'1'</span>);  <span class="comment">// trim1</span></span><br></pre></td></tr></table></figure>
+<h4 id="字符串转换为数组元素"><a href="#字符串转换为数组元素" class="headerlink" title="字符串转换为数组元素"></a>字符串转换为数组元素</h4><ul>
+<li>explode(‘分割符’,操作字符串)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 9. 字符串转换为数组元素</span></span><br><span class="line"><span class="comment">* explode('分割符','字符串');</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">$name = <span class="string">"hello lisi my name is ssy"</span>;</span><br><span class="line">print_r(explode(<span class="string">" "</span>,$name));</span><br><span class="line"><span class="comment">// Array ( [0] =&gt; hello [1] =&gt; lisi [2] =&gt; my [3] =&gt; name [4] =&gt; is [5] =&gt; ssy )</span></span><br></pre></td></tr></table></figure>
+<h4 id="数组元素转换为字符串"><a href="#数组元素转换为字符串" class="headerlink" title="数组元素转换为字符串"></a>数组元素转换为字符串</h4><ul>
+<li>implode(‘连接符’,’操作数组’)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 10. 数组元素转换为字符串</span></span><br><span class="line"><span class="comment"> * implode('字符串','分割符');</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">show(implode(explode(<span class="string">" "</span>,$name),<span class="string">'/'</span>));  <span class="comment">// hello/lisi/my/name/is/ssy</span></span><br></pre></td></tr></table></figure>
+<h3 id="数组及其数组函数"><a href="#数组及其数组函数" class="headerlink" title="数组及其数组函数"></a>数组及其数组函数</h3><h4 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"first"</span>,<span class="string">"second"</span>,<span class="string">"third"</span>);</span><br><span class="line">print_r($arr);  <span class="comment">// Array ( [0] =&gt; first [1] =&gt; second [2] =&gt; third )</span></span><br><span class="line"></span><br><span class="line">数组的创建方式 <span class="keyword">array</span>()</span><br><span class="line">第一种: <span class="keyword">array</span>(<span class="string">"value1"</span>,<span class="string">"vakue2"</span>,<span class="string">"value3"</span>);</span><br><span class="line">第二种: <span class="keyword">array</span>(<span class="string">"key1"</span> =&gt; <span class="string">"value1"</span>,<span class="string">"key2"</span> =&gt; <span class="string">"value2"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 2.创建一个指定长度的数组</span></span><br><span class="line"><span class="comment"> * range(' 数组中的最小值','数组中的最大值','步长') ;</span></span><br><span class="line"><span class="comment"> * 若为非数字,则按照 ASCII 码顺序存储</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$arr2 = range(<span class="number">1</span>,<span class="number">100</span>,<span class="number">10</span>);</span><br><span class="line">print_r($arr2);</span><br><span class="line"><span class="comment">//  Array ( [0] =&gt; 1 [1] =&gt; 11 [2] =&gt; 21 [3] =&gt; 31 [4] =&gt; 41 [5] =&gt; 51 [6] =&gt; 61 [7] =&gt; 71 [8] =&gt; 81 [9] =&gt; 91 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"></span><br><span class="line">$arr3 = range(<span class="string">'a'</span>,<span class="string">'z'</span>,<span class="number">1</span>);</span><br><span class="line">print_r($arr3);</span><br><span class="line"><span class="comment">// Array ( [0] =&gt; a [1] =&gt; b [2] =&gt; c [3] =&gt; d [4] =&gt; e [5] =&gt; f [6] =&gt; g [7] =&gt; h [8] =&gt; i [9] =&gt; j [10] =&gt; k [11] =&gt; l [12] =&gt; m [13] =&gt; n [14] =&gt; o [15] =&gt; p [16] =&gt; q [17] =&gt; r [18] =&gt; s [19] =&gt; t [20] =&gt; u [21] =&gt; v [22] =&gt; w [23] =&gt; x [24] =&gt; y [25] =&gt; z )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="获取数组元素"><a href="#获取数组元素" class="headerlink" title="获取数组元素"></a>获取数组元素</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  获取数组元素</span></span><br><span class="line">$first = $arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"$first"</span>;</span><br><span class="line"><span class="comment">// 	获得数组的元素</span></span><br><span class="line"><span class="comment">// 		第一种:其实是将里面的值默认添加一个键,从0开始添加</span></span><br><span class="line"><span class="comment">// 		第二种:其实是通过键的方式来获得 $arr["键"];</span></span><br></pre></td></tr></table></figure>
+<h4 id="为数组添加新元素"><a href="#为数组添加新元素" class="headerlink" title="为数组添加新元素"></a>为数组添加新元素</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 	为数组添加新元素</span></span><br><span class="line">$arr[<span class="number">3</span>] = <span class="string">"four"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"$arr[3]"</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="count-数组"><a href="#count-数组" class="headerlink" title="count(数组)"></a>count(数组)</h4><ul>
+<li>获取数组元素的长度</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> count($arr);</span><br><span class="line"><span class="comment">// 	遍历数组:</span></span><br><span class="line"><span class="comment">// 		1. for循环,只能用于第一种的循环遍历</span></span><br><span class="line"><span class="comment">// 		2. foreach($arr as $key =&gt; $value); 能够使用于两种方式的创建</span></span><br><span class="line"><span class="comment">// 	数组长度的函数</span></span><br><span class="line"><span class="comment">// 		count($arr);</span></span><br></pre></td></tr></table></figure>
+<h4 id="数组常用函数"><a href="#数组常用函数" class="headerlink" title="数组常用函数"></a>数组常用函数</h4><ul>
+<li>索引数组:索引为整数,若没有执行值的时候,索引就从0开始,依次存储</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"四大贝勒:"</span>;</span><br><span class="line">$arr = <span class="keyword">array</span>();</span><br><span class="line">$arr[] = <span class="string">'阿敏'</span>;</span><br><span class="line">$arr[] = <span class="string">'代善'</span>;</span><br><span class="line">$arr[] = <span class="string">'皇太极'</span>;</span><br><span class="line">$arr[] = <span class="string">'莽古尔泰'</span>;</span><br><span class="line"></span><br><span class="line">print_r($arr);</span><br><span class="line"><span class="comment">// 四大贝勒:Array ( [0] =&gt; 阿敏 [1] =&gt; 代善 [2] =&gt; 皇太极 [3] =&gt; 莽古尔泰 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"四小贝勒:"</span>;</span><br><span class="line">$arr1 = <span class="keyword">array</span>();</span><br><span class="line">$arr1[] = <span class="string">'多尔衮'</span>;</span><br><span class="line">$arr1[] = <span class="string">'多铎'</span>;</span><br><span class="line">$arr1[] = <span class="string">'济尔哈朗'</span>;</span><br><span class="line">$arr1[] = <span class="string">'阿济格'</span>;</span><br><span class="line">$arr1[] = <span class="string">'蓝鸥'</span>;</span><br><span class="line"></span><br><span class="line">print_r($arr1);</span><br><span class="line"><span class="comment">// 四小贝勒:Array ( [0] =&gt; 多尔衮 [1] =&gt; 多铎 [2] =&gt; 济尔哈朗 [3] =&gt; 阿济格 [4] =&gt; 蓝鸥 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果指定了索引值,原来的值就会被覆盖</span></span><br><span class="line">$arr1[<span class="number">4</span>] = <span class="string">'中国'</span>;</span><br><span class="line">print_r($arr1);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h5><ul>
+<li>count($arr)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> count($arr);</span><br></pre></td></tr></table></figure>
+<h5 id="判断元素是否在数组中"><a href="#判断元素是否在数组中" class="headerlink" title="判断元素是否在数组中"></a>判断元素是否在数组中</h5><ul>
+<li>in_array(‘aa’,$arr)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(in_array(<span class="string">'中国'</span>,$arr1))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'在哦'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"不在哦"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h5><ul>
+<li>unset(数组索引)  删除之后数组下标不变</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 4.删除 unset(数组索引) 删除之后数组下标不变</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$arr4 = <span class="keyword">array</span>(<span class="string">"刘备"</span>,<span class="string">"关羽"</span>,<span class="string">"张飞"</span>,<span class="string">"百里"</span>,<span class="string">'鲁班'</span>);</span><br><span class="line"><span class="keyword">unset</span>($arr4[<span class="number">3</span>]);</span><br><span class="line">print_r($arr4);  <span class="comment">// Array ( [0] =&gt; 刘备 [1] =&gt; 关羽 [2] =&gt; 张飞 [4] =&gt; 鲁班 )</span></span><br></pre></td></tr></table></figure>
+<h5 id="删除数组最后一个元素"><a href="#删除数组最后一个元素" class="headerlink" title="删除数组最后一个元素"></a>删除数组最后一个元素</h5><ul>
+<li>array_pop($arr) 返回删除的数组值,空数组返回 NULL</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 5.删除数组中的最后一个元素</span></span><br><span class="line"><span class="comment"> * array_pop()</span></span><br><span class="line"><span class="comment"> * 注意:返回值是删除的数组值,若数组为空数组,则返回 NULL</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 6. array_shift() 删除数组中的第一个元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">array_pop($arr4);</span><br><span class="line">print_r($arr4);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="删除数组的开头第一个元素"><a href="#删除数组的开头第一个元素" class="headerlink" title="删除数组的开头第一个元素"></a>删除数组的开头第一个元素</h5><ul>
+<li>array_shift($arr)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array_shift() 删除数组中的第一个元素</span></span><br><span class="line">array_shift($arr4);</span><br><span class="line">print_r($arr4);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="替换数组"><a href="#替换数组" class="headerlink" title="替换数组"></a>替换数组</h5><ul>
+<li><p>array_splice(‘操作数组’,’起始位置’,’替换长度’,’替换的内容’)</p>
+</li>
+<li><p>替换之后数组下标重新排列</p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$arr5 = <span class="keyword">array</span>(<span class="string">'杜十娘'</span>,<span class="string">'苏小小'</span>,<span class="string">'李香君'</span>,<span class="string">'陈圆圆'</span>);</span><br><span class="line">$arr6 = array_splice($arr5,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">print_r($arr6);</span><br><span class="line"><span class="comment">// Array ( [0] =&gt; 苏小小 [1] =&gt; 李香君 )</span></span><br></pre></td></tr></table></figure>
+<h5 id="向数组添加新元素"><a href="#向数组添加新元素" class="headerlink" title="向数组添加新元素"></a>向数组添加新元素</h5><ul>
+<li>array_push(原数组,新元素)</li>
+<li>注意:返回新数组的长度</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a = array_push($arr6,<span class="string">"郭德纲"</span>,<span class="string">"岳云鹏"</span>);</span><br><span class="line"><span class="keyword">echo</span> $a;  <span class="comment">// 4</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line">print_r($arr6);  <span class="comment">// Array ( [0] =&gt; 苏小小 [1] =&gt; 李香君 [2] =&gt; 郭德纲 [3] =&gt; 岳云鹏 )</span></span><br></pre></td></tr></table></figure>
+<h5 id="向数组开头添加数组元素"><a href="#向数组开头添加数组元素" class="headerlink" title="向数组开头添加数组元素"></a>向数组开头添加数组元素</h5><ul>
+<li>array_unshift(‘操作数组’,’新的元素’);</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 9.向数组开头添加元素</span></span><br><span class="line"><span class="comment"> * array_unshift('操作数组','新的元素');</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">array_unshift($arr6,<span class="string">"郭德纲"</span>,<span class="string">"岳云鹏"</span>);</span><br><span class="line">print_r($arr6);</span><br></pre></td></tr></table></figure>
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><ul>
+<li>array_unique(你的数组)</li>
+<li>返回的数组:下标不会重新排列</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$arr8 = <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>);</span><br><span class="line">$arr9 = array_unique($arr8);</span><br><span class="line">print_r($arr9); <span class="comment">// Array ( [0] =&gt; 1 [2] =&gt; 2 [3] =&gt; 3 [4] =&gt; 4 [6] =&gt; 5 [7] =&gt; 6 [8] =&gt; 7 [10] =&gt; 8 [11] =&gt; 9 )</span></span><br></pre></td></tr></table></figure>
+<h5 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$arr10 = <span class="keyword">array</span>(<span class="string">'蓝鸥'</span>,<span class="string">'菜鸟'</span>,<span class="string">'达内'</span>);</span><br><span class="line">$arr11 = <span class="keyword">array</span>(<span class="string">'后羿'</span>,<span class="string">'亚瑟'</span>,<span class="string">'鲁班'</span>);</span><br><span class="line">$arr12 = <span class="keyword">array</span>(<span class="string">'李白'</span>,<span class="string">'杜甫'</span>,<span class="string">'李清照'</span>);</span><br><span class="line"></span><br><span class="line">$arr13 = <span class="keyword">array</span>($arr10,$arr11,$arr12);</span><br><span class="line"></span><br><span class="line"><span class="comment">// foreach 遍历数组元素</span></span><br><span class="line"><span class="keyword">foreach</span>($arr13 <span class="keyword">as</span> $key1 =&gt; $value1) &#123;</span><br><span class="line">    <span class="keyword">foreach</span>($value1 <span class="keyword">as</span> $key2 =&gt; $value2)	&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>.$key1.<span class="string">':'</span>.$value2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="获得所有的键名"><a href="#获得所有的键名" class="headerlink" title="获得所有的键名"></a>获得所有的键名</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"name"</span> =&gt; <span class="string">"蓝鸥"</span>, <span class="string">"gender"</span> =&gt; <span class="string">"男"</span>, <span class="string">"hobby"</span> =&gt; <span class="string">"喝酒"</span>);</span><br><span class="line"><span class="comment">// 键名数组</span></span><br><span class="line">$value = array_keys($arr);</span><br><span class="line">print_r($value);  <span class="comment">// Array ( [0] =&gt; name [1] =&gt; gender [2] =&gt; hobby )</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ($i=<span class="number">0</span>; $i &lt; count($value); $i++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $value[$i].<span class="string">"="</span>.$arr[$value[$i]].<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="判断键名是否存在"><a href="#判断键名是否存在" class="headerlink" title="判断键名是否存在"></a>判断键名是否存在</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"name"</span> =&gt; <span class="string">"蓝鸥"</span>, <span class="string">"gender"</span> =&gt; <span class="string">"男"</span>, <span class="string">"hobby"</span> =&gt; <span class="string">"喝酒"</span>);</span><br><span class="line">$values= array_key_exists(<span class="string">"name"</span>, $arr);</span><br><span class="line"><span class="keyword">if</span> ($values) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"键名存在"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"键名不存在"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/php-beta/" rel="next" title="PHP 入门/输出语句/变量/常量/数据类型/类型转换/运算符">
+                <i class="fa fa-chevron-left"></i> PHP 入门/输出语句/变量/常量/数据类型/类型转换/运算符
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/php-function/" rel="prev" title="PHP 数学方法/时间/函数文件引入/php函数/JSON">
+                PHP 数学方法/时间/函数文件引入/php函数/JSON <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支语句"><span class="nav-number">1.</span> <span class="nav-text">分支语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环语句"><span class="nav-number">2.</span> <span class="nav-text">循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获得字符串的大小"><span class="nav-number">3.1.</span> <span class="nav-text">获得字符串的大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串查找"><span class="nav-number">3.2.</span> <span class="nav-text">字符串查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找替换字符串"><span class="nav-number">3.3.</span> <span class="nav-text">查找替换字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#substr-‘字符串’-’起始位置’-’截取长度’-截取字符串"><span class="nav-number">3.4.</span> <span class="nav-text">substr(‘字符串’,’起始位置’,’截取长度’) 截取字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找字符串"><span class="nav-number">3.5.</span> <span class="nav-text">查找字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大小写转换"><span class="nav-number">3.6.</span> <span class="nav-text">大小写转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#翻转字符串"><span class="nav-number">3.7.</span> <span class="nav-text">翻转字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去除字符串的空格"><span class="nav-number">3.8.</span> <span class="nav-text">去除字符串的空格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转换为数组元素"><span class="nav-number">3.9.</span> <span class="nav-text">字符串转换为数组元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组元素转换为字符串"><span class="nav-number">3.10.</span> <span class="nav-text">数组元素转换为字符串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组及其数组函数"><span class="nav-number">4.</span> <span class="nav-text">数组及其数组函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数组"><span class="nav-number">4.1.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取数组元素"><span class="nav-number">4.2.</span> <span class="nav-text">获取数组元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为数组添加新元素"><span class="nav-number">4.3.</span> <span class="nav-text">为数组添加新元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#count-数组"><span class="nav-number">4.4.</span> <span class="nav-text">count(数组)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组常用函数"><span class="nav-number">4.5.</span> <span class="nav-text">数组常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取数组的长度"><span class="nav-number">4.5.1.</span> <span class="nav-text">获取数组的长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断元素是否在数组中"><span class="nav-number">4.5.2.</span> <span class="nav-text">判断元素是否在数组中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除元素"><span class="nav-number">4.5.3.</span> <span class="nav-text">删除元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除数组最后一个元素"><span class="nav-number">4.5.4.</span> <span class="nav-text">删除数组最后一个元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除数组的开头第一个元素"><span class="nav-number">4.5.5.</span> <span class="nav-text">删除数组的开头第一个元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换数组"><span class="nav-number">4.5.6.</span> <span class="nav-text">替换数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#向数组添加新元素"><span class="nav-number">4.5.7.</span> <span class="nav-text">向数组添加新元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#向数组开头添加数组元素"><span class="nav-number">4.5.8.</span> <span class="nav-text">向数组开头添加数组元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组去重"><span class="nav-number">4.5.9.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二维数组"><span class="nav-number">4.5.10.</span> <span class="nav-text">二维数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获得所有的键名"><span class="nav-number">4.5.11.</span> <span class="nav-text">获得所有的键名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断键名是否存在"><span class="nav-number">4.5.12.</span> <span class="nav-text">判断键名是否存在</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

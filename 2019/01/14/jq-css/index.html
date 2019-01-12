@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CSS.addClass() 添加样式 为每个匹配的元素添加指定的样式类名 参数:类名/匿名函数">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery中的CSS操作(CSS&#x2F;尺寸&#x2F;位置&#x2F;数据)">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/jq-css/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="CSS.addClass() 添加样式 为每个匹配的元素添加指定的样式类名 参数:类名/匿名函数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T13:31:20.010Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery中的CSS操作(CSS&#x2F;尺寸&#x2F;位置&#x2F;数据)">
+<meta name="twitter:description" content="CSS.addClass() 添加样式 为每个匹配的元素添加指定的样式类名 参数:类名/匿名函数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/jq-css/">
+
+
+
+
+
+  <title>jQuery中的CSS操作(CSS/尺寸/位置/数据) | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/14/jq-css/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">jQuery中的CSS操作(CSS/尺寸/位置/数据)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:26:42+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/jQuery/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  jQuery</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><h4 id="addClass"><a href="#addClass" class="headerlink" title=".addClass()"></a>.addClass()</h4><ul>
+<li>添加样式</li>
+<li>为每个匹配的元素添加指定的样式类名</li>
+<li>参数:类名/匿名函数<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#box1 p"</span>).eq(<span class="number">0</span>).addClass(<span class="string">"s1"</span>);</span><br><span class="line">$(<span class="string">"#box p"</span>).eq(<span class="number">0</span>).addClass(<span class="string">"s1 s2 s4"</span>)</span><br><span class="line"><span class="comment">// 参数是匿名函数</span></span><br><span class="line">$(<span class="string">"#box1 p"</span>).addClass(<span class="function"><span class="keyword">function</span>(<span class="params">index,className</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// console.log(1);</span></span><br><span class="line">    <span class="built_in">console</span>.log(index,className);</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"s1"</span>;</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">1</span>) <span class="keyword">return</span> <span class="string">"s2"</span>;</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">2</span>) <span class="keyword">return</span> <span class="string">"s3"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="removeClass"><a href="#removeClass" class="headerlink" title=".removeClass()"></a>.removeClass()</h4><ul>
+<li>移除样式</li>
+<li>移除集合中每个匹配元素上一个，多个或全部样式。</li>
+</ul>
+<h4 id="toggleClass"><a href="#toggleClass" class="headerlink" title=".toggleClass()"></a>.toggleClass()</h4><ul>
+<li>有类就添加,没有就删除</li>
+<li>为匹配的元素集合中的每个元素上添加或删除一个或多个样式类（class）</li>
+<li>取决于这个样式类（class）是否存在或state参数的值。</li>
+<li>有类就删除，没有就添加</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  参数2:控制删除(false) 或者 添加(true) Class</span></span><br><span class="line">$(<span class="string">"#box p:last-child"</span>).toggleClass(<span class="string">"s1 s2"</span>,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title=".css()"></a>.css()</h4><ul>
+<li>设置属性 或 获取属性值</li>
+<li><strong>获取</strong>匹配元素集合中的<strong>第一个</strong>元素的样式属性的计算值    或    <strong>设置</strong>每个匹配元素的一个或多个CSS属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">     $(".one").css("width", "500px");</span></span><br><span class="line"><span class="comment">     $(".one").css("height", "500px");</span></span><br><span class="line"><span class="comment">     $(".one").css("background", "pink");</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    //一次性设置多个</span></span><br><span class="line"><span class="comment">    $(".one").css(&#123;</span></span><br><span class="line"><span class="comment">      "width": "500px",</span></span><br><span class="line"><span class="comment">      "height": "500px",</span></span><br><span class="line"><span class="comment">      "background": "pink"</span></span><br><span class="line"><span class="comment">    &#125;);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用addClass来添加样式最方便</span></span><br><span class="line">    $(<span class="string">".one"</span>).addClass(<span class="string">"back color_red"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用removeClass来移除样式</span></span><br><span class="line">    $(<span class="string">".one"</span>).removeClass(<span class="string">"color_red back"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//有类就删除，没有就添加</span></span><br><span class="line">    $(<span class="string">".one"</span>).toggleClass(<span class="string">"back"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取样式</span></span><br><span class="line">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).css(<span class="string">"width"</span>));<span class="comment">//获取width</span></span><br><span class="line">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).css(<span class="string">"height"</span>));<span class="comment">//获取height</span></span><br><span class="line">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).css(<span class="string">"background-color"</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回一个包含指定属性的对象</span></span><br><span class="line">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).css([<span class="string">"width"</span>, <span class="string">"height"</span>, <span class="string">"background-color"</span>]));</span><br><span class="line"></span><br><span class="line"><span class="comment">/**************************/</span></span><br><span class="line">&lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line">    &lt;p&gt;p1&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;p2&lt;/</span>p&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="./</span>js/jquery.min.js<span class="string">" charset="</span>utf<span class="number">-8</span><span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">"&gt;</span></span><br><span class="line">    $("#box p").css("color","red").css("font-size","30px");</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取</span></span><br><span class="line">    <span class="keyword">var</span> value = $(<span class="string">"#box p"</span>).css(<span class="string">"width"</span>);  <span class="comment">// 包含单位</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// html() 内容相关 可以包含 html 标签</span></span><br><span class="line">    $(<span class="string">"#box p"</span>).eq(<span class="number">0</span>).html(<span class="string">"w:"</span> + value);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 参数对象</span></span><br><span class="line">    $(<span class="string">"#box p:eq(1)"</span>).css(&#123;</span><br><span class="line">        <span class="comment">// 注意驼峰命名,数字单位可以省略</span></span><br><span class="line">        textDecoration:<span class="string">"line-through"</span>,</span><br><span class="line">        color:<span class="string">"pink"</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 回调函数</span></span><br><span class="line">    $(<span class="string">"#box p"</span>).css(<span class="string">"background-color"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(index === <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"yellow"</span>;</span><br><span class="line">        <span class="keyword">if</span>(index === <span class="number">1</span>) <span class="keyword">return</span> <span class="string">"blue"</span>;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    $(<span class="string">"#box p"</span>).css(&#123;</span><br><span class="line">        width:<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">parseFloat</span>(value) - <span class="number">100</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        height:<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">parseFloat</span>(value) + <span class="number">100</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// text() 内容相关 不包含 html 标签</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// val() 表单内容相关</span></span><br></pre></td></tr></table></figure>
+<h3 id="jQuery的链式调用"><a href="#jQuery的链式调用" class="headerlink" title="jQuery的链式调用"></a>jQuery的链式调用</h3><ul>
+<li>链式调用实现：jQuery中的方法每次都返回选择的符合条件的jQuery对象本身。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>jQuery的链式调用！！！！！<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.back</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 200px;</span></span><br><span class="line"><span class="undefined">        height: 200px;</span></span><br><span class="line"><span class="undefined">        background: pink;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">/*</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log($(<span class="string">".one"</span>));</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).addClass(<span class="string">"back"</span>));</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).css(<span class="string">"color"</span>, <span class="string">"red"</span>));</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log($(<span class="string">".one"</span>).css([<span class="string">"width"</span>, <span class="string">"height"</span>, <span class="string">"background-color"</span>]));</span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="javascript">    <span class="comment">//等价于以上代码	链式调用</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log($(<span class="string">".one"</span>).addClass(<span class="string">"back"</span>).css(<span class="string">"color"</span>,<span class="string">"red"</span>).css([<span class="string">"width"</span>, <span class="string">"height"</span>, <span class="string">"background-color"</span>]));</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h4><ul>
+<li>获取表单元素的值/ 设置表单元素的值</li>
+<li>获取匹配的元素集合中第一个元素的当前值或设置匹配的元素集合中每个元素的值。</li>
+<li>val()　获取值</li>
+<li>val(value)设置值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从复选框获取选中值</span></span><br><span class="line">$(<span class="string">"input[type=checkbox][name=bar]:checked"</span> ).val();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置文本框的值</span></span><br><span class="line">$(<span class="string">"input"</span>).val(text);</span><br></pre></td></tr></table></figure>
+<h4 id="attr"><a href="#attr" class="headerlink" title="attr()"></a>attr()</h4><ul>
+<li>获取行间属性 / 设置行间属性</li>
+<li>参数1:属性名</li>
+<li>参数2:属性值/匿名函数的返回值作为属性值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取属性</span></span><br><span class="line"><span class="keyword">var</span> ar = $(<span class="string">"#box"</span>).attr(<span class="string">"id"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ar);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line">$(<span class="string">"#box"</span>).attr(<span class="string">"age"</span>,<span class="string">"18"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数对象,设置多个属性</span></span><br><span class="line">$(<span class="string">"#box"</span>).attr(&#123;</span><br><span class="line">    name:<span class="string">"lisi"</span>,</span><br><span class="line">    sex:<span class="string">"nv"</span>,</span><br><span class="line">    src:<span class="string">"地址"</span>,</span><br><span class="line">    alt:<span class="string">"提示"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line">$(<span class="string">"#box"</span>).attr(<span class="string">"src"</span>,<span class="string">"地址"</span>);</span><br><span class="line">$(<span class="string">"#box"</span>).attr(<span class="string">"src"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">index,oldValue</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index,oldValue);  <span class="comment">// 0 "地址"</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"新的地址"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="removeAttr"><a href="#removeAttr" class="headerlink" title="removeAttr()"></a>removeAttr()</h4><ul>
+<li>移除行间属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移除 一个或者多个</span></span><br><span class="line">$(<span class="string">"#box"</span>).removeAttr(<span class="string">"age sex"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#box"</span>).test = <span class="string">"测试"</span>;</span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box"</span>).test);  <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = $(<span class="string">"#box"</span>);</span><br><span class="line">obj.test = <span class="string">"测试1"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.test);  <span class="comment">// 测试1</span></span><br><span class="line"><span class="comment">// 验证: $("#box") 每次执行都会 new 一个新的一模一样的对象返回</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box"</span>) === $(<span class="string">"#box"</span>));  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="prop"><a href="#prop" class="headerlink" title="prop()"></a>prop()</h4><ul>
+<li>类似原生点语法自定属性,行间不可见</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置</span></span><br><span class="line">$(<span class="string">"#box2"</span>).prop(<span class="string">"age"</span>,<span class="string">"18"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取</span></span><br><span class="line"><span class="keyword">var</span> age = $(<span class="string">"#box2"</span>).prop(<span class="string">"age"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(age,box2.age);  <span class="comment">// 18 18</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 原生对象只有一份,多个 JQ 对象共享一个原生对象</span></span><br><span class="line"><span class="comment">// 两个 $("#box2") JQ 对象不同,但是原生对象只有一份</span></span><br><span class="line">$(<span class="string">"#box2"</span>)[<span class="number">0</span>].test = <span class="string">"测试3"</span>;</span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box2"</span>)[<span class="number">0</span>].test);  <span class="comment">// 测试3</span></span><br></pre></td></tr></table></figure>
+<h3 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h3><h4 id="height"><a href="#height" class="headerlink" title="height()"></a>height()</h4><h4 id="width"><a href="#width" class="headerlink" title="width()"></a>width()</h4><ul>
+<li>宽高没有单位</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line">    &lt;p&gt;p1&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;p2&lt;/</span>p&gt;</span><br><span class="line">    &lt;p&gt;p3&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">$(<span class="string">"#box p"</span>).height(<span class="number">100</span>).width(<span class="number">100</span>).css(<span class="string">"background-color"</span>,<span class="string">"pink"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="innerHeight"><a href="#innerHeight" class="headerlink" title="innerHeight()"></a>innerHeight()</h4><h4 id="innerWidth"><a href="#innerWidth" class="headerlink" title="innerWidth()"></a>innerWidth()</h4><ul>
+<li>内尺寸,不包含边框</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line">    &lt;p&gt;p1&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;p2&lt;/</span>p&gt;</span><br><span class="line">    &lt;p&gt;p3&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line"><span class="keyword">var</span> value1 = $(<span class="string">"#box p"</span>).eq(<span class="number">0</span>).innerHeight();</span><br><span class="line"><span class="built_in">console</span>.log(value1);</span><br><span class="line">$(<span class="string">"#box p"</span>).eq(<span class="number">0</span>).text(<span class="string">"innerHeight(contain+padding):"</span> + value1 + <span class="string">"px"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="outerWidth"><a href="#outerWidth" class="headerlink" title="outerWidth()"></a>outerWidth()</h4><h4 id="outerHeight"><a href="#outerHeight" class="headerlink" title="outerHeight()"></a>outerHeight()</h4><ul>
+<li>外尺寸 ,包含边框,默认不包含 margin,参数1给 true 包含 margin</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> outerW = $(<span class="string">"#box p"</span>).outerWidth();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"外尺寸:"</span> + outerW);  <span class="comment">// 160  // border + padding</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> outerW1 = $(<span class="string">"#box p"</span>).outerWidth(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"外尺寸:"</span> + outerW1);  <span class="comment">// 190  // border + padding + margin</span></span><br></pre></td></tr></table></figure>
+<h3 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h3><h4 id="offset"><a href="#offset" class="headerlink" title="offset()"></a>offset()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;style media=<span class="string">"screen"</span>&gt;</span><br><span class="line">    #box &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #box a &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        left: <span class="number">10</span>px;</span><br><span class="line">        top: <span class="number">10</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;div id="box"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;a href="#"&gt;子元素&lt;/</span>a&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">$("#box").css(&#123;</span></span><br><span class="line"><span class="regexp">    border:"5px solid red",</span></span><br><span class="line"><span class="regexp">    height:"200px",</span></span><br><span class="line"><span class="regexp">    width:"200px"</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ offset:获取到页面顶部(左)的距离</span></span><br><span class="line"><span class="regexp">var offsetBox = $("#box").offset();</span></span><br><span class="line"><span class="regexp">console.log(offsetBox);  /</span><span class="regexp">/ object对象 包含 left = 8和 top = 8</span></span><br><span class="line"><span class="regexp">console.log(offsetBox.top,offsetBox.left);  /</span><span class="regexp">/ 8 8</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var offsetA = $("#box a").offset();</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ offset 与父元素的定位没有关系,永远都是相对于文档的距离</span></span><br><span class="line"><span class="regexp">console.log(offsetA);  /</span><span class="regexp">/ object对象 包含 left = 23 和 top = 23</span></span><br><span class="line"><span class="regexp">console.log(offsetA.top,offsetA.left); /</span><span class="regexp">/ 23 23</span></span><br></pre></td></tr></table></figure>
+<h4 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// position() 获取相对于父元素的偏移,只能获取,不能设置</span></span><br><span class="line"><span class="keyword">var</span> pos = $(<span class="string">"#box a"</span>).position();</span><br><span class="line"><span class="built_in">console</span>.log(pos);  <span class="comment">// object 对象</span></span><br><span class="line"><span class="built_in">console</span>.log(pos.left,pos.top); <span class="comment">// 10 10</span></span><br></pre></td></tr></table></figure>
+<h4 id="scrollTop"><a href="#scrollTop" class="headerlink" title="scrollTop()"></a>scrollTop()</h4><h4 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title="scrollLeft()"></a>scrollLeft()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取</span></span><br><span class="line"><span class="keyword">var</span> sTop = $(<span class="built_in">document</span>.body).scrollTop();</span><br><span class="line"><span class="built_in">console</span>.log(sTop);</span><br><span class="line"><span class="keyword">var</span> sTop1 = $(<span class="built_in">document</span>.documentElement).scrollTop();</span><br><span class="line"><span class="built_in">console</span>.log(sTop);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line">$(<span class="string">"body,html"</span>).scrollTop(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动画方式设置 回到顶部</span></span><br><span class="line">$(<span class="string">"body,html"</span>).animate(&#123;</span><br><span class="line">    scrollTop:<span class="number">0</span></span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="全选和反选"><a href="#全选和反选" class="headerlink" title="全选和反选"></a>全选和反选</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>全选和反选<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"btn1"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"btn1"</span> <span class="attr">value</span>=<span class="string">"全选"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"btn2"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"btn2"</span> <span class="attr">value</span>=<span class="string">"反选"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="comment">// 全选</span></span></span><br><span class="line"><span class="javascript">		$(<span class="string">"#btn1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">"#list &gt; li &gt; input"</span>).prop(<span class="string">"checked"</span>,<span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="comment">// 反选</span></span></span><br><span class="line"><span class="javascript">		$(<span class="string">"#btn2"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="comment">// $("#list li input").get().forEach()</span></span></span><br><span class="line"><span class="javascript">			$(<span class="string">"#list li input"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">this</span>.checked = !<span class="keyword">this</span>.checked;</span></span><br><span class="line"><span class="undefined">			&#125;);</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全选</span></span><br><span class="line">$(<span class="string">"#btn1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#list &gt; li &gt; input"</span>).prop(<span class="string">"checked"</span>,<span class="literal">true</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反选</span></span><br><span class="line">$(<span class="string">"#btn2"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#list &gt; li &gt; input"</span>).prop(<span class="string">"checked"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">index,old</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> !old;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-select/" rel="next" title="jQuery选择器">
+                <i class="fa fa-chevron-left"></i> jQuery选择器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-dom/" rel="prev" title="jQuery中的DOM操作">
+                jQuery中的DOM操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#addClass"><span class="nav-number">1.1.</span> <span class="nav-text">.addClass()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#removeClass"><span class="nav-number">1.2.</span> <span class="nav-text">.removeClass()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toggleClass"><span class="nav-number">1.3.</span> <span class="nav-text">.toggleClass()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css"><span class="nav-number">1.4.</span> <span class="nav-text">.css()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery的链式调用"><span class="nav-number">2.</span> <span class="nav-text">jQuery的链式调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">3.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#val"><span class="nav-number">3.1.</span> <span class="nav-text">val()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#attr"><span class="nav-number">3.2.</span> <span class="nav-text">attr()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#removeAttr"><span class="nav-number">3.3.</span> <span class="nav-text">removeAttr()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prop"><span class="nav-number">3.4.</span> <span class="nav-text">prop()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尺寸"><span class="nav-number">4.</span> <span class="nav-text">尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#height"><span class="nav-number">4.1.</span> <span class="nav-text">height()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#width"><span class="nav-number">4.2.</span> <span class="nav-text">width()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#innerHeight"><span class="nav-number">4.3.</span> <span class="nav-text">innerHeight()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#innerWidth"><span class="nav-number">4.4.</span> <span class="nav-text">innerWidth()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outerWidth"><span class="nav-number">4.5.</span> <span class="nav-text">outerWidth()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outerHeight"><span class="nav-number">4.6.</span> <span class="nav-text">outerHeight()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置"><span class="nav-number">5.</span> <span class="nav-text">位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#offset"><span class="nav-number">5.1.</span> <span class="nav-text">offset()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position"><span class="nav-number">5.2.</span> <span class="nav-text">position()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollTop"><span class="nav-number">5.3.</span> <span class="nav-text">scrollTop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollLeft"><span class="nav-number">5.4.</span> <span class="nav-text">scrollLeft()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全选和反选"><span class="nav-number">6.</span> <span class="nav-text">全选和反选</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

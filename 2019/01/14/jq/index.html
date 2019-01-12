@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="查找12345678&amp;lt;div id=&quot;box&quot;&amp;gt;    &amp;lt;ul&amp;gt;        &amp;lt;li class=&quot;l1&quot;&amp;gt;li1&amp;lt;/li&amp;gt;        &amp;lt;li&amp;gt;li2&amp;lt;/li&amp;gt;        &amp;lt;li class=&quot;l3&quot;&amp;gt;li3&amp;lt;/li&amp;gt;        &amp;lt;li&amp;gt;li4&amp;lt;/li&amp;gt;    &amp;l">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery中的查找&#x2F;过滤&#x2F;工具&#x2F;核心">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/jq/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="查找12345678&amp;lt;div id=&quot;box&quot;&amp;gt;    &amp;lt;ul&amp;gt;        &amp;lt;li class=&quot;l1&quot;&amp;gt;li1&amp;lt;/li&amp;gt;        &amp;lt;li&amp;gt;li2&amp;lt;/li&amp;gt;        &amp;lt;li class=&quot;l3&quot;&amp;gt;li3&amp;lt;/li&amp;gt;        &amp;lt;li&amp;gt;li4&amp;lt;/li&amp;gt;    &amp;l">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T13:53:45.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery中的查找&#x2F;过滤&#x2F;工具&#x2F;核心">
+<meta name="twitter:description" content="查找12345678&amp;lt;div id=&quot;box&quot;&amp;gt;    &amp;lt;ul&amp;gt;        &amp;lt;li class=&quot;l1&quot;&amp;gt;li1&amp;lt;/li&amp;gt;        &amp;lt;li&amp;gt;li2&amp;lt;/li&amp;gt;        &amp;lt;li class=&quot;l3&quot;&amp;gt;li3&amp;lt;/li&amp;gt;        &amp;lt;li&amp;gt;li4&amp;lt;/li&amp;gt;    &amp;l">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/jq/">
+
+
+
+
+
+  <title>jQuery中的查找/过滤/工具/核心 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/14/jq/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">jQuery中的查找/过滤/工具/核心</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:49:49+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/jQuery/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  jQuery</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l1"</span>&gt;</span>li1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>li2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l3"</span>&gt;</span>li3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>li4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="parent"><a href="#parent" class="headerlink" title=".parent()"></a>.parent()</h4><ul>
+<li>获取每个匹配元素的父元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">".l1"</span>).parent());  <span class="comment">// ul</span></span><br></pre></td></tr></table></figure>
+<h4 id="parents-选择器"><a href="#parents-选择器" class="headerlink" title=".parents([选择器])"></a>.parents([选择器])</h4><ul>
+<li>获取匹配元素的所有祖先元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">".l1"</span>).parents()); <span class="comment">// ul div#box body html</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">".l1"</span>).parents(<span class="string">"#box"</span>)); <span class="comment">// div#box</span></span><br></pre></td></tr></table></figure>
+<h4 id="parentsUntil-选择器"><a href="#parentsUntil-选择器" class="headerlink" title=".parentsUntil(选择器)"></a>.parentsUntil(选择器)</h4><ul>
+<li>找的元素不包含参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">".l1"</span>).parentsUntil(<span class="string">"body"</span>)); <span class="comment">// ul div#box</span></span><br></pre></td></tr></table></figure>
+<h4 id="offsetParent"><a href="#offsetParent" class="headerlink" title=".offsetParent()"></a>.offsetParent()</h4><ul>
+<li>和原生的一样,查找具有定位关系的父元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box"</span>).offsetParent());  <span class="comment">// html</span></span><br></pre></td></tr></table></figure>
+<h4 id="children"><a href="#children" class="headerlink" title=".children()"></a>.children()</h4><ul>
+<li>获得匹配元素集合中每个元素的子元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"level-1"</span>&gt;</span><br><span class="line">  &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item-i"</span>&gt;I&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li class="item-ii"&gt;II</span></span><br><span class="line"><span class="regexp">    &lt;ul class="level-2"&gt;</span></span><br><span class="line"><span class="regexp">      &lt;li class="item-a"&gt;A&lt;/</span>li&gt;</span><br><span class="line">      &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item-b"</span>&gt;B</span><br><span class="line">        &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"level-3"</span>&gt;</span><br><span class="line">          &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item-1"</span>&gt;<span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">          &lt;li class="item-2"&gt;2&lt;/</span>li&gt;</span><br><span class="line">          &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item-3"</span>&gt;<span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/u</span>l&gt;</span><br><span class="line">      &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">      &lt;li class="item-c"&gt;C&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>li&gt;</span><br><span class="line">  &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item-iii"</span>&gt;III&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"> $(<span class="string">'ul.level-2'</span>).children().css(<span class="string">'background-color'</span>, <span class="string">'red'</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!--结果为A,B,C有红色背景--&gt;</span></span><br><span class="line"><span class="regexp">/</span>**************************************************<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ children 找第一代</span></span><br><span class="line"><span class="regexp">console.log($("#box ul").children()); /</span><span class="regexp">/ li.l1  li   li.l3   li</span></span><br></pre></td></tr></table></figure>
+<h4 id="find-选择器-JQ对象-原生对象"><a href="#find-选择器-JQ对象-原生对象" class="headerlink" title=".find(选择器|JQ对象|原生对象)"></a>.find(选择器|JQ对象|原生对象)</h4><ul>
+<li>参数必传</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box"</span>).find(<span class="string">"ul"</span>)); <span class="comment">// ul</span></span><br></pre></td></tr></table></figure>
+<h4 id="siblings"><a href="#siblings" class="headerlink" title=".siblings()"></a>.siblings()</h4><ul>
+<li>获取匹配元素中每个元素的兄弟元素</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"> <span class="keyword">var</span> i=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(i&lt;=<span class="number">6</span>)&#123;</span></span><br><span class="line"><span class="javascript">      $(<span class="string">"li"</span>).eq(i).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--结果依次为li元素添加和删除类--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="next"><a href="#next" class="headerlink" title=".next()"></a>.next()</h4><ul>
+<li>取得匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。</li>
+<li>如果提供一个选择器，那么只有紧跟着的兄弟元素满足选择器时，才会返回此元素。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">disabled</span>=<span class="string">"disabled"</span>&gt;</span>First<span class="tag">&lt;/<span class="name">button</span>&gt;</span> - <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Second<span class="tag">&lt;/<span class="name">button</span>&gt;</span> - <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">disabled</span>=<span class="string">"disabled"</span>&gt;</span>Third<span class="tag">&lt;/<span class="name">button</span>&gt;</span> - <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button[disabled]"</span>).next().text(<span class="string">"this button is disabled"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--结果为first和third按钮后有文本--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="nextAll"><a href="#nextAll" class="headerlink" title=".nextAll()"></a>.nextAll()</h4><ul>
+<li>获得每个匹配元素集合中所有下面的同辈元素。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"third-item"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="string">'li.third-item'</span>).nextAll().css(<span class="string">'color'</span>, <span class="string">'red'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--结果为5,6,7变为红色--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="nextUntil"><a href="#nextUntil" class="headerlink" title=".nextUntil()"></a>.nextUntil()</h4><ul>
+<li>查找当前元素之后所有的同辈元素，直到遇到匹配的那个元素为止。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box .l3"</span>).nextUntil(<span class="string">"#box"</span>));  <span class="comment">// li</span></span><br></pre></td></tr></table></figure>
+<h4 id="prev"><a href="#prev" class="headerlink" title=".prev()"></a>.prev()</h4><ul>
+<li>获取集合中每个匹配元素紧邻的前一个兄弟元素。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;li&gt;list item <span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">   &lt;li&gt;list item 2&lt;/</span>li&gt;</span><br><span class="line">   &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"third-item"</span>&gt;list item <span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">   &lt;li&gt;list item 4&lt;/</span>li&gt;</span><br><span class="line">   &lt;li&gt;list item <span class="number">5</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(<span class="string">'li.third-item'</span>).prev().css(<span class="string">'color'</span>, <span class="string">'red'</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!--结果为2变为红色--&gt;</span></span><br><span class="line"><span class="regexp">/</span>**************************<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">console.log($("#box .l3").prev());  /</span><span class="regexp">/ li</span></span><br></pre></td></tr></table></figure>
+<h4 id="prevAll"><a href="#prevAll" class="headerlink" title=".prevAll()"></a>.prevAll()</h4><ul>
+<li>获得集合中每个匹配元素的所有前面的兄弟元素。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>list item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>list item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"third-item"</span>&gt;</span>list item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>list item 4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>list item 5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="string">'li.third-item'</span>).prevAll().css(<span class="string">'color'</span>, <span class="string">'red'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--结果为1,2变为红色--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="prevUntil"><a href="#prevUntil" class="headerlink" title=".prevUntil()"></a>.prevUntil()</h4><ul>
+<li>查找当前元素之前所有的同辈元素，直到遇到匹配的那个元素为止。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box .l3"</span>).prevUntil(<span class="string">"#box"</span>));  <span class="comment">// li  li.l1</span></span><br></pre></td></tr></table></figure>
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l1"</span>&gt;</span>li1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l1"</span>&gt;</span>li2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l3"</span>&gt;</span>li3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>li4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="hasClass-类名"><a href="#hasClass-类名" class="headerlink" title="hasClass(类名)"></a>hasClass(类名)</h4><ul>
+<li>判断是否有某个类名</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hasClass(类名)   结合 addClass 和 removeClass</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box li"</span>).hasClass(<span class="string">"l1"</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h4 id="filter-选择器"><a href="#filter-选择器" class="headerlink" title="filter(选择器)"></a>filter(选择器)</h4><ul>
+<li>筛选符合条件的元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box li"</span>).filter(<span class="string">".l1"</span>));  <span class="comment">// li.l1  li.l1</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box li"</span>).filter(<span class="string">".l1:first"</span>));  <span class="comment">// li.l1</span></span><br></pre></td></tr></table></figure>
+<h4 id="is-选择器"><a href="#is-选择器" class="headerlink" title="is(选择器)"></a>is(选择器)</h4><ul>
+<li>判断匹配元素是否与选择元素相同 –Boolean值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box li"</span>).parent().is(<span class="string">"ul"</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#box li"</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">index,value</span>) </span>&#123;</span><br><span class="line">    index += <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(index,value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="has"><a href="#has" class="headerlink" title="has()"></a>has()</h4><ul>
+<li>判断匹配元素是否含有选择的 DOM元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box ul"</span>).has(<span class="string">".l1"</span>));</span><br></pre></td></tr></table></figure>
+<h4 id="not"><a href="#not" class="headerlink" title="not()"></a>not()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box ul"</span>).not(<span class="string">".l1"</span>));</span><br></pre></td></tr></table></figure>
+<h4 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start,[end])"></a>slice(start,[end])</h4><h3 id="工具-—-数组和对象操作"><a href="#工具-—-数组和对象操作" class="headerlink" title="工具 — 数组和对象操作"></a>工具 — 数组和对象操作</h3><h4 id="each-fn"><a href="#each-fn" class="headerlink" title="$.each(fn)"></a>$.each(fn)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"ul li"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index,value);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// $.each() 遍历对象或数组</span></span><br><span class="line">$.each([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]],<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index,value);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person =  &#123;<span class="attr">name</span>:<span class="string">"lisi"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</span><br><span class="line">$.each(person,<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key,value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="extend"><a href="#extend" class="headerlink" title="$.extend()"></a>$.extend()</h4><ul>
+<li>扩展对象,返回值是扩展的对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    name:<span class="string">"lisi"</span>,</span><br><span class="line">    hobby:[<span class="string">"抽烟"</span>,<span class="string">"喝酒"</span>,<span class="string">"烫头"</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    name:<span class="string">"ssy"</span>,</span><br><span class="line">    age:<span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 把 person1和 person2扩展到 temp中</span></span><br><span class="line"><span class="comment">// 参数1给 true, 深拷贝,重新开辟内存空间</span></span><br><span class="line"><span class="keyword">var</span> extendObj = $.extend(temp,person1,person2);</span><br><span class="line"><span class="built_in">console</span>.log(temp,extendObj);</span><br><span class="line"><span class="comment">// &#123;name: "ssy", hobby: Array(3), age: 18&#125; &#123;name: "ssy", hobby: Array(3), age: 18&#125;</span></span><br><span class="line"><span class="comment">// 返回值和 第一个对象 是相等的</span></span><br><span class="line"><span class="built_in">console</span>.log(temp == extendObj);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h5 id="extend-1"><a href="#extend-1" class="headerlink" title="extend"></a>extend</h5><ul>
+<li>可以扩展公用的函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$.extend(&#123;</span><br><span class="line">    request:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"公用请求函数"</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.url);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span> === $);</span><br><span class="line">    &#125;,</span><br><span class="line">    url:<span class="string">"http://www.baodu.com"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$.request();  <span class="comment">// 公用请求函数  http://www.baodu.com  true</span></span><br><span class="line"><span class="built_in">console</span>.log($.url); <span class="comment">// http://www.baodu.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/***************************扩展方式*****************************/</span></span><br><span class="line"><span class="built_in">console</span>.log($.prototype);</span><br><span class="line"><span class="comment">// Object [jquery: "3.1.1", constructor: ƒ, toArray: ƒ, get: ƒ, pushStack: ƒ, …]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.</span></span><br><span class="line">jQuery.prototype.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"跑步"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(<span class="string">"ul li"</span>).run();</span><br><span class="line">$(<span class="string">"#box"</span>).run();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.$.fn JQ对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log($.fn);</span><br><span class="line"><span class="comment">// Object [jquery: "3.1.1", constructor: ƒ, toArray: ƒ, get: ƒ, pushStack: ƒ, …]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($.fn === $.prototype);  <span class="comment">// true</span></span><br><span class="line">$.fn.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"eat----"</span>);</span><br><span class="line">&#125;</span><br><span class="line">$(<span class="string">"#box"</span>).eat();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.</span></span><br><span class="line">$.fn.extend(&#123;</span><br><span class="line">    move:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"开始移动"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    speed:<span class="number">20</span></span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">"#box"</span>).move();  <span class="comment">// 开始移动</span></span><br><span class="line"><span class="built_in">console</span>.log($.fn.speed);  <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+<h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><h4 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h4><ul>
+<li>遍历一个jQuery对象，为每个匹配元素执行一个函数。</li>
+<li>为每个选中的元素执行一次函数</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav-item"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>小米手机<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>红米<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>平板 · 笔记本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>电视<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>盒子 · 影音<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>路由器<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>智能硬件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>服务<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>社区<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//此处的index为 从0开始的计数。。。。console.log(index);的结果为0~6</span></span></span><br><span class="line"><span class="javascript">$(<span class="string">".nav-item a.item"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  		<span class="comment">//此时用eq(index)选中0~6对应的标号</span></span></span><br><span class="line"><span class="javascript">      	$(<span class="string">".nav-item a.item"</span>).eq(index).mouseover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//显示nav-bottom</span></span></span><br><span class="line"><span class="javascript">        $(<span class="string">".nav .nav-bottom"</span>).show();</span></span><br><span class="line"><span class="javascript">      	<span class="comment">//显示nav-bottom 中对应的li</span></span></span><br><span class="line"><span class="javascript">        $(<span class="string">".logobox-bottom .items"</span>).eq(index).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);</span></span><br><span class="line"><span class="undefined">          &#125;);</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	结果是为每个item的ａ标签执行一个函数</span></span><br><span class="line"><span class="comment">	每移动到一个a标签都会使对应的隐藏导航显示</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="context-上下文"><a href="#context-上下文" class="headerlink" title="context 上下文"></a>context 上下文</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// $():参数2,context 上下文</span></span><br><span class="line"><span class="comment">// 找 #box 下的 p</span></span><br><span class="line">$(<span class="string">"p"</span>,<span class="string">"#box"</span>).css(<span class="string">"backgroundColor"</span>,<span class="string">"lightblue"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"p"</span>,box));  <span class="comment">// r.fn.init(2)</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"p"</span>,<span class="string">"#box"</span>));  <span class="comment">// r.fn.init(2)</span></span><br></pre></td></tr></table></figure>
+<h4 id="Jquery-文档加载完成回调"><a href="#Jquery-文档加载完成回调" class="headerlink" title="Jquery 文档加载完成回调"></a>Jquery 文档加载完成回调</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jQuery(callback);</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 文档就绪</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 文档就绪</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><ul>
+<li>获取原生对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jq转换为原生</span></span><br><span class="line">$(<span class="string">"#box p"</span>).get(<span class="number">1</span>).style.fontSize = <span class="string">"30px"</span>;</span><br><span class="line"><span class="comment">// 不给参数,返回数组,获取选中的元素数组</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">"#box p"</span>).get());</span><br><span class="line">$(<span class="string">"#box p"</span>).get().reverse()[<span class="number">0</span>].style.color = <span class="string">"pink"</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="index"><a href="#index" class="headerlink" title="index()"></a>index()</h4><ul>
+<li>获取匹配元素的索引值 从0开始</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li id=<span class="string">"foo"</span>&gt;foo&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li id="bar"&gt;bar&lt;/</span>li&gt;</span><br><span class="line">  &lt;li id=<span class="string">"baz"</span>&gt;baz&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">$(<span class="string">'li'</span>).index(<span class="built_in">document</span>.getElementById(<span class="string">'bar'</span>)); <span class="comment">//1，传递一个DOM对象，返回这个对象在原先集合中的索引位置</span></span><br><span class="line">$(<span class="string">'li'</span>).index($(<span class="string">'#bar'</span>)); <span class="comment">//1，传递一个jQuery对象</span></span><br><span class="line">$(<span class="string">'li'</span>).index($(<span class="string">'li:gt(0)'</span>)); <span class="comment">//1，传递一组jQuery对象，返回这个对象中第一个元素在原先集合中的索引位置</span></span><br><span class="line">$(<span class="string">'#bar'</span>).index(<span class="string">'li'</span>); <span class="comment">//1，传递一个选择器，返回#bar在所有li中的索引位置</span></span><br><span class="line">$(<span class="string">'#bar'</span>).index(); <span class="comment">//1，不传递参数，返回这个元素在同辈中的索引位置。</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-event/" rel="next" title="jQuery中的事件操作">
+                <i class="fa fa-chevron-left"></i> jQuery中的事件操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-effect/" rel="prev" title="jQuery中的效果">
+                jQuery中的效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">1.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#parent"><span class="nav-number">1.1.</span> <span class="nav-text">.parent()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parents-选择器"><span class="nav-number">1.2.</span> <span class="nav-text">.parents([选择器])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parentsUntil-选择器"><span class="nav-number">1.3.</span> <span class="nav-text">.parentsUntil(选择器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#offsetParent"><span class="nav-number">1.4.</span> <span class="nav-text">.offsetParent()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#children"><span class="nav-number">1.5.</span> <span class="nav-text">.children()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find-选择器-JQ对象-原生对象"><span class="nav-number">1.6.</span> <span class="nav-text">.find(选择器|JQ对象|原生对象)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#siblings"><span class="nav-number">1.7.</span> <span class="nav-text">.siblings()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next"><span class="nav-number">1.8.</span> <span class="nav-text">.next()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nextAll"><span class="nav-number">1.9.</span> <span class="nav-text">.nextAll()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nextUntil"><span class="nav-number">1.10.</span> <span class="nav-text">.nextUntil()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prev"><span class="nav-number">1.11.</span> <span class="nav-text">.prev()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prevAll"><span class="nav-number">1.12.</span> <span class="nav-text">.prevAll()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prevUntil"><span class="nav-number">1.13.</span> <span class="nav-text">.prevUntil()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤"><span class="nav-number">2.</span> <span class="nav-text">过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hasClass-类名"><span class="nav-number">2.1.</span> <span class="nav-text">hasClass(类名)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-选择器"><span class="nav-number">2.2.</span> <span class="nav-text">filter(选择器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#is-选择器"><span class="nav-number">2.3.</span> <span class="nav-text">is(选择器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">2.4.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#has"><span class="nav-number">2.5.</span> <span class="nav-text">has()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#not"><span class="nav-number">2.6.</span> <span class="nav-text">not()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slice-start-end"><span class="nav-number">2.7.</span> <span class="nav-text">slice(start,[end])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具-—-数组和对象操作"><span class="nav-number">3.</span> <span class="nav-text">工具 — 数组和对象操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#each-fn"><span class="nav-number">3.1.</span> <span class="nav-text">$.each(fn)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extend"><span class="nav-number">3.2.</span> <span class="nav-text">$.extend()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#extend-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">extend</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心"><span class="nav-number">4.</span> <span class="nav-text">核心</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#each"><span class="nav-number">4.1.</span> <span class="nav-text">.each()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#context-上下文"><span class="nav-number">4.2.</span> <span class="nav-text">context 上下文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jquery-文档加载完成回调"><span class="nav-number">4.3.</span> <span class="nav-text">Jquery 文档加载完成回调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">4.4.</span> <span class="nav-text">get()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#index"><span class="nav-number">4.5.</span> <span class="nav-text">index()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

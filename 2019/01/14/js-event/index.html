@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="事件鼠标事件 单击事件 - onclick 鼠标按下 - onmousedown 鼠标抬起 - onmouseup 鼠标移入 - onmouseover/onmouseenter 后者不支持冒泡 鼠标移出 - onmouseout/onmouseleave 后者不支持冒泡 鼠标移动 - onmousemove 鼠标右键 - oncontentmenu - return false;阻止事件传递 取">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript PC 端事件&#x2F;事件冒泡&#x2F;事件捕获&#x2F;回调函数&#x2F; ECMA5数组新方法&#x2F;事件处理四种方式&#x2F; Event 事件对象">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/js-event/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="事件鼠标事件 单击事件 - onclick 鼠标按下 - onmousedown 鼠标抬起 - onmouseup 鼠标移入 - onmouseover/onmouseenter 后者不支持冒泡 鼠标移出 - onmouseout/onmouseleave 后者不支持冒泡 鼠标移动 - onmousemove 鼠标右键 - oncontentmenu - return false;阻止事件传递 取">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T12:50:53.483Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript PC 端事件&#x2F;事件冒泡&#x2F;事件捕获&#x2F;回调函数&#x2F; ECMA5数组新方法&#x2F;事件处理四种方式&#x2F; Event 事件对象">
+<meta name="twitter:description" content="事件鼠标事件 单击事件 - onclick 鼠标按下 - onmousedown 鼠标抬起 - onmouseup 鼠标移入 - onmouseover/onmouseenter 后者不支持冒泡 鼠标移出 - onmouseout/onmouseleave 后者不支持冒泡 鼠标移动 - onmousemove 鼠标右键 - oncontentmenu - return false;阻止事件传递 取">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/js-event/">
+
+
+
+
+
+  <title>JavaScript PC 端事件/事件冒泡/事件捕获/回调函数/ ECMA5数组新方法/事件处理四种方式/ Event 事件对象 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/14/js-event/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaScript PC 端事件/事件冒泡/事件捕获/回调函数/ ECMA5数组新方法/事件处理四种方式/ Event 事件对象</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T20:48:33+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/javascript/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  javascript</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><ul>
+<li>单击事件 - onclick</li>
+<li>鼠标按下 - onmousedown</li>
+<li>鼠标抬起 - onmouseup</li>
+<li>鼠标移入 - onmouseover/onmouseenter 后者不支持冒泡</li>
+<li>鼠标移出 - onmouseout/onmouseleave 后者不支持冒泡</li>
+<li>鼠标移动 - onmousemove</li>
+<li>鼠标右键 - oncontentmenu - return false;阻止事件传递</li>
+<li>取消文本被选中 - onselectstart return false;</li>
+<li>鼠标双击 - ondbclick<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.单击事件 down-&gt;up-&gt;click</span></span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line"><span class="keyword">var</span> box1 = <span class="built_in">document</span>.getElementById(<span class="string">"box2"</span>);</span><br><span class="line">box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"单击..."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 鼠标按下</span></span><br><span class="line">box.onmousedown = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标按下"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 鼠标抬起</span></span><br><span class="line">box.onmouseup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标抬起"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标移入</span></span><br><span class="line">box.onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标移入over"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// onmouseover 和 onmouseenter 的区别是后者不支持 冒泡</span></span><br><span class="line">box.onmouseenter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标移入enter"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标移除</span></span><br><span class="line">box.onmouseout = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标移出out"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// leave:在冒泡阶段不会执行,而 out 可以执行</span></span><br><span class="line">box.onmouseleave = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标移出leave"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标移动</span></span><br><span class="line"><span class="keyword">var</span> index = <span class="number">0</span>;</span><br><span class="line">box.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    index++;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标移动"</span> + index + <span class="string">"次"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标右键</span></span><br><span class="line">box1.oncontextmenu = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标右键"</span>);</span><br><span class="line">    event.preventDefault(); <span class="comment">// 阻止浏览器默认的行为</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 阻止默认</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消文本被选中</span></span><br><span class="line">box1.onselectstart = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">// 阻止拉取选中文本</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标双击</span></span><br><span class="line">box1.ondblclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标双击"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 取消绑定事件 event 事件对象</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"contextmenu"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    event.preventDefault();</span><br><span class="line">    <span class="built_in">console</span>.log(event);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"文档--右键"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">// 监听中无法阻止默认事件</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">username.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"键盘按下."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">username.onkeypress = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"按压...."</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);  <span class="comment">// 第一次执行 值 为空</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">username.onkeyup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.value.length &gt;= <span class="number">10</span>)&#123;</span><br><span class="line">        alert(<span class="string">"超过十个"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"键盘抬起...."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 键盘事件可以使用 document 进行监听</span></span><br><span class="line"><span class="comment"> *  document,body,documentElement 都可以</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">document</span>.body.onkeyup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"文档:键盘弹起"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h4><ul>
+<li>获得焦点 onfocus</li>
+<li>失去焦点 onblur</li>
+<li>表单重置 onreset</li>
+<li>元素选中:onselect</li>
+<li>用户输入 oninput 写一下触发一下</li>
+<li>用户输入 onchange 写完失去焦点时触发一次</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">username.onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"获得焦点"</span>);</span><br><span class="line">&#125;</span><br><span class="line">username.onblur = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"失去焦点"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入框改变时调用,输一次调一次</span></span><br><span class="line">username1.oninput = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"input:"</span> + <span class="keyword">this</span>.value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  输入框内容发生改变,并且失去焦点时调用</span></span><br><span class="line">username1.onchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"input --:"</span> + <span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 选择的时候:</span></span><br><span class="line">username1.onselect = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"开始选择:"</span> + <span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="剪贴板事件"><a href="#剪贴板事件" class="headerlink" title="剪贴板事件"></a>剪贴板事件</h4><ul>
+<li>拷贝时触发 oncopy</li>
+<li>剪切时触发 oncut</li>
+<li>粘贴时触发 onpaste</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 选择的时候:</span></span><br><span class="line">username1.onselect = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"开始选择:"</span> + <span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拷贝的时候</span></span><br><span class="line">username1.oncopy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"开始拷贝"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 剪切的时候</span></span><br><span class="line">username1.oncut = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"开始剪切"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 粘贴的时候</span></span><br><span class="line">username1.onpaste = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"开始粘贴"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="动画事件"><a href="#动画事件" class="headerlink" title="动画事件"></a>动画事件</h4><ul>
+<li>animationstart 动画开始时回调</li>
+<li>animationiteration 动画重复播放时调用</li>
+<li>animationend动画结束时调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听</span></span><br><span class="line"><span class="comment">// 动画结束时回调</span></span><br><span class="line">box.addEventListener(<span class="string">"animationend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"动画完了!"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动画开始时回调</span></span><br><span class="line">box.addEventListener(<span class="string">"animationstart"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 动画重复播放时触发</span></span><br><span class="line">box.addEventListener(<span class="string">"animationiteration"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="事件冒泡-事件捕获"><a href="#事件冒泡-事件捕获" class="headerlink" title="事件冒泡/事件捕获"></a>事件冒泡/事件捕获</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">id</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"span"</span>&gt;</span>this is a span tag!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery-3.1.1.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      $(<span class="string">"#body"</span>).bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// e.target 表示被点击的目标</span></span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"事件冒泡了！点击的元素是："</span> + $(e.target).attr(<span class="string">"id"</span>) + <span class="string">" 单击事件绑定在Body上"</span>);</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从上到下</span></span><br><span class="line"><span class="built_in">window</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"window"</span>);&#125;</span><br><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"html"</span>);&#125;</span><br><span class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"body"</span>);&#125;</span><br><span class="line">box1.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"box1"</span>);&#125;</span><br><span class="line">box2.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"box2"</span>);&#125;</span><br><span class="line">box3.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"box3"</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 事件冒泡:</span></span><br><span class="line"><span class="comment"> * 1.通过 onclick 方式添加的事件都是冒泡事件</span></span><br><span class="line"><span class="comment"> * (onmouseenter,leave不冒泡)</span></span><br><span class="line"><span class="comment"> * 2.通过监听方式绑定的事件,如果参数3默认(false)也是冒泡事件</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 冒泡的开始:从被点击的元素开始,然后会继续往父元素上冒泡-&gt;body-&gt;html-&gt;window-&gt;丢弃</span></span><br><span class="line"><span class="comment"> * 冒泡过程中:只要元素绑定了单击事件,都会被执行.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>事件捕获</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"box1"</span>&gt;box1</span><br><span class="line">    &lt;div id=<span class="string">"box2"</span>&gt;box2</span><br><span class="line">        &lt;div id=<span class="string">"box3"</span>&gt;box3&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">box1.onclick = function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("冒泡: box1");</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">box2.onclick = function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("冒泡: box2");</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">box3.onclick = function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("冒泡: box3");</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">window.onclick = function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("冒泡: window");</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">/</span>*</span><br><span class="line"> * 捕获型事件:只能通过监听的方式 参数<span class="number">3</span>是 <span class="literal">true</span></span><br><span class="line"> *</span><br><span class="line"> * 捕获是从外向内执行,<span class="built_in">window</span>开始-&gt;html-&gt;...-&gt;事件源结束</span><br><span class="line"> * 这个过程中,谁绑定了捕获型事件,就会被执行</span><br><span class="line"> * <span class="number">1.</span>捕获型事件,只在捕获的过程中执行</span><br><span class="line"> *</span><br><span class="line"> * 捕获完成后(<span class="built_in">window</span>-&gt;点击的元素):接着从该元素冒泡出去</span><br><span class="line"> *</span><br><span class="line"> * <span class="number">2.</span>冒泡型事件:只在冒泡过程中执行</span><br><span class="line"> *</span><br><span class="line"> * 冒泡和捕获同时具备,先执行捕获,再执行冒泡,如果某个元素同时具备冒泡和捕获,从整体来看,先执行捕获,在执行冒泡,当执行到当前同时具备捕获和冒泡的元素上时,当前元素先执行冒泡,在执行捕获,然后从该元素冒泡出去.</span><br><span class="line"> *<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">box1.addEventListener("click",function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("捕获: box1");</span></span><br><span class="line"><span class="regexp">&#125;,true);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">box2.addEventListener("click",function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("捕获: box2");</span></span><br><span class="line"><span class="regexp">&#125;,true);</span></span><br><span class="line"><span class="regexp">box3.addEventListener("click",function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("捕获: box3");</span></span><br><span class="line"><span class="regexp">&#125;,true);</span></span><br><span class="line"><span class="regexp">window.addEventListener("click",function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log("捕获: window");</span></span><br><span class="line"><span class="regexp">&#125;,true);</span></span><br></pre></td></tr></table></figure>
+<h3 id="ECMA5-中数组新方法"><a href="#ECMA5-中数组新方法" class="headerlink" title="ECMA5 中数组新方法"></a>ECMA5 中数组新方法</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="comment">// current  当前项数值</span></span><br><span class="line"><span class="comment">// index    索引</span></span><br><span class="line"><span class="comment">// err      整个数组</span></span><br><span class="line">b.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">current,index,err</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// console.log("current = ",current);</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"index = "</span>,index);</span><br><span class="line">  <span class="comment">// console.log("err = ",err);</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name:<span class="string">'悟空'</span>,</span><br><span class="line">    age:<span class="number">234</span>,</span><br><span class="line">    job:<span class="string">'取经'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> keys <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys + <span class="string">'='</span> + obj[keys]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// name=悟空</span></span><br><span class="line"><span class="comment">// age=234</span></span><br><span class="line"><span class="comment">// job=取经</span></span><br></pre></td></tr></table></figure>
+<h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><ul>
+<li>map 需要每次返回,将返回的数据共同组成一个新的数组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map 函数</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> result = a.map(<span class="function"><span class="keyword">function</span>(<span class="params">current,index,arr</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//map需要每次返回，由返回的数据共同组成一个新数组</span></span><br><span class="line">   <span class="keyword">return</span> current + <span class="number">10</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(result)); <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">// [ 11,12,13,14,15,16,17,18 ]</span></span><br></pre></td></tr></table></figure>
+<h4 id="filter-过滤器"><a href="#filter-过滤器" class="headerlink" title="filter() 过滤器"></a>filter() 过滤器</h4><ul>
+<li>测试数组的每个元素的函数 保留返回 true</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// filter 测试数组的每个元素的函数 保留返回 true</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> result1 = a.filter(<span class="function"><span class="keyword">function</span>(<span class="params">e,i,a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result1);</span><br></pre></td></tr></table></figure>
+<h4 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h4><ul>
+<li>测试数组的每个元素的函数,只有所有元素通过测试才返回true</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// every</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> ret = a.every(<span class="function"><span class="keyword">function</span>(<span class="params">e,i,a</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> i &gt; <span class="number">3</span>;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(ret);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h4 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h4><ul>
+<li>测试数组的每个元素的函数,只要有一个元素通过测试就返回true</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// some</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> rets = a.some(<span class="function"><span class="keyword">function</span>(<span class="params">e,i,a</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> i &gt; <span class="number">3</span>;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(rets);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pre   上一次调用回调返回的值，或者是提供的初始值（initialValue）</span><br><span class="line">cur   数组中当前被处理的元素</span><br><span class="line">index   当前元素在数组中的索引</span><br><span class="line">array   调用 reduce 的数组</span><br><span class="line"><span class="comment">// reduce</span></span><br><span class="line"><span class="keyword">var</span> he = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur,i,a</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> pre + cur;</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(he);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mul = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur,i,a</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> pre * cur;</span><br><span class="line">&#125;,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(mul);</span><br></pre></td></tr></table></figure>
+<h4 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h4><ul>
+<li>判断数组是否含有指定元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// indexOf</span></span><br><span class="line"><span class="built_in">console</span>.log(a.indexOf(<span class="number">2</span>)); <span class="comment">//  下标位置 1</span></span><br><span class="line"><span class="built_in">console</span>.log(a.indexOf(<span class="number">2</span>,<span class="number">3</span>)); <span class="comment">//  查找 2 从 下表位置为3开始</span></span><br><span class="line"><span class="built_in">console</span>.log(a.indexOf(<span class="number">19</span>)); <span class="comment">// -1 代表没有</span></span><br></pre></td></tr></table></figure>
+<h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><ul>
+<li>找到满足条件的第一个元素,并返回,未找到返回 undefined</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number = [<span class="number">13</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> fin = number.find(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value &gt; <span class="number">20</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(fin);  <span class="comment">// 21</span></span><br></pre></td></tr></table></figure>
+<h3 id="join和split的区别"><a href="#join和split的区别" class="headerlink" title="join和split的区别"></a>join和split的区别</h3><ul>
+<li>join方法是将数组元素转化为字符串</li>
+<li>split 方法 是将字符串转换为数组对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'html'</span>,<span class="string">'css'</span>,<span class="string">'java'</span>,<span class="string">'javascript'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.join(<span class="string">"#"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a.join())); <span class="comment">// string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a));         <span class="comment">// object</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">"html#css#java#javascript"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b.split(<span class="string">"#"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);        <span class="comment">//  string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b.split()));   <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<h3 id="事件处理的四种方式-事件绑定"><a href="#事件处理的四种方式-事件绑定" class="headerlink" title="事件处理的四种方式(事件绑定)"></a>事件处理的四种方式(事件绑定)</h3><h4 id="HTML事件处理"><a href="#HTML事件处理" class="headerlink" title="HTML事件处理"></a>HTML事件处理</h4><ul>
+<li>直接在标签上加事件</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"提交1"</span> <span class="attr">onclick</span>=<span class="string">"alert('点击1');"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="DOM-0-级事件"><a href="#DOM-0-级事件" class="headerlink" title="DOM 0 级事件"></a>DOM 0 级事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;input id=<span class="string">"btn1"</span> type=<span class="string">"button"</span> name=<span class="string">""</span> value=<span class="string">"提交2"</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</span><br><span class="line">  <span class="comment">// onclick 绑定触发函数,只有最近的一次绑定有效</span></span><br><span class="line">  btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"快放假了!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"高兴了哦!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 取消绑定</span></span><br><span class="line">  btn.onclick = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="DOM-2-级事件-标准情况"><a href="#DOM-2-级事件-标准情况" class="headerlink" title="DOM 2 级事件 (标准情况)"></a>DOM 2 级事件 (标准情况)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">obj.addEventListener(&quot;事件名&quot;, &quot;事件处理函数&quot;, &quot;布尔值&quot;)</span><br><span class="line"> true 事件捕获方式</span><br><span class="line"> false  事件冒泡</span><br><span class="line"></span><br><span class="line"> obj.removeEventListener(&quot;事件名&quot;, &quot;事件处理函数&quot;, &quot;布尔值&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;input id=<span class="string">"btn2"</span> type=<span class="string">"button"</span> name=<span class="string">""</span> value=<span class="string">"提交3"</span>&gt;</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn2'</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 2.监听器: 标准浏览器下方法: IE9+</span></span><br><span class="line"><span class="comment"> * 区别:可以绑定多个触发函数,并且同时有效</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数1:绑定事件的类型 (click,dbclick,change,mouseover,mouseout)</span></span><br><span class="line"><span class="comment"> * 参数2:回调函数</span></span><br><span class="line"><span class="comment"> * 参数2:控住事件类型  捕获/冒泡 默认:false冒泡</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我是监听器1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>,listener,<span class="literal">false</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我是监听器2"</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 取消绑定: 标准浏览器下方法: IE9+</span></span><br><span class="line"><span class="comment"> * 参数1:事件类型</span></span><br><span class="line"><span class="comment"> * 参数2:事件名称</span></span><br><span class="line"><span class="comment"> * 参数3:布尔值 -&gt; 捕获/冒泡</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">btn.removeEventListener(<span class="string">"click"</span>,listener,<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 封装</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">ele,evType,callback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ele.attachEvent)&#123;</span><br><span class="line">        ele.attachEvent(evType,callback);</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        ele.addEventListener(evType,callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addEvent(btn1,<span class="string">"click"</span>,listener,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="DOM-2级事件-兼容IE"><a href="#DOM-2级事件-兼容IE" class="headerlink" title="DOM 2级事件 (兼容IE)"></a>DOM 2级事件 (兼容IE)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绑定事件</span></span><br><span class="line">obj.attachEvent(<span class="string">"on事件名"</span>, <span class="string">"事件处理函数"</span>)</span><br><span class="line"><span class="comment">// 取消绑定</span></span><br><span class="line">obj.detachEvent(<span class="string">"on事件名"</span>, <span class="string">"事件处理函数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// IE 6,7,8</span></span><br><span class="line"><span class="comment">// 标准浏览器下报错,为了兼容先判断有没有,没有不执行后边的,利用了逻辑与的短路原理</span></span><br><span class="line">btn.attachEvent &amp;&amp; btn.attachEvent(<span class="string">"onclick"</span>,listener);</span><br><span class="line">btn.detachEvent &amp;&amp; btn.detachEvent(<span class="string">"onclick"</span>,listener);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handel1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"点击4"</span>);</span><br><span class="line">    btn3.detachEvent(<span class="string">'onclick'</span>,handel1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn3.attachEvent(<span class="string">'onclick'</span>,handel1);</span><br></pre></td></tr></table></figure>
+<h3 id="even事件对象"><a href="#even事件对象" class="headerlink" title="even事件对象"></a>even事件对象</h3><ul>
+<li>event 事件对象，包含了一堆和该事件有关系的属性和方法</li>
+<li>在事件处理函数内部，this完全等价于 event.currentTarget 指向的都是注册该事件处理程序的元素。</li>
+<li>在事件处理函数内部，event.target 指向的都是触发该元素的该事件的&lt;源头&gt;</li>
+</ul>
+<h4 id="事件类型-event-type"><a href="#事件类型-event-type" class="headerlink" title="事件类型 event.type"></a>事件类型 event.type</h4><h4 id="事件来源-点击的是谁-event-target"><a href="#事件来源-点击的是谁-event-target" class="headerlink" title="事件来源(点击的是谁) event.target"></a>事件来源(点击的是谁) event.target</h4><h4 id="绑定事件元素-event-currentTarget-直接在事件对象上查看是-null"><a href="#绑定事件元素-event-currentTarget-直接在事件对象上查看是-null" class="headerlink" title="绑定事件元素 event.currentTarget  直接在事件对象上查看是 null"></a>绑定事件元素 event.currentTarget  直接在事件对象上查看是 null</h4><h4 id="事件类型是否冒泡-event-bubbles"><a href="#事件类型是否冒泡-event-bubbles" class="headerlink" title="事件类型是否冒泡 event.bubbles"></a>事件类型是否冒泡 event.bubbles</h4><h4 id="左键还是右键-event-button"><a href="#左键还是右键-event-button" class="headerlink" title="左键还是右键 event.button"></a>左键还是右键 event.button</h4><h4 id="ALT-键-altKey"><a href="#ALT-键-altKey" class="headerlink" title="ALT 键: altKey"></a>ALT 键: altKey</h4><h4 id="ctrl-键-ctrlKey"><a href="#ctrl-键-ctrlKey" class="headerlink" title="ctrl 键: ctrlKey"></a>ctrl 键: ctrlKey</h4><h4 id="shift-键-shiftKey"><a href="#shift-键-shiftKey" class="headerlink" title="shift 键:shiftKey"></a>shift 键:shiftKey</h4><h4 id="键盘值-keyCode"><a href="#键盘值-keyCode" class="headerlink" title="键盘值: keyCode"></a>键盘值: keyCode</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  	<span class="comment">/*</span></span><br><span class="line"><span class="comment">     * type: 事件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">"type:"</span>,event.type);  <span class="comment">// click</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      在事件处理函数内部：</span></span><br><span class="line"><span class="comment">      this完全等价于 event.currentTarget, 指向的都是注册该事件处理程序的元素!!!</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(event.currentTarget);</span><br><span class="line"></span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      在事件处理函数内部：</span></span><br><span class="line"><span class="comment">       event.target, 指向的都是 触发该元素的该事件的&lt;源头&gt;！！！！</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">      <span class="built_in">console</span>.log(event.target);</span><br><span class="line">  	  <span class="comment">// IE 下,是否阻止冒泡,默认是 false</span></span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"是否阻止冒泡?"</span>,event.cancelBubble);</span><br><span class="line">  	  <span class="comment">// 标准下阻止冒泡</span></span><br><span class="line">      event.stopPropagation();</span><br><span class="line">      <span class="comment">// 阻止默认事件</span></span><br><span class="line">      event.preventDefault();</span><br><span class="line">      <span class="comment">// 事件类型是否是冒泡</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"冒泡吗?"</span>,event.bubbles);  <span class="comment">// true</span></span><br><span class="line">  	  <span class="comment">// 判断是鼠标左键还是右键</span></span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"左键是:"</span>,event.button);  <span class="comment">// 左键是 0 右键是 1</span></span><br><span class="line">  	  <span class="comment">// 监听是否按住 ALT 键 ,shift 键 ,ctrl 键</span></span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"按住ALT键了吗?"</span>,event.altKey);</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"按住Ctrl键了吗?"</span>,event.ctrlKey);</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"按住Shift键了吗?"</span>,event.shiftKey);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="阻止事件传递"><a href="#阻止事件传递" class="headerlink" title="阻止事件传递"></a>阻止事件传递</h4><ul>
+<li>event.stopPropagation( )   阻止 事件的传递  在onclick = function(){}  中</li>
+<li>event.preventDefault( )  阻止默认的行为</li>
+<li>event.stopImmediatePropagation( )   停止冒泡  在addEventListener() 中</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.event);  <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">   * 谷歌:两种方式都支持:</span></span><br><span class="line"><span class="comment">   * 火狐:只支持事件对象以参数形式获取,不支持全局 event</span></span><br><span class="line"><span class="comment">   * IE: 只能通过全局 event, 不能通过事件对象获取</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 兼容性写法:</span></span><br><span class="line">  ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">  <span class="built_in">console</span>.log(ev);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.event);</span><br><span class="line">  <span class="comment">// 是否取消冒泡  执行完,直接丢弃,不再冒泡</span></span><br><span class="line">  <span class="comment">// 1.IE 特有,但是现在新的浏览器都支持</span></span><br><span class="line">  ev.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">// 2.标准写法, IE 6 7 8不支持</span></span><br><span class="line">  ev.stopPropagation();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 兼容性写法</span></span><br><span class="line">  <span class="keyword">if</span>(event.stopPropagation)&#123;</span><br><span class="line">      <span class="comment">// 2.标准写法, IE 6 7 8不支持</span></span><br><span class="line">      event.stopPropagation();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 1.IE 特有,但是现在新的浏览器都支持</span></span><br><span class="line">      event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="事件坐标点"><a href="#事件坐标点" class="headerlink" title="事件坐标点"></a>事件坐标点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="built_in">console</span>.log(event);  <span class="comment">// event 事件对象</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * clientX/Y:鼠标点参照浏览器页面左上角的间距</span></span><br><span class="line"><span class="comment">     * pageX/Y:鼠标点参照文档左上角的间距,低版本的 IE 不兼容</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 上述两者关系:页面不滚动,两者相等</span></span><br><span class="line"><span class="comment">     * pageY = clientY + 滚上去的距离</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 高版本的浏览器的一个属性</span></span><br><span class="line"><span class="comment">     * offsetX/Y:鼠标点参照点击元素本身左上角的间距</span></span><br><span class="line"><span class="comment">     * offsetY = pageY - 元素距离文档顶部的距离</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 浏览器的页面,不考虑文档的滚动</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"clientX"</span>,event.clientX);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"clientY"</span>,event.clientY);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 文档的,考虑到了文档的滚动</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"pageX"</span>,event.pageX);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"pageY"</span>,event.pageY);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 元素的,</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"offsetX"</span>,event.offsetX);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"offsetY"</span>,event.offsetY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="回调函数-callback"><a href="#回调函数-callback" class="headerlink" title="回调函数 callback"></a>回调函数 callback</h3><ul>
+<li>函数作为参数时,通常称该函数为回调函数(会在将来某个时刻执行)</li>
+<li>cllick 内部的函数作为回调函数使用,又称为事件处理函数</li>
+<li>事件可以注册多个函数,触发事件在时候按照注册的顺序触发.</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/js-object/" rel="next" title="JS 对象">
+                <i class="fa fa-chevron-left"></i> JS 对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/js-this/" rel="prev" title="JavaScript this指向问题/闭包/面向对象/原型及原型链继承/JSON">
+                JavaScript this指向问题/闭包/面向对象/原型及原型链继承/JSON <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">1.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件"><span class="nav-number">1.1.</span> <span class="nav-text">鼠标事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘事件"><span class="nav-number">1.2.</span> <span class="nav-text">键盘事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单事件"><span class="nav-number">1.3.</span> <span class="nav-text">表单事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪贴板事件"><span class="nav-number">1.4.</span> <span class="nav-text">剪贴板事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动画事件"><span class="nav-number">1.5.</span> <span class="nav-text">动画事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件冒泡-事件捕获"><span class="nav-number">2.</span> <span class="nav-text">事件冒泡/事件捕获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMA5-中数组新方法"><span class="nav-number">3.</span> <span class="nav-text">ECMA5 中数组新方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach"><span class="nav-number">3.1.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for-in"><span class="nav-number">3.2.</span> <span class="nav-text">for in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">3.3.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-过滤器"><span class="nav-number">3.4.</span> <span class="nav-text">filter() 过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#every"><span class="nav-number">3.5.</span> <span class="nav-text">every()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some"><span class="nav-number">3.6.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce"><span class="nav-number">3.7.</span> <span class="nav-text">reduce()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#indexOf"><span class="nav-number">3.8.</span> <span class="nav-text">indexOf()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">3.9.</span> <span class="nav-text">find()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join和split的区别"><span class="nav-number">4.</span> <span class="nav-text">join和split的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理的四种方式-事件绑定"><span class="nav-number">5.</span> <span class="nav-text">事件处理的四种方式(事件绑定)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML事件处理"><span class="nav-number">5.1.</span> <span class="nav-text">HTML事件处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-0-级事件"><span class="nav-number">5.2.</span> <span class="nav-text">DOM 0 级事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-2-级事件-标准情况"><span class="nav-number">5.3.</span> <span class="nav-text">DOM 2 级事件 (标准情况)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-2级事件-兼容IE"><span class="nav-number">5.4.</span> <span class="nav-text">DOM 2级事件 (兼容IE)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#even事件对象"><span class="nav-number">6.</span> <span class="nav-text">even事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件类型-event-type"><span class="nav-number">6.1.</span> <span class="nav-text">事件类型 event.type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件来源-点击的是谁-event-target"><span class="nav-number">6.2.</span> <span class="nav-text">事件来源(点击的是谁) event.target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定事件元素-event-currentTarget-直接在事件对象上查看是-null"><span class="nav-number">6.3.</span> <span class="nav-text">绑定事件元素 event.currentTarget  直接在事件对象上查看是 null</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件类型是否冒泡-event-bubbles"><span class="nav-number">6.4.</span> <span class="nav-text">事件类型是否冒泡 event.bubbles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左键还是右键-event-button"><span class="nav-number">6.5.</span> <span class="nav-text">左键还是右键 event.button</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ALT-键-altKey"><span class="nav-number">6.6.</span> <span class="nav-text">ALT 键: altKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ctrl-键-ctrlKey"><span class="nav-number">6.7.</span> <span class="nav-text">ctrl 键: ctrlKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shift-键-shiftKey"><span class="nav-number">6.8.</span> <span class="nav-text">shift 键:shiftKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘值-keyCode"><span class="nav-number">6.9.</span> <span class="nav-text">键盘值: keyCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止事件传递"><span class="nav-number">6.10.</span> <span class="nav-text">阻止事件传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件坐标点"><span class="nav-number">6.11.</span> <span class="nav-text">事件坐标点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数-callback"><span class="nav-number">7.</span> <span class="nav-text">回调函数 callback</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

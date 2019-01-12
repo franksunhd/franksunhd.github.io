@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php,mySql,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="PHP 类12345678910111213141516171819202122232425262728293031// 创建一个类,使用关键字 classclass Person &amp;#123;    var $name = &apos;刘伯温&apos;;    var $age;    var $job;    // 创建方法    function say()&amp;#123;        echo $this-&amp;">
+<meta name="keywords" content="php,mySql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 类&#x2F;继承&#x2F;MYSQL数据库操作&#x2F;PHP数据库操作&#x2F;上传头像">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/php-sql/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="PHP 类12345678910111213141516171819202122232425262728293031// 创建一个类,使用关键字 classclass Person &amp;#123;    var $name = &apos;刘伯温&apos;;    var $age;    var $job;    // 创建方法    function say()&amp;#123;        echo $this-&amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T12:21:30.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 类&#x2F;继承&#x2F;MYSQL数据库操作&#x2F;PHP数据库操作&#x2F;上传头像">
+<meta name="twitter:description" content="PHP 类12345678910111213141516171819202122232425262728293031// 创建一个类,使用关键字 classclass Person &amp;#123;    var $name = &apos;刘伯温&apos;;    var $age;    var $job;    // 创建方法    function say()&amp;#123;        echo $this-&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/php-sql/">
+
+
+
+
+
+  <title>PHP 类/继承/MYSQL数据库操作/PHP数据库操作/上传头像 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/php-sql/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP 类/继承/MYSQL数据库操作/PHP数据库操作/上传头像</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T20:18:20+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/php/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  php</a>
+              
+                <a href="/franksunhd.github.io/tags/mySql/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  mySql</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="PHP-类"><a href="#PHP-类" class="headerlink" title="PHP 类"></a>PHP 类</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个类,使用关键字 class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $name = <span class="string">'刘伯温'</span>;</span><br><span class="line">    <span class="keyword">var</span> $age;</span><br><span class="line">    <span class="keyword">var</span> $job;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;name;</span><br><span class="line">        <span class="comment">// 此刻 $this 指的相当于 js 构造函数中的 this, -&gt; 符号相当于 JS 中的 点 操作符</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造方法: 当你调用一个类时,构造方法会自己执行,也就是实例化一个对象的时候,也就是 new 的时候,</span></span><br><span class="line">    <span class="comment">// 这个构造方法 就已经执行了</span></span><br><span class="line">    <span class="comment">// 关键字为 __construct</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($name,$age,$job)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;name = $name;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;$age = $age;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;$job = $job;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 析构方法:类的实例化内存销毁的时候执行的方法,比如文件关闭的时候,方法被删除的时候执行</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"析构函数"</span>.<span class="keyword">$this</span>-&gt;name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化一个对象</span></span><br><span class="line">$p = <span class="keyword">new</span> Person(<span class="string">'朱元璋'</span>,<span class="number">73</span>,<span class="string">'皇帝'</span>);</span><br><span class="line">$p -&gt; say();</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 继承:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $name;</span><br><span class="line">    <span class="keyword">var</span> $age;</span><br><span class="line">    <span class="keyword">var</span> $job;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($name,$age,$job)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;name = $name;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;age = $age;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;job = $job;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 创建一个子类:</span></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  * 继承的关键字: extends</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $sex;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($name,$age,$job,$sex)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 继承父类的属性</span></span><br><span class="line">        <span class="keyword">parent</span>::__construct($name,$age,$job);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sex = $sex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;name.<span class="string">'你的性别是:'</span>.<span class="keyword">$this</span>-&gt;sex.<span class="string">'年龄是:'</span>.<span class="keyword">$this</span>-&gt;age.<span class="string">'工作是:'</span>.<span class="keyword">$this</span>-&gt;job;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  $m = <span class="keyword">new</span> Man(<span class="string">'思研'</span>,<span class="number">18</span>,<span class="string">'前端工程师'</span>,<span class="string">'男'</span>);</span><br><span class="line">  $m-&gt;say();  <span class="comment">// 思研</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line">  $m-&gt;sex();  <span class="comment">// 思研你的性别是:男年龄是:18工作是:前端工程师</span></span><br></pre></td></tr></table></figure>
+<h3 id="MySql-数据库"><a href="#MySql-数据库" class="headerlink" title="MySql 数据库"></a>MySql 数据库</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 数据库:由一批数据构成的集合,这些数据通常保存在一个或者多个相关或者无关的文件(表)当中;</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 关系型数据库: 在数据分类之后,仍然有相互交叉的关系,只要数据表存在这种关系,就可以概括为关系型数据库</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 代表:mysql,sqlserver,oracle</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 非关系型数据库:</span></span><br><span class="line"><span class="comment">* 数据表之间没有关联的数据库,就可以概括为非关系型数据库</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 代表:mongoDB</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 创建表:</span></span><br><span class="line"><span class="comment">* 首先有表头,然后确定字段名(表头的内容),然后在往表里面添加内容.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* create table 表名(字段名,数据类型,数据最大长度)</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 主键:数据表中的唯一识别的标识,一旦创建,不可以改变</span></span><br><span class="line"><span class="comment">* 设置主键的原则:</span></span><br><span class="line"><span class="comment">* 1.主键不要有任何含义</span></span><br><span class="line"><span class="comment">* 2.主键最好是单列</span></span><br><span class="line"><span class="comment">* 3.不要更新主键,建议自动增减</span></span><br><span class="line"><span class="comment">* 4.主键最好不要参与运算</span></span><br><span class="line"><span class="comment">* 5.主键最好是计算机自动生成</span></span><br><span class="line"><span class="comment">* 综上:设置 id 作为主键</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 删除表</span></span><br><span class="line"><span class="comment">* drop table 表名</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 查询数据</span></span><br><span class="line"><span class="comment">* select * from 表名</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 修改数据</span></span><br><span class="line"><span class="comment">* update 表名 set 列名=列值 where 主键=主键值</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 删除数据</span></span><br><span class="line"><span class="comment">* delete from 表名 where 删除条件</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 插入数据</span></span><br><span class="line"><span class="comment">* insert into 表名(列1,列2) values(列值1,列值2)</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 创建数据库:</span></span><br><span class="line"><span class="comment">* create database 数据库名</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 删除数据库:</span></span><br><span class="line"><span class="comment">* drop database 数据库名</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><ul>
+<li>create database 数据库名</li>
+</ul>
+<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><ul>
+<li>drop database 数据库名</li>
+</ul>
+<h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><ul>
+<li>create table 表名(字段名,数据类型,数据最大长度)</li>
+</ul>
+<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><ul>
+<li>drop table 表名</li>
+</ul>
+<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><ul>
+<li>insert into 表名(列1,列2) values(列值1,列值2)</li>
+</ul>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><ul>
+<li>delete from 表名 where 删除条件</li>
+</ul>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><ul>
+<li>update 表名 set 列名=列值 where 主键=主键值</li>
+</ul>
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><ul>
+<li>select * from 表名</li>
+<li>selete  字段名 from 表名 where 条件</li>
+</ul>
+<h3 id="PHP-操作数据库"><a href="#PHP-操作数据库" class="headerlink" title="PHP 操作数据库"></a>PHP 操作数据库</h3><ul>
+<li>创建 mysql 对象,链接数据库</li>
+<li>判断时候链接成功</li>
+<li>设置编码格式</li>
+<li>编写sql 语句</li>
+<li>执行 sql 语句</li>
+<li>关闭数据库</li>
+</ul>
+<h4 id="查询数据-1"><a href="#查询数据-1" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 连接数据库 mysqli_connect(主机名,用户名,密码,数据库名);</span></span><br><span class="line"> $con = mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'BJH'</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 判断时候连接成功</span></span><br><span class="line"> <span class="keyword">if</span>(!$con) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'数据库链接失败'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 设置编码格式  mysqli_set_charset(连接句柄,编码格式);</span></span><br><span class="line"> mysqli_set_charset($con,<span class="string">'UTF8'</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 编写 sql 语句</span></span><br><span class="line"> $sql = <span class="string">'select * from user'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 执行 sql 语句 mysqli_query(连接句柄,sql 语句)</span></span><br><span class="line"> $result = mysqli_query($con,$sql);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 获取查询结果  mysqli_fetch_all(执行结果,返回类型(索引数组|关联数组|索引数组和关联数组));</span></span><br><span class="line"> $arr = mysqli_fetch_all($result,MYSQLI_ASSOC);</span><br><span class="line"> <span class="comment">// MYSQLI_ASSOC 关联数组</span></span><br><span class="line"> <span class="comment">// MYSQLI_NUM 索引数组</span></span><br><span class="line"> <span class="comment">// MYSQLI_BOTH 索引数组和关联数组</span></span><br><span class="line"> print_r($arr);</span><br><span class="line"> <span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br><span class="line"> <span class="keyword">echo</span> <span class="string">"&lt;table border = 1&gt;"</span>;</span><br><span class="line"> <span class="keyword">echo</span> <span class="string">'&lt;tr&gt;&lt;td&gt;序号&lt;/td&gt;&lt;td&gt;姓名&lt;/td&gt;&lt;td&gt;年龄&lt;/td&gt;&lt;td&gt;手机号&lt;/td&gt;&lt;td&gt;工作&lt;/td&gt;&lt;/tr&gt;'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">foreach</span>($arr <span class="keyword">as</span> $key =&gt; $value)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;tr&gt;"</span>;</span><br><span class="line">    <span class="keyword">foreach</span>($value <span class="keyword">as</span> $k =&gt; $v)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;td&gt;&#123;$v&#125;&lt;/td&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;/tr&gt;"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">echo</span> <span class="string">"&lt;/table&gt;"</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 关闭数据库</span></span><br><span class="line"> mysqli_close($con);</span><br></pre></td></tr></table></figure>
+<h4 id="插入数据-1"><a href="#插入数据-1" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$name = $_POST[<span class="string">"username"</span>];</span><br><span class="line">$age = $_POST[<span class="string">"age"</span>];</span><br><span class="line">$phone = $_POST[<span class="string">"phone"</span>];</span><br><span class="line">$job = $_POST[<span class="string">"job"</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.连接数据库</span></span><br><span class="line">$con = mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'BJH'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.判断是否连接成功</span></span><br><span class="line"><span class="keyword">if</span>(!$con) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">"数据库链接失败"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.设置编码</span></span><br><span class="line">mysqli_set_charset($con,<span class="string">'UTF8'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.编写 sql 语句</span></span><br><span class="line">$sql = <span class="string">"insert into user(`name`,`age`,`tel`,`job`) values('&#123;$name&#125;','&#123;$age&#125;','&#123;$phone&#125;','&#123;$job&#125;')"</span>;</span><br><span class="line"><span class="keyword">echo</span> $sql;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5.执行 sql 语句</span></span><br><span class="line">$result  = mysqli_query($con, $sql);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($result)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"插入成功"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"插入失败"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6.关闭数据库</span></span><br><span class="line">mysqli_close($con);</span><br></pre></td></tr></table></figure>
+<h4 id="删除数据-1"><a href="#删除数据-1" class="headerlink" title="删除数据"></a>删除数据</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$id = $_POST[<span class="string">'id'</span>];</span><br><span class="line"><span class="comment">// 1.连接数据库</span></span><br><span class="line">$con = mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'BJH'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.判断数据库是否连接成功</span></span><br><span class="line"><span class="keyword">if</span>(!$con) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">"数据库链接失败"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.设置编码</span></span><br><span class="line">mysqli_set_charset($con,<span class="string">'UTF8'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.编写 sql</span></span><br><span class="line">$sql = <span class="string">"delete from `user` where S_id = '&#123;$id&#125;'"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 执行删除语句</span></span><br><span class="line">$result = mysqli_query($con,$sql);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($result) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"删除成功"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"删除失败"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$id = $_POST[<span class="string">'id'</span>];</span><br><span class="line">$age = $_POST[<span class="string">"age1"</span>];</span><br><span class="line"><span class="comment">// 1.连接数据库</span></span><br><span class="line">$con = mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'BJH'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.判断数据库是否连接成功</span></span><br><span class="line"><span class="keyword">if</span>(!$con) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">"数据库链接失败"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.设置编码</span></span><br><span class="line">mysqli_set_charset($con,<span class="string">'UTF8'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.编写 sql</span></span><br><span class="line">$sql = <span class="string">"update user set `age` = '&#123;$age&#125;' where `S_id` = '&#123;$id&#125;'"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 执行sql语句</span></span><br><span class="line">$result = mysqli_query($con,$sql);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($result) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"修改成功"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"修改失败"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ajax"><a href="#ajax" class="headerlink" title="$.ajax()"></a>$.ajax()</h4><h4 id="load"><a href="#load" class="headerlink" title="$().load()"></a>$().load()</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"header"</span>).load(<span class="string">'header.html'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jquery中的 ajax</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type:<span class="string">"post"</span>,  <span class="comment">// 请求方法 get/post</span></span><br><span class="line">    url:<span class="string">"07-删除数据.php"</span>,  <span class="comment">// 指要请求的接口,就是你要请求的后台方法或者直接是一个后台文件</span></span><br><span class="line">    async:<span class="keyword">true</span>,  <span class="comment">// 是否异步 默认 true(异步)</span></span><br><span class="line">    data:&#123;</span><br><span class="line">        id: id1,</span><br><span class="line">        age1:age1,</span><br><span class="line">        type:type1</span><br><span class="line">    &#125;,  <span class="comment">// ajax 要传给后台的数据</span></span><br><span class="line">    success: <span class="function"><span class="keyword">function</span><span class="params">(data)</span></span>&#123;</span><br><span class="line">        alert(data);</span><br><span class="line">    &#125;,</span><br><span class="line">    error:<span class="function"><span class="keyword">function</span><span class="params">(error,data)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="上传头像"><a href="#上传头像" class="headerlink" title="上传头像"></a>上传头像</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">    post 上传文件,需要对 form进行特殊的设置 enctype=<span class="string">"multipart/form-data"</span></span><br><span class="line">    也可以设置上传的最大量,在 php.ini中进行设置, php 的提交方式都是 http 提交</span><br><span class="line"></span><br><span class="line">    file_uploads 是否允许用户使用 http 上传文件.默认为 on</span><br><span class="line"></span><br><span class="line">    upload_max_filesize=<span class="number">128</span>M 用户允许上传的最大值</span><br><span class="line"></span><br><span class="line">    post_max_size=<span class="number">128</span>M 允许用户 post 的最大值</span><br><span class="line"></span><br><span class="line">    upload_tmp_dir=<span class="string">"/Applications/XAMPP/xamppfiles/temp/"</span> 指定上传文件的临时存放路径,</span><br><span class="line">    这个路径对于服务器而言必须是可写的,如果不指定该路径,则按照默认临时路径存储</span><br><span class="line"></span><br><span class="line">    $_FILES 超全局变量 里面包含上传文件的所有信息,它是一个二位数组.它里边的每一个元素都是一个关联数组</span><br><span class="line">    ,每个关联数组都有固定的<span class="number">5</span>个元素</span><br><span class="line">--&gt;</span><br><span class="line">&lt;form action=<span class="string">"01-postImg.php"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">    姓名:&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span> value=<span class="string">""</span> /&gt;&lt;br /&gt;</span><br><span class="line">    头像:&lt;input type=<span class="string">"file"</span> name=<span class="string">"info"</span> value=<span class="string">""</span> /&gt;&lt;br /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">$name = $_POST[<span class="string">'username'</span>];</span><br><span class="line">$file = $_FILES[<span class="string">'info'</span>];</span><br><span class="line"></span><br><span class="line">print_r($file);</span><br><span class="line"><span class="comment">// Array ( [name] =&gt; [type] =&gt; [tmp_name] =&gt; [error] =&gt; 4 [size] =&gt; 0 )</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">$_FILES['info']['name'];  // 上传文件的名称</span></span><br><span class="line"><span class="comment">$_FILES['info']['type'];  // 上传文件的类型</span></span><br><span class="line"><span class="comment">$_FILES['info']['tmp_name'];  // 上传文件临时存储的路径</span></span><br><span class="line"><span class="comment">$_FILES['info']['error']; // 上传文件中相关错误的代码</span></span><br><span class="line"><span class="comment">$_FILES['info']['size'];  // 上传文件的大小</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">// is_uploaded_file(文件路径) 判断文件是否是通过(HTTP POST)提交的</span></span><br><span class="line"><span class="comment">// move_uploaded_file(临时路径,要存放的路径)  把文件从临时文件上移除,存放在指定路径下</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">if</span>(is_uploaded_file($_FILES[<span class="string">'info'</span>][<span class="string">'tmp_name'</span>])) &#123;</span><br><span class="line">    <span class="comment">// 判断是否有某个目录,没有就创建</span></span><br><span class="line">    <span class="keyword">if</span>(!is_dir(<span class="string">'aa'</span>))&#123;</span><br><span class="line">        mkdir(<span class="string">'aa'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">// 从临时文件夹剪切</span></span><br><span class="line"> move_uploaded_file($_FILES[<span class="string">'info'</span>][<span class="string">'tmp_name'</span>],<span class="string">'./aa/'</span>.$_FILES[<span class="string">'info'</span>][<span class="string">'name'</span>]);</span><br><span class="line"><span class="comment">//  从临时文件夹拷贝</span></span><br><span class="line">copy($_FILES[<span class="string">'info'</span>][<span class="string">'tmp_name'</span>],<span class="string">'./aa/'</span>.$_FILES[<span class="string">'info'</span>][<span class="string">'name'</span>]);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/php-file/" rel="next" title="PHP 文件操作/目录操作/追加内容">
+                <i class="fa fa-chevron-left"></i> PHP 文件操作/目录操作/追加内容
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/js/" rel="prev" title="JavaScript高级程序设计 (第3版)">
+                JavaScript高级程序设计 (第3版) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-类"><span class="nav-number">1.</span> <span class="nav-text">PHP 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySql-数据库"><span class="nav-number">3.</span> <span class="nav-text">MySql 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数据库"><span class="nav-number">3.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据库"><span class="nav-number">3.2.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表"><span class="nav-number">3.3.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除表"><span class="nav-number">3.4.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入数据"><span class="nav-number">3.5.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据"><span class="nav-number">3.6.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改数据"><span class="nav-number">3.7.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">3.8.</span> <span class="nav-text">查询数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-操作数据库"><span class="nav-number">4.</span> <span class="nav-text">PHP 操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据-1"><span class="nav-number">4.1.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入数据-1"><span class="nav-number">4.2.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据-1"><span class="nav-number">4.3.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新数据"><span class="nav-number">4.4.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ajax"><span class="nav-number">4.5.</span> <span class="nav-text">$.ajax()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#load"><span class="nav-number">4.6.</span> <span class="nav-text">$().load()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传头像"><span class="nav-number">5.</span> <span class="nav-text">上传头像</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

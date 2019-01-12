@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是PHP? PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言 超文本预处理器(PHP) 脚本在服务器上执行 可免费下载使用">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 入门&#x2F;输出语句&#x2F;变量&#x2F;常量&#x2F;数据类型&#x2F;类型转换&#x2F;运算符">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/php-beta/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="什么是PHP? PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言 超文本预处理器(PHP) 脚本在服务器上执行 可免费下载使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T12:04:37.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 入门&#x2F;输出语句&#x2F;变量&#x2F;常量&#x2F;数据类型&#x2F;类型转换&#x2F;运算符">
+<meta name="twitter:description" content="什么是PHP? PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言 超文本预处理器(PHP) 脚本在服务器上执行 可免费下载使用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/13/php-beta/">
+
+
+
+
+
+  <title>PHP 入门/输出语句/变量/常量/数据类型/类型转换/运算符 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/13/php-beta/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP 入门/输出语句/变量/常量/数据类型/类型转换/运算符</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T20:01:13+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/php/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  php</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是PHP"><a href="#什么是PHP" class="headerlink" title="什么是PHP?"></a>什么是PHP?</h3><ul>
+<li>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言</li>
+<li>超文本预处理器(PHP)</li>
+<li>脚本在服务器上执行</li>
+<li>可免费下载使用<a id="more"></a>
+</li>
+</ul>
+<h3 id="PHP文件是什么"><a href="#PHP文件是什么" class="headerlink" title="PHP文件是什么"></a>PHP文件是什么</h3><ul>
+<li>PHP 文件可包含文本、HTML、JavaScript代码和 PHP 代码</li>
+<li>PHP 代码在服务器上执行，结果以纯 HTML 形式返回给浏览器</li>
+<li>PHP 文件的默认文件扩展名是 “.php”</li>
+</ul>
+<h3 id="PHP可以做什么"><a href="#PHP可以做什么" class="headerlink" title="PHP可以做什么"></a>PHP可以做什么</h3><ul>
+<li>生成动态页面内容</li>
+<li>创建,打开,读取,写入,关闭服务器的文件</li>
+<li>收集表单数据</li>
+<li>可以发送 和接收 cookies</li>
+<li>可以添加,修改,删除数据库的数据</li>
+<li>可以限制用户访问您的网站的一些页面</li>
+<li>可以加密数据</li>
+</ul>
+<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"暮登天子堂"</span>;  <span class="comment">// 输出语句</span></span><br><span class="line">$a1 = <span class="number">1</span>;  <span class="comment">// 声明变量</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>php声明变量使用 $</li>
+<li>声明变量必须是 数字,字母,下划线的组合,不能以数字开头</li>
+<li>php 区分大小写</li>
+<li>php 是弱类型的语言,声明的时候不需要添加数据类型</li>
+<li>php 中函数名不区分大小写,末尾必须加分号否则报错</li>
+<li>php 中的 + 就是数据相加的意思,字符串的拼接使用 “.”</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$s1 = <span class="number">1</span>;</span><br><span class="line">$str = <span class="string">"枯藤老树昏鸦,你丑没事我瞎"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $str;  <span class="comment">// 枯藤老树昏鸦,你丑没事我瞎</span></span><br><span class="line"><span class="keyword">ECHO</span> $str;  <span class="comment">// 枯藤老树昏鸦,你丑没事我瞎</span></span><br><span class="line"><span class="keyword">echo</span> $str.$str;  <span class="comment">// 枯藤老树昏鸦,你丑没事我瞎枯藤老树昏鸦,你丑没事我瞎</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// + 代表数据的相加</span></span><br><span class="line">$a = <span class="number">3</span>;</span><br><span class="line">$b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">echo</span> $a + $b;  <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$c = <span class="string">'悟空'</span>;</span><br><span class="line">$d = <span class="string">'八戒'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $c + $d;  <span class="comment">// 0  原因:非数值类型的加法操作转换为0</span></span><br><span class="line"><span class="keyword">echo</span> $c.$d;  <span class="comment">// 悟空八戒</span></span><br></pre></td></tr></table></figure>
+<h3 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$s = <span class="number">1</span>;</span><br><span class="line">$q = $s;</span><br><span class="line"><span class="keyword">echo</span> $q;  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用赋值"><a href="#引用赋值" class="headerlink" title="引用赋值"></a>引用赋值</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引用赋值</span></span><br><span class="line">$str = <span class="string">"玉带林中挂"</span>;</span><br><span class="line"><span class="comment">// 引用赋值就是在变量前加 &amp;,引用的变量的地址空间</span></span><br><span class="line">$bb = &amp;$str;</span><br><span class="line">$bb = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\$str:"</span>.$str;  <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\$bb:"</span>.$bb; <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="变量的变量"><a href="#变量的变量" class="headerlink" title="变量的变量"></a>变量的变量</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量的变量:一个变量作为另外一个变量的变量名</span></span><br><span class="line">$a1 = <span class="string">"汉字"</span>;</span><br><span class="line">$$a1 = <span class="string">"林黛玉"</span>;</span><br><span class="line"><span class="keyword">echo</span> $汉字;  <span class="comment">// 林黛玉</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h3><ul>
+<li>echo/print/printf/print_r/var_dump</li>
+<li>var_dump: 调试专用输出,常用于调试时输出,能够输出数据的类型,字符串中字符的个数</li>
+<li>echo: 输出变量或者常量</li>
+<li>print 打印,只能输出一个值</li>
+<li>print_r 数组专用输出</li>
+<li>printf 格式化输出</li>
+<li>{ } 大括号输出</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// php输出语句不会自动换行</span></span><br><span class="line">$name = <span class="string">'柳如是'</span>;</span><br><span class="line">$age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.echo</span></span><br><span class="line"><span class="keyword">echo</span> $name;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> $age;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.printf格式化输出</span></span><br><span class="line">printf(<span class="string">"你好:%s,年龄:%d"</span>,$name,$age);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr/&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 索引数组</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"亚瑟"</span>,<span class="number">34</span>,<span class="string">"蓝鸥"</span>);</span><br><span class="line">print_r($arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 总结:输出常量变量: echo</span></span><br><span class="line"><span class="comment"> * 		输出数组: print_r</span></span><br><span class="line"><span class="comment"> * 		调试输出: var_dump</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * php中声明变量如果没有赋值,则该变量值为 NULL</span></span><br><span class="line"><span class="comment"> * php官方给的变量,称为超超全局变量,它在 php 代码中的任何位置都可以使用</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * $_SERVER:全局数组,该数组包含了所有的服务器信息</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * $_GLOBAL:全局数组,所有的全局变量的集合</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * $_GET: 全局数组,所有 get 方式请求的数据集合</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * $_POST:全局数组,所有 post 方式请求的数据集合</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * $_REQUEST:全局数组,所有请求的数据集合</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line">print_r($_SERVER);</span><br></pre></td></tr></table></figure>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><ul>
+<li>定义常量: define(常量名,常量值,布尔值);</li>
+<li>布尔值代表是否区分大小写,默认是 false,区分大小写</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"PI"</span>,<span class="number">3.1415</span>,<span class="keyword">true</span>);</span><br><span class="line"><span class="keyword">echo</span> PI;  <span class="comment">// 3.1415</span></span><br><span class="line"><span class="keyword">echo</span> pi;  <span class="comment">// 3.1415</span></span><br></pre></td></tr></table></figure>
+<h4 id="魔术变量-内置常量"><a href="#魔术变量-内置常量" class="headerlink" title="魔术变量/内置常量"></a>魔术变量/内置常量</h4><ul>
+<li>调试时使用</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="keyword">__LINE__</span>; <span class="comment">// 当前代码行数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aa</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"函数名为:"</span>.<span class="keyword">__FUNCTION__</span>;</span><br><span class="line">&#125;</span><br><span class="line">aa();</span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">__FUNCTION__</span>; <span class="comment">// 输出函数名</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">__CLASS__</span>; <span class="comment">// 输出类名</span></span><br><span class="line"><span class="keyword">echo</span> PHP_VERSION; <span class="comment">// 版本号</span></span><br><span class="line"><span class="keyword">echo</span> strstr(PHP_OS, <span class="string">'Darwin'</span>) ? <span class="number">1</span> : <span class="number">0</span>;  <span class="comment">// 1 获取当前操作系统</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据类型-基本数据类型和复杂数据类型"><a href="#数据类型-基本数据类型和复杂数据类型" class="headerlink" title="数据类型 (基本数据类型和复杂数据类型)"></a>数据类型 (基本数据类型和复杂数据类型)</h3><ul>
+<li>基本数据类型: 整形 , 浮点型,布尔型 ,字符串类型 , NULL</li>
+<li>复杂数据类型 : 数组 , 对象 , 资源( file)</li>
+</ul>
+<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$a1 = <span class="number">12</span>;</span><br><span class="line">$a2 = <span class="number">12.3</span>;</span><br><span class="line">$a3 = <span class="string">"字符串"</span>;</span><br><span class="line">$a4 = <span class="keyword">false</span>;</span><br><span class="line">$a5 = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> gettype($a1);  <span class="comment">// integer</span></span><br><span class="line"><span class="keyword">echo</span> gettype($a2);  <span class="comment">// double</span></span><br><span class="line"><span class="keyword">echo</span> gettype($a3);  <span class="comment">// string</span></span><br><span class="line"><span class="keyword">echo</span> gettype($a4);  <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">echo</span> gettype($a5);  <span class="comment">// NULL</span></span><br></pre></td></tr></table></figure>
+<h5 id="字符串类型-—-定界符"><a href="#字符串类型-—-定界符" class="headerlink" title="字符串类型 — 定界符"></a>字符串类型 — 定界符</h5><ul>
+<li>定界符:php 可能会使用特殊的字符,并且这些字符比较复杂,转义起来比较麻烦,如果给他们写在定界符里面,就不再需要转义</li>
+<li>注意:结尾必须靠边,前面不允许有空格,HHH可以更换</li>
+<li>建议: 定界符最好用大写字母;若定界符内有和定界符类似的字符串,最好改变定界符,不要使用和定界符相同的字符串</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$str = <span class="string">&lt;&lt;&lt;HHH</span></span><br><span class="line"><span class="string">		&lt;html&gt;</span></span><br><span class="line"><span class="string">			&lt;body&gt;</span></span><br><span class="line"><span class="string">				&lt;p&gt;你好&lt;/p&gt;</span></span><br><span class="line"><span class="string">			&lt;/body&gt;</span></span><br><span class="line"><span class="string">		&lt;/html&gt;</span></span><br><span class="line"><span class="string">HHH;</span></span><br><span class="line">	<span class="keyword">echo</span> $str;  <span class="comment">// 你好</span></span><br></pre></td></tr></table></figure>
+<h5 id="单引号和双引号的区别"><a href="#单引号和双引号的区别" class="headerlink" title="单引号和双引号的区别"></a>单引号和双引号的区别</h5><ul>
+<li>双引号可以输出变量</li>
+<li>单引号直接把引号里边的内容直接输出</li>
+<li>如果双引号里边是字符和变量混合,可以使用{}把变量包含起来</li>
+<li>如果单引号里边是字符和变量混合,可以使用.的方式进行字符串的拼接.</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>;</span><br><span class="line">$name = <span class="string">"张居正"</span>;</span><br><span class="line"></span><br><span class="line">$str1 = <span class="string">"万历首辅&#123;$name&#125;a"</span>;</span><br><span class="line"><span class="keyword">echo</span> $str1; <span class="comment">// 万历首辅张居正a</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$str2 = <span class="string">'万历首辅&#123;$name&#125;a'</span>;</span><br><span class="line"><span class="keyword">echo</span> $str2; <span class="comment">// 万历首辅&#123;$name&#125;a</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"> $w = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"英语你好&#123;$w&#125;是什么"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'英语你好'</span>.$w.<span class="string">'是什么'</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="转义字符的输出"><a href="#转义字符的输出" class="headerlink" title="转义字符的输出"></a>转义字符的输出</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 转义字符</span></span><br><span class="line"><span class="comment">    双引号: \"</span></span><br><span class="line"><span class="comment">    单引号: \'</span></span><br><span class="line"><span class="comment">    换行: \n</span></span><br><span class="line"><span class="comment">    制表符: \t</span></span><br><span class="line"><span class="comment">    美元符号: \$</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">$str3 = <span class="string">"子曰:\"学而时习之\";"</span>;</span><br><span class="line"><span class="keyword">echo</span> $str3;  <span class="comment">// 子曰:"学而时习之";</span></span><br></pre></td></tr></table></figure>
+<h5 id="NULL-类型的输出"><a href="#NULL-类型的输出" class="headerlink" title="NULL 类型的输出"></a>NULL 类型的输出</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(<span class="keyword">NULL</span>);  <span class="comment">// NULL</span></span><br></pre></td></tr></table></figure>
+<h4 id="复杂类型的输出"><a href="#复杂类型的输出" class="headerlink" title="复杂类型的输出"></a>复杂类型的输出</h4><h5 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 索引数组</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">print_r($arr); <span class="comment">// Array ( [0] =&gt; 1 [1] =&gt; 2 [2] =&gt; 3 [3] =&gt; 4 [4] =&gt; 5 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关联数组</span></span><br><span class="line">$arr1 = <span class="keyword">array</span>(<span class="string">"name"</span> =&gt; <span class="string">"蓝鸥"</span>, <span class="string">"age"</span> =&gt; <span class="number">18</span>);</span><br><span class="line">print_r($arr1); <span class="comment">// Array ( [name] =&gt; 蓝鸥 [age] =&gt; 18 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="对象类型-有对象必须先有类"><a href="#对象类型-有对象必须先有类" class="headerlink" title="对象类型 有对象必须先有类"></a>对象类型 有对象必须先有类</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象类.有对象必须现有类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">aa</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"少小离家老二回,老大嫁做商人妇"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个对象</span></span><br><span class="line">$p1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="comment">// 在对象中调用属性和方法 使用 -&gt; 的方式调用</span></span><br><span class="line">$p1 -&gt; aa();</span><br></pre></td></tr></table></figure>
+<h5 id="资源类型-file"><a href="#资源类型-file" class="headerlink" title="资源类型(file)"></a>资源类型(file)</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用资源</span></span><br><span class="line"><span class="comment">// fopen('文件名称','打开方式',)</span></span><br><span class="line">$file = fopen(<span class="string">'share.txt'</span>,<span class="string">'r'</span>);</span><br><span class="line">var_dump($file); <span class="comment">// resource(3) of type (stream)</span></span><br></pre></td></tr></table></figure>
+<h3 id="类型转换-—-显示转换和隐式转换"><a href="#类型转换-—-显示转换和隐式转换" class="headerlink" title="类型转换 — 显示转换和隐式转换"></a>类型转换 — 显示转换和隐式转换</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 类型转换:</span></span><br><span class="line"><span class="comment"> * 1.显示转换  (你想转换的类型)变量</span></span><br><span class="line"><span class="comment"> * 2.隐式转换</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 显示转换括号里边的内容</span></span><br><span class="line"><span class="comment"> * 1. int integer</span></span><br><span class="line"><span class="comment"> * 2. float double</span></span><br><span class="line"><span class="comment"> * 3. bool boolean</span></span><br><span class="line"><span class="comment"> * 4. string</span></span><br><span class="line"><span class="comment"> * 5. array</span></span><br><span class="line"><span class="comment"> * 6. object</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 隐式转换:</span></span><br><span class="line"><span class="comment"> * 1. 当字符串和数字发生运算时,字符串会被转化为整形或者浮点型(不够严谨)</span></span><br><span class="line"><span class="comment"> * 2. 一切非空,非0,非 NULL 都为真</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="number">2</span> + <span class="string">"c"</span>;  <span class="comment">// 2</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"case"</span> + <span class="number">2</span>;  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">$a = <span class="string">"10"</span>;</span><br><span class="line">$b = <span class="number">0</span>;</span><br><span class="line">$c = $a - $b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($a) &#123; <span class="comment">// 默认隐式转换为 true</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"你是真哦"</span>;  <span class="comment">// 执行这条</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"你是假哦"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 1. 算数运算符: + - * / %  ++ --</span></span><br><span class="line"><span class="comment"> * 2. 赋值运算符: = += -= *= /=</span></span><br><span class="line"><span class="comment"> * 3. 关系运算符: &gt; &gt;= &lt; &lt;=</span></span><br><span class="line"><span class="comment"> * 4. 逻辑运算符: ||  &amp;&amp; ! xor(异或)</span></span><br><span class="line"><span class="comment"> * 5. 三目运算符: ?:</span></span><br><span class="line"><span class="comment"> * 6. 连接符 .</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$a = <span class="number">1</span>;</span><br><span class="line">$b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>($a <span class="keyword">xor</span> $b)&#123;  <span class="comment">// 进行异或运算 全真为假</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'假不假'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'真不真'</span>;  <span class="comment">// 执行这条代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/node-sql/" rel="next" title="nodeJs 操作 MongoDB 数据库">
+                <i class="fa fa-chevron-left"></i> nodeJs 操作 MongoDB 数据库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/13/php-advance/" rel="prev" title="PHP 分支语句/循环语句/字符串函数/数组函数">
+                PHP 分支语句/循环语句/字符串函数/数组函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是PHP"><span class="nav-number">1.</span> <span class="nav-text">什么是PHP?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP文件是什么"><span class="nav-number">2.</span> <span class="nav-text">PHP文件是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP可以做什么"><span class="nav-number">3.</span> <span class="nav-text">PHP可以做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">4.</span> <span class="nav-text">起步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量赋值"><span class="nav-number">5.</span> <span class="nav-text">变量赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用赋值"><span class="nav-number">6.</span> <span class="nav-text">引用赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的变量"><span class="nav-number">7.</span> <span class="nav-text">变量的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出语句"><span class="nav-number">8.</span> <span class="nav-text">输出语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">9.</span> <span class="nav-text">常量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#魔术变量-内置常量"><span class="nav-number">9.1.</span> <span class="nav-text">魔术变量/内置常量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型-基本数据类型和复杂数据类型"><span class="nav-number">10.</span> <span class="nav-text">数据类型 (基本数据类型和复杂数据类型)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本数据类型"><span class="nav-number">10.1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串类型-—-定界符"><span class="nav-number">10.1.1.</span> <span class="nav-text">字符串类型 — 定界符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单引号和双引号的区别"><span class="nav-number">10.1.2.</span> <span class="nav-text">单引号和双引号的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#转义字符的输出"><span class="nav-number">10.1.3.</span> <span class="nav-text">转义字符的输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NULL-类型的输出"><span class="nav-number">10.1.4.</span> <span class="nav-text">NULL 类型的输出</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂类型的输出"><span class="nav-number">10.2.</span> <span class="nav-text">复杂类型的输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组类型"><span class="nav-number">10.2.1.</span> <span class="nav-text">数组类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象类型-有对象必须先有类"><span class="nav-number">10.2.2.</span> <span class="nav-text">对象类型 有对象必须先有类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#资源类型-file"><span class="nav-number">10.2.3.</span> <span class="nav-text">资源类型(file)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换-—-显示转换和隐式转换"><span class="nav-number">11.</span> <span class="nav-text">类型转换 — 显示转换和隐式转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">11.1.</span> <span class="nav-text">运算符</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

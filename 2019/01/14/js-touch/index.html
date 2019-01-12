@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="移动端鼠标滚轮事件 注意:这个事件具有很大的兼容性问题,在 Chrome 浏览器中使用 mousewheel ,而在Firefox 浏览器中这个设置确是无效的. 火狐特有的滚轮事件 DOMMouseScroll">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端事件&#x2F;移动端事件对象&#x2F;touch 类&#x2F;touch.js 框架">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/js-touch/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="移动端鼠标滚轮事件 注意:这个事件具有很大的兼容性问题,在 Chrome 浏览器中使用 mousewheel ,而在Firefox 浏览器中这个设置确是无效的. 火狐特有的滚轮事件 DOMMouseScroll">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T13:08:51.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端事件&#x2F;移动端事件对象&#x2F;touch 类&#x2F;touch.js 框架">
+<meta name="twitter:description" content="移动端鼠标滚轮事件 注意:这个事件具有很大的兼容性问题,在 Chrome 浏览器中使用 mousewheel ,而在Firefox 浏览器中这个设置确是无效的. 火狐特有的滚轮事件 DOMMouseScroll">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/js-touch/">
+
+
+
+
+
+  <title>移动端事件/移动端事件对象/touch 类/touch.js 框架 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/14/js-touch/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">移动端事件/移动端事件对象/touch 类/touch.js 框架</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:06:48+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/javascript/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  javascript</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="移动端鼠标滚轮事件"><a href="#移动端鼠标滚轮事件" class="headerlink" title="移动端鼠标滚轮事件"></a>移动端鼠标滚轮事件</h3><ul>
+<li>注意:这个事件具有很大的兼容性问题,在 Chrome 浏览器中使用 mousewheel ,而在Firefox 浏览器中这个设置确是无效的. 火狐特有的滚轮事件 DOMMouseScroll<a id="more"></a>
+</li>
+</ul>
+<h4 id="wheelDelta"><a href="#wheelDelta" class="headerlink" title="wheelDelta"></a>wheelDelta</h4><ul>
+<li>代表滚动的方向</li>
+<li>正数代表向上滚动</li>
+<li>负数代表向下滚动</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> index = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 不兼容火狐</span></span><br><span class="line"><span class="built_in">document</span>.onmousewheel = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * wheelDelta:</span></span><br><span class="line"><span class="comment">     * 正数: 向上滚动</span></span><br><span class="line"><span class="comment">     * 负数: 向下滚动</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span>(ev.wheelDelta &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        index += <span class="number">20</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"下滚动"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        index -= <span class="number">20</span>;</span><br><span class="line">        index = index &lt;= <span class="number">0</span> ? <span class="number">0</span> : index;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"上滚动"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    setScrollTop(index);</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setScrollTop</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="built_in">document</span>.documentElement.scrollTop = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="DOMMouseScroll"><a href="#DOMMouseScroll" class="headerlink" title="DOMMouseScroll"></a>DOMMouseScroll</h4><ul>
+<li>火狐特有的滚轮事件</li>
+<li>ev.detail 存储方向 只有两个值</li>
+<li>-1代表向上,+1代表相下</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 火狐特有滚轮事件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"DOMMouseScroll"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"火狐特有..."</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(ev);  <span class="comment">// 火狐没有 ev.wheelDelta 属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * ev.detail</span></span><br><span class="line"><span class="comment">     * -1 代表:向上</span></span><br><span class="line"><span class="comment">     * 1 代表:向下</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">console</span>.log(ev.detail);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="移动端事件对象"><a href="#移动端事件对象" class="headerlink" title="移动端事件对象"></a>移动端事件对象</h3><ul>
+<li>event 事件对象在移动端和 PC 端拥有较小区别</li>
+<li>移动端对象的考虑到有多根手指的操作,将一些手指信息存储在一个结合中.</li>
+</ul>
+<h4 id="event-target"><a href="#event-target" class="headerlink" title="event.target"></a>event.target</h4><ul>
+<li>绑定事件源(点击的是谁)</li>
+</ul>
+<h4 id="event-type"><a href="#event-type" class="headerlink" title="event.type"></a>event.type</h4><ul>
+<li>事件类型</li>
+</ul>
+<h4 id="event-targetTouches"><a href="#event-targetTouches" class="headerlink" title="event.targetTouches"></a>event.targetTouches</h4><ul>
+<li>保存触摸对象的手指信息,他是一个集合对象</li>
+</ul>
+<h4 id="event-touches"><a href="#event-touches" class="headerlink" title="event.touches"></a>event.touches</h4><ul>
+<li>保存屏幕对象的手指信息</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">box.ontouchstart = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"event事件对象:"</span>,ev);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"type:"</span>,ev.type);  <span class="comment">// touchstart</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"target:"</span>,ev.target);  <span class="comment">// box 对象</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * targetTouches:保存触摸对象上的手指信息</span></span><br><span class="line"><span class="comment">     * touches: 保存屏幕对象上的手指信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"pageY:"</span>,ev.targetTouches[<span class="number">0</span>].pageY);</span><br><span class="line">    <span class="keyword">this</span>.innerHTML = <span class="string">"现在屏幕上有"</span> + ev.targetTouches.length + <span class="string">"根手指"</span>;</span><br><span class="line">    <span class="keyword">this</span>.innerHTML += <span class="string">"&lt;hr/&gt;现在屏幕上有"</span> + ev.touches.length + <span class="string">"根手指"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移动端要写:默认事件很多</span></span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    <span class="comment">// 停止事件冒泡</span></span><br><span class="line">    ev.stopPropagation();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="移动端事件"><a href="#移动端事件" class="headerlink" title="移动端事件"></a>移动端事件</h3><p>— touch 类</p>
+<h4 id="onclick-点击事件"><a href="#onclick-点击事件" class="headerlink" title="onclick 点击事件"></a>onclick 点击事件</h4><ul>
+<li>这是移动端和 Pc 端通用的事件</li>
+<li>问题: onclick 在移动端具有 200ms 到300ms 的延迟</li>
+</ul>
+<h4 id="手指按下事件"><a href="#手指按下事件" class="headerlink" title="手指按下事件"></a>手指按下事件</h4><ul>
+<li>ontouchstart/touchstart</li>
+<li>最开始不是 使用 ontouchstart 的方式,都是使用 监听的方式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box.ontouchstart = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"手指按下"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="手指抬起事件"><a href="#手指抬起事件" class="headerlink" title="手指抬起事件"></a>手指抬起事件</h4><ul>
+<li>ontouchend/touchend</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box.addEventListener(<span class="string">"touchend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"手指抬起"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="手指移动事件"><a href="#手指移动事件" class="headerlink" title="手指移动事件"></a>手指移动事件</h4><ul>
+<li>ontouchmove / touchmove</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * touchmove:手指移动</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> index = <span class="number">0</span>;</span><br><span class="line">box.addEventListener(<span class="string">"touchmove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    index++;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"move:"</span>,index);</span><br><span class="line">    <span class="keyword">this</span>.innerHTML = <span class="string">"move"</span> + index;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="被迫取消-ontouchcancel-touchcancel"><a href="#被迫取消-ontouchcancel-touchcancel" class="headerlink" title="被迫取消 ontouchcancel / touchcancel"></a>被迫取消 ontouchcancel / touchcancel</h4><ul>
+<li>不会主动调用,突然来了电话等,突发事情,系统调用此方法,可以保存信息</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * touchcancel:被迫取消</span></span><br><span class="line"><span class="comment"> * 不会主动调用,突然来了电话等,突发事情,系统调用此方法,可以保存信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">box.addEventListener(<span class="string">"touchcancel"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"被迫取消"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="touch-Js-框架"><a href="#touch-Js-框架" class="headerlink" title="touch.Js 框架"></a>touch.Js 框架</h3><p><a href="http://cloudajs.org/docs/step4_API_Documentation#h2_7" target="_blank" rel="noopener">Touch.js API 文档</a></p>
+<p><a href="http://blog.csdn.net/libin_1/article/details/50534611" target="_blank" rel="noopener">百度touch.js API教程</a></p>
+<h4 id="旋转手势"><a href="#旋转手势" class="headerlink" title="旋转手势"></a>旋转手势</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旋转</span></span><br><span class="line"><span class="keyword">var</span> angle = <span class="number">0</span>;</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 开始旋转: touch方法</span></span><br><span class="line">    ev.startRotate();</span><br><span class="line">    <span class="comment">//阻止默认:原生</span></span><br><span class="line">    ev.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'rotate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ev.rotation:旋转的角度</span></span><br><span class="line">    <span class="keyword">var</span> totalAngle = angle + ev.rotation;</span><br><span class="line">    <span class="keyword">if</span>(ev.fingerStatus === <span class="string">'end'</span>) &#123; <span class="comment">//这一句很重要</span></span><br><span class="line">        angle = angle + ev.rotation;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.style.webkitTransform = <span class="string">'rotate('</span> + totalAngle + <span class="string">'deg)'</span>;</span><br><span class="line">    texts.innerText = <span class="string">"本次旋转角度为:"</span> + ev.rotation + <span class="string">"度, 方向:"</span> + ev.direction + <span class="string">"."</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="缩放手势"><a href="#缩放手势" class="headerlink" title="缩放手势"></a>缩放手势</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缩放</span></span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line">target.style.webkitTransition = <span class="string">'all ease 0.5s'</span>;</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 设置初始缩放比例</span></span><br><span class="line"><span class="keyword">var</span> initialScale = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 设置当前缩放比例</span></span><br><span class="line"><span class="keyword">var</span> currentScale;</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'pinchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 捏合的缩放倍数 缩小就是0-1</span></span><br><span class="line">    currentScale = ev.scale - <span class="number">1</span>;</span><br><span class="line">    currentScale = initialScale + currentScale;</span><br><span class="line">    currentScale = currentScale &gt; <span class="number">5</span> ? <span class="number">5</span> : currentScale; <span class="comment">//自己调节可以放大的最大倍数</span></span><br><span class="line">    currentScale = currentScale &lt; <span class="number">0.1</span> ? <span class="number">0.1</span> : currentScale; <span class="comment">//自己调节可以缩小的最小倍数</span></span><br><span class="line">    <span class="keyword">this</span>.style.webkitTransform = <span class="string">'scale('</span> + currentScale + <span class="string">')'</span>;</span><br><span class="line">    show.innerText = <span class="string">"当前缩放比例为:"</span> + currentScale + <span class="string">"倍."</span>;</span><br><span class="line">&#125;);</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'pinchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    initialScale = currentScale;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="左右滑动手势"><a href="#左右滑动手势" class="headerlink" title="左右滑动手势"></a>左右滑动手势</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w = <span class="number">205</span>;</span><br><span class="line"><span class="keyword">var</span> tw = box.offsetWidth;</span><br><span class="line"><span class="keyword">var</span> lf = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>).offsetLeft;</span><br><span class="line"><span class="keyword">var</span> rt = tw - w - lf;</span><br><span class="line">show.innerText = <span class="string">"向左, 向右swipe滑动"</span>;</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line">target.style.webkitTransition = <span class="string">'all ease 0.2s'</span>;</span><br><span class="line">touch.on(target, <span class="string">'swiperight'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.style.webkitTransform = <span class="string">"translate3d("</span> + rt + <span class="string">"px,0,0)"</span>;</span><br><span class="line">    show.innerText = <span class="string">"向右滑动."</span>;</span><br><span class="line">&#125;);</span><br><span class="line">touch.on(target, <span class="string">'swipeleft'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    show.innerText = <span class="string">"向左滑动."</span>;</span><br><span class="line">    <span class="keyword">this</span>.style.webkitTransform = <span class="string">"translate3d(-"</span> + <span class="keyword">this</span>.offsetLeft + <span class="string">"px,0,0)"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="拖拽手势"><a href="#拖拽手势" class="headerlink" title="拖拽手势"></a>拖拽手势</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">show.innerText = <span class="string">"抓取并拖拽目标元素"</span>;</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line"><span class="keyword">var</span> dx, dy;</span><br><span class="line"><span class="comment">// 拖拽手势</span></span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'drag'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    dx = dx || <span class="number">0</span>;</span><br><span class="line">    dy = dy || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> offx = dx + ev.x + <span class="string">"px"</span>;</span><br><span class="line">    <span class="keyword">var</span> offy = dy + ev.y + <span class="string">"px"</span>;</span><br><span class="line">    <span class="keyword">this</span>.style.webkitTransform = <span class="string">"translate3d("</span> + offx + <span class="string">","</span> + offy + <span class="string">",0)"</span>;</span><br><span class="line">&#125;);</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'dragend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;<span class="number">9</span></span><br><span class="line">    dx += ev.x;</span><br><span class="line">    dy += ev.y;</span><br><span class="line">    show.innerText = <span class="string">"当前x值为:"</span> + dx + <span class="string">", 当前y值为:"</span> + dy + <span class="string">"."</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="单击-双击-长按手势"><a href="#单击-双击-长按手势" class="headerlink" title="单击/双击/长按手势"></a>单击/双击/长按手势</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line">touch.on(<span class="string">'#box'</span>, <span class="string">'hold tap doubletap'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 动画完成后,清除 class</span></span><br><span class="line">    <span class="keyword">this</span>.className = <span class="string">"animated"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 监听</span></span><br><span class="line"><span class="comment">// 动画结束时回调</span></span><br><span class="line">box.addEventListener(<span class="string">"animationend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// alert("动画完了!");</span></span><br><span class="line">    <span class="comment">// 删除动画的 class</span></span><br><span class="line">    <span class="keyword">this</span>.className = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">this</span>.style.border = <span class="string">"5px solid red"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动画开始时回调</span></span><br><span class="line">box.addEventListener(<span class="string">"animationstart"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;&#125;);</span><br><span class="line"><span class="comment">// 动画重复播放时触发</span></span><br><span class="line">box.addEventListener(<span class="string">"animationiteration"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/js-bom/" rel="next" title="BOM对象/浏览器对象/window对象方法及属性/Cookie">
+                <i class="fa fa-chevron-left"></i> BOM对象/浏览器对象/window对象方法及属性/Cookie
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-select/" rel="prev" title="jQuery选择器">
+                jQuery选择器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端鼠标滚轮事件"><span class="nav-number">1.</span> <span class="nav-text">移动端鼠标滚轮事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#wheelDelta"><span class="nav-number">1.1.</span> <span class="nav-text">wheelDelta</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOMMouseScroll"><span class="nav-number">1.2.</span> <span class="nav-text">DOMMouseScroll</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端事件对象"><span class="nav-number">2.</span> <span class="nav-text">移动端事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#event-target"><span class="nav-number">2.1.</span> <span class="nav-text">event.target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#event-type"><span class="nav-number">2.2.</span> <span class="nav-text">event.type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#event-targetTouches"><span class="nav-number">2.3.</span> <span class="nav-text">event.targetTouches</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#event-touches"><span class="nav-number">2.4.</span> <span class="nav-text">event.touches</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端事件"><span class="nav-number">3.</span> <span class="nav-text">移动端事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onclick-点击事件"><span class="nav-number">3.1.</span> <span class="nav-text">onclick 点击事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手指按下事件"><span class="nav-number">3.2.</span> <span class="nav-text">手指按下事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手指抬起事件"><span class="nav-number">3.3.</span> <span class="nav-text">手指抬起事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手指移动事件"><span class="nav-number">3.4.</span> <span class="nav-text">手指移动事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#被迫取消-ontouchcancel-touchcancel"><span class="nav-number">3.5.</span> <span class="nav-text">被迫取消 ontouchcancel / touchcancel</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch-Js-框架"><span class="nav-number">4.</span> <span class="nav-text">touch.Js 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转手势"><span class="nav-number">4.1.</span> <span class="nav-text">旋转手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缩放手势"><span class="nav-number">4.2.</span> <span class="nav-text">缩放手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左右滑动手势"><span class="nav-number">4.3.</span> <span class="nav-text">左右滑动手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拖拽手势"><span class="nav-number">4.4.</span> <span class="nav-text">拖拽手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单击-双击-长按手势"><span class="nav-number">4.5.</span> <span class="nav-text">单击/双击/长按手势</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

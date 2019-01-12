@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="123&amp;lt;!--    DOM操作 === 节点操作  === 标签操作  === 元素操作--&amp;gt;">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery中的DOM操作">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/jq-dom/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="123&amp;lt;!--    DOM操作 === 节点操作  === 标签操作  === 元素操作--&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T13:42:56.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery中的DOM操作">
+<meta name="twitter:description" content="123&amp;lt;!--    DOM操作 === 节点操作  === 标签操作  === 元素操作--&amp;gt;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/jq-dom/">
+
+
+
+
+
+  <title>jQuery中的DOM操作 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/14/jq-dom/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">jQuery中的DOM操作</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:41:14+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/jQuery/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  jQuery</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    DOM操作 === 节点操作  === 标签操作  === 元素操作</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="内部插入"><a href="#内部插入" class="headerlink" title="内部插入"></a>内部插入</h3><h4 id="append"><a href="#append" class="headerlink" title=".append()"></a>.append()</h4><ul>
+<li>在每个匹配元素<strong>里面的末尾处</strong>插入参数内容。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是第一个one<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//在选中元素的里边的最后边！！！！！</span><br><span class="line">    $("body").append("<span class="tag">&lt;<span class="name">h1</span>&gt;</span>通过append方法追加到了body的尾部<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>");</span><br><span class="line">    $(".one").append("<span class="tag">&lt;<span class="name">p</span>&gt;</span>追加的内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span>");</span><br><span class="line">	$(".one").append("<span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span>");	//h2内容为空</span><br></pre></td></tr></table></figure>
+<h4 id="appendTo"><a href="#appendTo" class="headerlink" title=".appendTo()"></a>.appendTo()</h4><ul>
+<li>将匹配的元素<strong>内部插入</strong>到目标元素的最后面。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//将前边的<span class="tag">&lt;<span class="name">h2</span>&gt;</span>标签的内容插入到 .two 的内部的末尾</span><br><span class="line">$("<span class="tag">&lt;<span class="name">h2</span>&gt;</span>appendTo追加<span class="tag">&lt;/<span class="name">h2</span>&gt;</span>").appendTo(".two");</span><br><span class="line"></span><br><span class="line">//$("<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>") 叫做创建一个jQuery对象，可以理解为创建一个元素。</span><br><span class="line">//(其实就是在原有标签的基础上做了一些改造)</span><br><span class="line">    var newElement = $("<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'https://www.baidu.com'</span>&gt;</span>链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>");</span><br><span class="line">    newElement.appendTo(".two");</span><br></pre></td></tr></table></figure>
+<h4 id="prepend"><a href="#prepend" class="headerlink" title=".prepend ()"></a>.prepend ()</h4><ul>
+<li>将参数内容插入到每个匹配<strong>元素内部的前面</strong>。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>three元素<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//字符串类型		本来没有，在这创建了一个新的</span><br><span class="line">$(".three").prepend("<span class="tag">&lt;<span class="name">p</span>&gt;</span>hello three!!<span class="tag">&lt;/<span class="name">p</span>&gt;</span>");</span><br><span class="line"></span><br><span class="line">// jQuery对象类型	是移除原来的，不是复制，移除之后原来的位置上没有了</span><br><span class="line">$(".three").prepend($("<span class="tag">&lt;<span class="name">p</span>&gt;</span>three hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span>"));</span><br></pre></td></tr></table></figure>
+<h4 id="prependTo"><a href="#prependTo" class="headerlink" title=".prependTo()"></a>.prependTo()</h4><ul>
+<li>将所有元素插入到目标前面（元素内插到前）。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>three元素<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//字符串类型		本来没有，在这创建了一个新的</span><br><span class="line">$("<span class="tag">&lt;<span class="name">p</span>&gt;</span>hello three!!<span class="tag">&lt;/<span class="name">p</span>&gt;</span>").prependTo(".three");</span><br><span class="line"></span><br><span class="line">// jQuery对象类型	是移除原来的，不是复制，移除之后原来的位置上没有了</span><br><span class="line">$("<span class="tag">&lt;<span class="name">p</span>&gt;</span>hello three!!<span class="tag">&lt;/<span class="name">p</span>&gt;</span>").prependTo($(".three"));</span><br></pre></td></tr></table></figure>
+<h4 id="html"><a href="#html" class="headerlink" title=".html()"></a>.html()</h4><ul>
+<li><strong>获取</strong>集合中第一个匹配元素的HTML内容 或 <strong>设置</strong>每一个匹配元素的html内容。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//修改标签内容(设置)</span><br><span class="line">$(".four &gt; h2").html("<span class="tag">&lt;<span class="name">span</span>&gt;</span>我是h2<span class="tag">&lt;/<span class="name">span</span>&gt;</span>");</span><br><span class="line">$(".four &gt; h2").html("xxxxx");</span><br><span class="line"></span><br><span class="line">//获取内容</span><br><span class="line">$('div.demo-container').html();</span><br></pre></td></tr></table></figure>
+<h4 id="text"><a href="#text" class="headerlink" title=".text()"></a>.text()</h4><ul>
+<li>得到匹配元素集合中每个元素的文本内容结合，包括他们的后代，或设置匹配元素集合中每个元素的文本内容为指定的文本内容。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo-container"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo-box"</span>&gt;</span>Demonstration Box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>list item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>list <span class="tag">&lt;<span class="name">strong</span>&gt;</span>item<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">$('div.demo-container').text();</span><br><span class="line">//结果为：Demonstration Box list item 1 list item 2</span><br></pre></td></tr></table></figure>
+<h3 id="外部插入"><a href="#外部插入" class="headerlink" title="外部插入"></a>外部插入</h3><h4 id="before"><a href="#before" class="headerlink" title=".before()"></a>.before()</h4><ul>
+<li>根据参数设定，在匹配元素的前面插入内容</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="string">".one"</span>).before(<span class="string">"&lt;h2&gt;兄弟！&lt;/h2&gt;"</span>);</span></span><br><span class="line"><span class="javascript">$(<span class="string">".two li:eq(1)"</span>). before(<span class="string">"&lt;li&gt;临时添加&lt;/li&gt;"</span>)		<span class="comment">//指定在第二个li前添加</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="insertBefore"><a href="#insertBefore" class="headerlink" title=".insertBefore()"></a>.insertBefore()</h4><ul>
+<li>在目标元素前面插入集合中每个匹配的作为目标元素的兄弟元素。(翻转，外部插兄弟)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>three<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="string">"&lt;h3&gt;three!!!!&lt;/h3&gt;"</span>).insertBefore(<span class="string">".three &gt; h2"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="after"><a href="#after" class="headerlink" title=".after()"></a>.after()</h4><ul>
+<li>在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">$(".one").after("<span class="tag">&lt;<span class="name">h2</span>&gt;</span>兄弟！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span>");</span><br><span class="line">$(".two li:eq(1)").after("<span class="tag">&lt;<span class="name">li</span>&gt;</span>临时添加<span class="tag">&lt;/<span class="name">li</span>&gt;</span>");	//指定在第二个li后添加</span><br></pre></td></tr></table></figure>
+<h4 id="insertAfter"><a href="#insertAfter" class="headerlink" title=".insertAfter()"></a>.insertAfter()</h4><ul>
+<li>在目标元素后面插入集合中每个匹配的作为目标元素的兄弟元素    (翻转,外部插兄弟)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>three<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="string">"&lt;h3&gt;three!!!!&lt;/h3&gt;"</span>).insertAfter(<span class="string">".three &gt; h2"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a>移除元素</h3><h4 id="remove"><a href="#remove" class="headerlink" title=".remove()"></a>.remove()</h4><ul>
+<li>将匹配元素集合从DOM中删除(子元素及其本身全部丢失)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one_s"</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one_s"</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one_s color_red"</span>&gt;</span>yyyy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"color_red"</span>&gt;</span>yyyy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//两种方法</span><br><span class="line">$(".one_s.color_red").remove();			//一次选择</span><br><span class="line">// $(".color_red").remove(".one_s");	//选择两次</span><br></pre></td></tr></table></figure>
+<h4 id="empty"><a href="#empty" class="headerlink" title=".empty()"></a>.empty()</h4><ul>
+<li>从DOM中移除集合中匹配元素的所有子节点。(删除所有子，自己还在)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">//删除所有子节点，但是自己的节点仍然存在</span><br><span class="line">$(".two").empty();</span><br></pre></td></tr></table></figure>
+<h4 id="detach"><a href="#detach" class="headerlink" title=".detach()"></a>.detach()</h4><ul>
+<li>从DOM中去掉所有匹配的元素。(保存删除，并没有真正删除，还可以找回)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>three<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//保存一下已经删除的元素，便于将来继续使用！！！！</span><br><span class="line">    var temp = $(".three:eq(0)").detach();</span><br><span class="line">    console.log(temp);//已经删除的元素</span><br><span class="line">    $("body").prepent(temp);	//找回并添加到body标签内部的开头</span><br></pre></td></tr></table></figure>
+<h4 id="unwrap"><a href="#unwrap" class="headerlink" title=".unwrap()"></a>.unwrap()</h4><ul>
+<li>将匹配元素集合的<strong>父级元素删除</strong>，保留自身（和兄弟元素，如果存在）在原来的位置。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//选择button标签，删除父级的div标签</span><br><span class="line">$("button").unwrap();</span><br></pre></td></tr></table></figure>
+<h3 id="包裹"><a href="#包裹" class="headerlink" title="包裹"></a>包裹</h3><h4 id="wrap"><a href="#wrap" class="headerlink" title=".wrap()"></a>.wrap()</h4><ul>
+<li>在集合中匹配的每个元素周围包裹一个HTML结构。(每个包裹一层)</li>
+<li>.wrap()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">//给符合条件的元素都包裹,在元素的外部包裹</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">".one"</span>).wrap(<span class="string">"&lt;div&gt;&lt;/div&gt;"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">'p'</span>).wrap(<span class="built_in">document</span>.createElement(<span class="string">'div'</span>));</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="wrapAll"><a href="#wrapAll" class="headerlink" title=".wrapAll()"></a>.wrapAll()</h4><ul>
+<li>在集合中所有匹配元素的外面包裹一个HTML结构。(集体包裹一层)</li>
+<li>.wrapAll()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">//整体包裹	给li标签包裹一层ul标签</span><br><span class="line">    $("li").wrapAll("<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">'lists'</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span>");</span><br></pre></td></tr></table></figure>
+<h4 id="wrapInner"><a href="#wrapInner" class="headerlink" title=".wrapInner()"></a>.wrapInner()</h4><ul>
+<li>在匹配元素里的<strong>内容</strong>外包一层结构。    (给匹配元素的内容做包裹)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../jquery.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">//给符合条件的元素都包裹,在元素的内部包裹</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">".two"</span>).wrapInner(<span class="string">"&lt;h2&gt;&lt;/h2&gt;"</span>);		<span class="comment">//给文本加包裹</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><h4 id="replaceWith"><a href="#replaceWith" class="headerlink" title=".replaceWith()"></a>.replaceWith()</h4><ul>
+<li>用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"four"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>1<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>3<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//</span><br><span class="line">$(".four&gt;h2").replaceAll("<span class="tag">&lt;<span class="name">div</span>&gt;</span>son<span class="tag">&lt;/<span class="name">div</span>&gt;</span>");</span><br></pre></td></tr></table></figure>
+<h4 id="replaceAll"><a href="#replaceAll" class="headerlink" title=".replaceAll()"></a>.replaceAll()</h4><ul>
+<li>用集合的匹配元素替换每个目标元素。    (翻转，替换所有)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"four"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>1<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>3<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//翻转</span><br><span class="line">$("<span class="tag">&lt;<span class="name">div</span>&gt;</span>son<span class="tag">&lt;/<span class="name">div</span>&gt;</span>").replaceAll(".four&gt;h2");</span><br></pre></td></tr></table></figure>
+<h3 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h3><h4 id="clone"><a href="#clone" class="headerlink" title=".clone()"></a>.clone()</h4><ul>
+<li>创建一个匹配的元素集合的深度拷贝副本。    (只是复制，原来的没有移除)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"goodbye"</span>&gt;</span>Goodbye<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//克隆Hello，添加到.goodbye的内部末尾</span><br><span class="line">$("hello").clone().appendTo(".goodbye");</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-css/" rel="next" title="jQuery中的CSS操作(CSS/尺寸/位置/数据)">
+                <i class="fa fa-chevron-left"></i> jQuery中的CSS操作(CSS/尺寸/位置/数据)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/jq-event/" rel="prev" title="jQuery中的事件操作">
+                jQuery中的事件操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内部插入"><span class="nav-number">1.</span> <span class="nav-text">内部插入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#append"><span class="nav-number">1.1.</span> <span class="nav-text">.append()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#appendTo"><span class="nav-number">1.2.</span> <span class="nav-text">.appendTo()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prepend"><span class="nav-number">1.3.</span> <span class="nav-text">.prepend ()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prependTo"><span class="nav-number">1.4.</span> <span class="nav-text">.prependTo()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html"><span class="nav-number">1.5.</span> <span class="nav-text">.html()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">1.6.</span> <span class="nav-text">.text()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部插入"><span class="nav-number">2.</span> <span class="nav-text">外部插入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#before"><span class="nav-number">2.1.</span> <span class="nav-text">.before()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#insertBefore"><span class="nav-number">2.2.</span> <span class="nav-text">.insertBefore()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#after"><span class="nav-number">2.3.</span> <span class="nav-text">.after()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#insertAfter"><span class="nav-number">2.4.</span> <span class="nav-text">.insertAfter()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除元素"><span class="nav-number">3.</span> <span class="nav-text">移除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#remove"><span class="nav-number">3.1.</span> <span class="nav-text">.remove()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#empty"><span class="nav-number">3.2.</span> <span class="nav-text">.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#detach"><span class="nav-number">3.3.</span> <span class="nav-text">.detach()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unwrap"><span class="nav-number">3.4.</span> <span class="nav-text">.unwrap()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包裹"><span class="nav-number">4.</span> <span class="nav-text">包裹</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#wrap"><span class="nav-number">4.1.</span> <span class="nav-text">.wrap()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wrapAll"><span class="nav-number">4.2.</span> <span class="nav-text">.wrapAll()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wrapInner"><span class="nav-number">4.3.</span> <span class="nav-text">.wrapInner()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换"><span class="nav-number">5.</span> <span class="nav-text">替换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#replaceWith"><span class="nav-number">5.1.</span> <span class="nav-text">.replaceWith()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#replaceAll"><span class="nav-number">5.2.</span> <span class="nav-text">.replaceAll()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆"><span class="nav-number">6.</span> <span class="nav-text">克隆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#clone"><span class="nav-number">6.1.</span> <span class="nav-text">.clone()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

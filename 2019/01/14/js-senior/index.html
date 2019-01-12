@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/franksunhd.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/franksunhd.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/franksunhd.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/franksunhd.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/franksunhd.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/franksunhd.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="函数绑定 函数绑定就是创建一个函数，可以在特定的this环境中指定参数调用另一个参数.  函数一旦bind成功，那么从此以后返回的新函数的this就已经固定了在任何位置调用该函数，this都不会变  其中的参数, arg1 和 arg2 相当于提前给fun1传递了参数在调用fun1时传入的参数会紧跟其后，作为额外的参数.  bind功能: 一个函数可以bind任意次数，想bind到哪个this都行">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 高级应用&#x2F;函数绑定&#x2F;柯里化&#x2F;函数记忆&#x2F;高阶函数&#x2F;定时器节流&#x2F;设计模式">
+<meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/js-senior/index.html">
+<meta property="og:site_name" content="孙思研的个人博客">
+<meta property="og:description" content="函数绑定 函数绑定就是创建一个函数，可以在特定的this环境中指定参数调用另一个参数.  函数一旦bind成功，那么从此以后返回的新函数的this就已经固定了在任何位置调用该函数，this都不会变  其中的参数, arg1 和 arg2 相当于提前给fun1传递了参数在调用fun1时传入的参数会紧跟其后，作为额外的参数.  bind功能: 一个函数可以bind任意次数，想bind到哪个this都行">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-12T12:57:31.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 高级应用&#x2F;函数绑定&#x2F;柯里化&#x2F;函数记忆&#x2F;高阶函数&#x2F;定时器节流&#x2F;设计模式">
+<meta name="twitter:description" content="函数绑定 函数绑定就是创建一个函数，可以在特定的this环境中指定参数调用另一个参数.  函数一旦bind成功，那么从此以后返回的新函数的this就已经固定了在任何位置调用该函数，this都不会变  其中的参数, arg1 和 arg2 相当于提前给fun1传递了参数在调用fun1时传入的参数会紧跟其后，作为额外的参数.  bind功能: 一个函数可以bind任意次数，想bind到哪个this都行">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/franksunhd.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://franksunhd.github.io/franksunhd.github.io/2019/01/14/js-senior/">
+
+
+
+
+
+  <title>JavaScript 高级应用/函数绑定/柯里化/函数记忆/高阶函数/定时器节流/设计模式 | 孙思研的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/franksunhd.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙思研的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/franksunhd.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/franksunhd.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/franksunhd.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/franksunhd.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://franksunhd.github.io/franksunhd.github.io/franksunhd.github.io/2019/01/14/js-senior/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="franksun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/franksunhd.github.io/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙思研的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaScript 高级应用/函数绑定/柯里化/函数记忆/高阶函数/定时器节流/设计模式</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T20:55:54+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/franksunhd.github.io/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+          
+            <div class="post-tags">
+              
+                <a href="/franksunhd.github.io/tags/javascript/" style="border-bottom:none;" rel="tag" class="fa fa-tag">  javascript</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="函数绑定"><a href="#函数绑定" class="headerlink" title="函数绑定"></a>函数绑定</h3><ol>
+<li><p>函数绑定就是创建一个函数，可以在特定的this环境中指定参数调用另一个参数.</p>
+</li>
+<li><p>函数一旦bind成功，那么从此以后返回的新函数的this就已经固定了<br>在任何位置调用该函数，this都不会变</p>
+</li>
+<li><p>其中的参数, arg1 和 arg2 相当于提前给fun1传递了参数<br>在调用fun1时传入的参数会紧跟其后，作为额外的参数.</p>
+</li>
+<li><p>bind功能: 一个函数可以bind任意次数，想bind到哪个this都行<br> 1). 绑定this<br> 2). 提前传入参数</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="keyword">var</span> btn1 = <span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</span><br><span class="line">      <span class="keyword">var</span> btn2 = <span class="built_in">document</span>.getElementById(<span class="string">'btn2'</span>);</span><br><span class="line">      btn1.value = <span class="number">1000</span>;</span><br><span class="line">      btn2.value = <span class="number">10000</span>;</span><br><span class="line">      <span class="keyword">var</span> value = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">var</span> obj = &#123;</span><br><span class="line">        value : <span class="number">100</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params">arg1,arg2</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"this.value = "</span>,<span class="keyword">this</span>.value);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"arg1 = "</span>,arg1);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"arg2 = "</span>,arg2);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// fun1 是bind返回的新函数</span></span><br><span class="line">      <span class="keyword">var</span> fun1 = handler.bind(obj,<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">      fun1(); <span class="comment">// 100 10 20</span></span><br><span class="line">      handler(<span class="number">20</span>,<span class="number">30</span>);  <span class="comment">// 10 20 30</span></span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">        函数一旦bind成功，那么从此以后返回的新函数的this就已经固定了</span></span><br><span class="line"><span class="comment">        在任何位置调用该函数，this都不会变</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">      btn1.addEventListener(<span class="string">'click'</span>,fun1,<span class="literal">false</span>); <span class="comment">// 100 10 20</span></span><br><span class="line">      btn2.addEventListener(<span class="string">'click'</span>,fun1,<span class="literal">false</span>); <span class="comment">// 100 10 20</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params">arg1,arg2</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(arg1,arg2);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">        其中的参数, 100 和 1000 相当于提前给fun1传递了参数</span></span><br><span class="line"><span class="comment">        在调用fun1时传入的参数会紧跟其后，作为额外的参数.</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">      <span class="keyword">var</span> fun1 = handler.bind(<span class="literal">null</span>,<span class="number">100</span>,<span class="number">1000</span>);</span><br><span class="line">      fun1(); <span class="comment">// 100 1000 arguments[2] ==&gt; 100 1000</span></span><br><span class="line">      fun1(<span class="number">20</span>,<span class="number">30</span>); <span class="comment">// 100 1000 arguments[4] ==&gt; 100 1000 20 30</span></span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">        bind功能: 一个函数可以bind任意次数，想bind到哪个this都行</span></span><br><span class="line"><span class="comment">        1. 绑定this</span></span><br><span class="line"><span class="comment">        2. 提前传入参数</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">      <span class="keyword">var</span> fun2 = handler.bind(<span class="literal">null</span>,<span class="number">195</span>,<span class="number">200</span>);</span><br><span class="line">      fun2();  <span class="comment">// 195 200 arguments[2] ==&gt; 195 200</span></span><br><span class="line">      fun2(<span class="number">222</span>,<span class="number">333</span>);  <span class="comment">// 195 200 arguments[4] ==&gt; 195 200 222 333</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><ul>
+<li>提前给该函数传入固定的参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">rate,price</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(price + <span class="string">" * "</span> + rate + <span class="string">" = "</span> + price*rate);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> newCount = count.bind(<span class="literal">null</span>,<span class="number">0.95</span>);</span><br><span class="line">      newCount(<span class="number">1000</span>); <span class="comment">// 950</span></span><br><span class="line">      newCount(<span class="number">100</span>);  <span class="comment">// 95</span></span><br><span class="line">      newCount(<span class="number">20</span>); <span class="comment">// 19</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数记忆-函数缓存"><a href="#函数记忆-函数缓存" class="headerlink" title="函数记忆/函数缓存"></a>函数记忆/函数缓存</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">        函数缓存:</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 判断是否是偶数</span></span><br><span class="line">      <span class="comment">// 充分利用了 函数可自定义属性的特点！！！</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">isEven</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第一次调用该函数 没有result属性，所以添加一个result属性</span></span><br><span class="line">        <span class="keyword">if</span> (!isEven.result) &#123;</span><br><span class="line">          <span class="comment">// result非空执行</span></span><br><span class="line">          isEven.result = &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 每次都试图从已有结果中查找</span></span><br><span class="line">        <span class="keyword">if</span> (isEven.result[num] != <span class="literal">undefined</span>) &#123;</span><br><span class="line">          <span class="comment">// 如果找到 则返回</span></span><br><span class="line">          <span class="keyword">return</span> isEven.result[num];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果没有结果，则需要重新计算</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"-----重新计算------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> temp = (num % <span class="number">2</span> === <span class="number">0</span> );  <span class="comment">// 返回的是true or false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算之后 保存计算结果</span></span><br><span class="line">        <span class="keyword">return</span> isEven.result[num] = temp;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="built_in">console</span>.log(isEven(<span class="number">2</span>));  <span class="comment">//重新计算 true</span></span><br><span class="line">      <span class="built_in">console</span>.log(isEven(<span class="number">3</span>));  <span class="comment">// 重新计算 false</span></span><br><span class="line">      <span class="built_in">console</span>.log(isEven(<span class="number">2</span>));  <span class="comment">// true</span></span><br><span class="line">      <span class="built_in">console</span>.log(isEven(<span class="number">3</span>));  <span class="comment">// false</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><ul>
+<li>高阶函数其实就是传入一个或者多个参数，返回一个函数。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  	<span class="comment">// 子函数 sum</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">      &#125;</span><br><span class="line">	<span class="comment">// 子函数 pow</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">pow2</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num * num;</span><br><span class="line">      &#125;</span><br><span class="line">	<span class="comment">// 函数工厂</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">createFun</span>(<span class="params">fun1,fun2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">arg1,arg2</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> fun2(fun1(arg1,arg2));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">	<span class="comment">// 函数调用</span></span><br><span class="line">      <span class="keyword">var</span> str = createFun(sum,pow2);</span><br><span class="line">      <span class="built_in">console</span>.log(str(<span class="number">10</span>,<span class="number">20</span>));  <span class="comment">// 900</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="定时器节流"><a href="#定时器节流" class="headerlink" title="定时器节流"></a>定时器节流</h3><ul>
+<li>基本思想是指，某些代码不可以在没有间断的情况连续重复执行。第一次调用函数，创建一个定时器，在指定的时间间隔之后运行代码。当第二次调用该函数时，它会清除前一次的定时器并设置另一个。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</span><br><span class="line">      <span class="keyword">var</span> tb = <span class="built_in">document</span>.getElementById(<span class="string">'item'</span>);</span><br><span class="line">      <span class="keyword">var</span> str = <span class="built_in">document</span>.getElementById(<span class="string">'str'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> count = <span class="number">0</span>,timer;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">createTable</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">1000</span>) &#123;</span><br><span class="line">          clearTimeout();</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">          <span class="comment">// var content = "&lt;tr&gt;&lt;td&gt;lisi&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;td&gt;男&lt;/td&gt;&lt;/tr&gt;";</span></span><br><span class="line">          <span class="keyword">var</span> content = <span class="string">"&lt;li&gt;aaaaa&lt;/li&gt;"</span>;</span><br><span class="line">          <span class="comment">// tb.innerHTML += content;</span></span><br><span class="line">          str.innerHTML += content;</span><br><span class="line">        &#125;</span><br><span class="line">        timer = setTimeout(createTable,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(count);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"点击了document"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        event.stopPropagation(); <span class="comment">// 阻止事件传递 DOM0级</span></span><br><span class="line">        createTable();</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        for (var i = 0; i &lt; 5000; i++) &#123;</span></span><br><span class="line"><span class="comment">          var content = "&lt;tr&gt;&lt;td&gt;lisi&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;td&gt;男&lt;/td&gt;&lt;/tr&gt;";</span></span><br><span class="line"><span class="comment">          tb.innerHTML += content;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">      &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><ul>
+<li>用来划分命名空间,以减少网页中的全局变量的数目，还可以在一种名为分支的技术中用来封装浏览器之间的差异。</li>
+<li>闭包的本质不是函数嵌套函数,而是作用域链的延伸</li>
+<li>惰性创建单例对象</li>
+</ul>
+<h5 id="字面量创建"><a href="#字面量创建" class="headerlink" title="字面量创建"></a>字面量创建</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一 使用字面量创建一个简单的单例对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">        name : <span class="string">"lisi"</span>,</span><br><span class="line">        age : <span class="number">23</span>,</span><br><span class="line">        score : <span class="number">89</span>,</span><br><span class="line">        eat : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">"-----eat-----"</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        drink :<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">"----drink----"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="使用闭包封装私有成员和方法"><a href="#使用闭包封装私有成员和方法" class="headerlink" title="使用闭包封装私有成员和方法"></a>使用闭包封装私有成员和方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法二 使用闭包在其内部封装私有成员和方法</span></span><br><span class="line"><span class="keyword">var</span> mySingleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 这里声明私有变量和私有方法</span></span><br><span class="line">        <span class="keyword">var</span> privateA = <span class="string">"hello world"</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(privateA);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 返回公有变量和方法</span></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          publicMethod:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            showHello();</span><br><span class="line">          &#125;,</span><br><span class="line">          publicVar : <span class="string">"ssy"</span></span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> single = mySingleton();</span><br><span class="line">      single.publicMethod();  <span class="comment">// hello world</span></span><br><span class="line">      <span class="built_in">console</span>.log(single.publicVar); <span class="comment">// ssy</span></span><br></pre></td></tr></table></figure>
+<h5 id="使用惰性创建单例对象"><a href="#使用惰性创建单例对象" class="headerlink" title="使用惰性创建单例对象"></a>使用惰性创建单例对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法三 : 惰性创建单例对象</span></span><br><span class="line">      <span class="keyword">var</span> mySingletons = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> instantiated;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="comment">// 这里定义单例代码</span></span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            publicMethod:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">"hello world!"</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            publicProperty:<span class="string">"test"</span></span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          <span class="comment">// 静态方法</span></span><br><span class="line">          getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!instantiated) &#123;</span><br><span class="line">              instantiated = init();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instantiated;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;)();</span><br><span class="line"></span><br><span class="line">      mySingletons.getInstance().publicMethod(); <span class="comment">// hello world!</span></span><br><span class="line">      <span class="keyword">var</span> property = mySingletons.getInstance().publicProperty;</span><br><span class="line">      <span class="built_in">console</span>.log(property); <span class="comment">// test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="keyword">var</span> MyNameSpace = &#123;&#125;;</span><br><span class="line">      MyNameSpace.singleton = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> exist = <span class="literal">null</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> privateA = <span class="number">10</span>;</span><br><span class="line">          <span class="keyword">var</span> privateB = <span class="number">20</span>;</span><br><span class="line">          <span class="comment">// 私有方法和变量</span></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">privateFn1</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">            privateA = value;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">privateFn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> privateA;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            publicA:<span class="number">30</span>,</span><br><span class="line">            publicB:<span class="number">40</span>,</span><br><span class="line">            setPrivateA:<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">              privateFn1(value);</span><br><span class="line">            &#125;,</span><br><span class="line">            getPrivateA:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> privateFn2();</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          <span class="comment">// 该方法就是惰性创建单例对象的特点</span></span><br><span class="line">          getInstrance:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!exist) &#123;</span><br><span class="line">              exist = Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> exist;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)();</span><br><span class="line"></span><br><span class="line">      MyNameSpace.singleton.getInstrance().setPrivateA(<span class="number">15</span>);</span><br><span class="line">      <span class="keyword">var</span> single = MyNameSpace.singleton.getInstrance().getPrivateA();</span><br><span class="line">      <span class="built_in">console</span>.log(single);  <span class="comment">// 15</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="单例对象的应用"><a href="#单例对象的应用" class="headerlink" title="单例对象的应用"></a>单例对象的应用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="comment">// 单例模式主要用于在系统间各种模式的通信协调上</span></span><br><span class="line">    <span class="keyword">var</span> SingletonTester = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 参数:传递给单例的一个参数集合</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">Singleton</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 设置args变量为接收的参数或者为空(对应没有提供的情况)</span></span><br><span class="line">        <span class="keyword">var</span> args = args || &#123;&#125;;</span><br><span class="line">        <span class="comment">// 设置name 参数</span></span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"SingletonTester"</span>;</span><br><span class="line">        <span class="comment">// 设置pointX的值</span></span><br><span class="line">        <span class="keyword">this</span>.pointX = args.pointX || <span class="number">6</span>;</span><br><span class="line">        <span class="comment">// 设置pointY的值</span></span><br><span class="line">        <span class="keyword">this</span>.pointY = args.pointY || <span class="number">10</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 实例容器</span></span><br><span class="line">      <span class="keyword">var</span> instance;</span><br><span class="line">      <span class="keyword">var</span> _static = &#123;</span><br><span class="line">        name:<span class="string">"Ssy"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获得实例的方法</span></span><br><span class="line">        <span class="comment">// 返回SingletonTester</span></span><br><span class="line">        getInstance:<span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (instance === <span class="literal">undefined</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton(args);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> instance;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> _static;</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> singletonTester = SingletonTester.getInstance();</span><br><span class="line">    <span class="built_in">console</span>.log(singletonTester.name);  <span class="comment">// SingletonTester</span></span><br><span class="line">    <span class="built_in">console</span>.log(singletonTester.pointX);  <span class="comment">// 6</span></span><br><span class="line">    <span class="built_in">console</span>.log(singletonTester.pointY);  <span class="comment">// 10</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><ul>
+<li>工厂模式就是将成员对象的实例化推迟到子类中进行的类.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="keyword">var</span> Car = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 这里上下的 Car 完全不是一回事</span></span><br><span class="line">        <span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params">model,year,miles</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.model = model;</span><br><span class="line">          <span class="keyword">this</span>.year = year;</span><br><span class="line">          <span class="keyword">this</span>.miles = miles;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回一个匿名函数</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">model,year,miles</span>) </span>&#123;</span><br><span class="line">          <span class="comment">// 实例化 内部的Car</span></span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> Car(model,year,miles);</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;)();</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 这里的 Car 指的是 外层函数的 Car</span></span><br><span class="line">      <span class="keyword">var</span> tom = <span class="keyword">new</span> Car(<span class="string">"Tom"</span>,<span class="number">2017</span>,<span class="number">2000</span>);</span><br><span class="line">      <span class="keyword">var</span> dudu = <span class="keyword">new</span> Car(<span class="string">"dudu"</span>,<span class="number">2018</span>,<span class="number">5000</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(tom.year);  <span class="comment">// 2017</span></span><br><span class="line">      <span class="built_in">console</span>.log(dudu.year);  <span class="comment">// 2018</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  	  <span class="comment">// 创建对象</span></span><br><span class="line">      <span class="keyword">var</span> productManager = &#123;&#125;;</span><br><span class="line">      <span class="comment">// 子函数 1</span></span><br><span class="line">      productManager.createProductA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"ProductA"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">	  <span class="comment">// 子函数 2</span></span><br><span class="line">      productManager.createProductB = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"ProductB"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 工厂函数</span></span><br><span class="line">      productManager.factory = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> productManager[type];</span><br><span class="line">      &#125;</span><br><span class="line">	  <span class="comment">// 函数调用</span></span><br><span class="line">      productManager.factory(<span class="string">"createProductA"</span>);  <span class="comment">// ProductA</span></span><br><span class="line">      productManager.factory(<span class="string">"createProductB"</span>);  <span class="comment">// ProductB</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="工厂函数的应用"><a href="#工厂函数的应用" class="headerlink" title="工厂函数的应用"></a>工厂函数的应用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="keyword">var</span> page = page || &#123;&#125;;</span><br><span class="line">      page.dom = page.dom || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 子函数1: 处理文本</span></span><br><span class="line">      page.dom.Text = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">where</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="keyword">this</span>.text);</span><br><span class="line">          where.appendChild(txt);</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">// 子函数2: 处理link</span></span><br><span class="line">      page.dom.Link = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">where,value</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">          link.href = <span class="keyword">this</span>.url;</span><br><span class="line">          link.appendChild(<span class="built_in">document</span>.createTextNode(<span class="keyword">this</span>.value));</span><br><span class="line">          where.appendChild(link);</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">// 子函数3: 处理img</span></span><br><span class="line">      page.dom.Img = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">where</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> image = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">          image.src = <span class="keyword">this</span>.url;</span><br><span class="line">          where.appendChild(image);</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 工厂函数</span></span><br><span class="line">      page.dom.factory = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> page.dom[type];</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> x = page.dom.factory(<span class="string">'Link'</span>);</span><br><span class="line">      x.url = <span class="string">"http://www.baidu.com"</span>;</span><br><span class="line">      x.value = <span class="string">"百度一下"</span>;</span><br><span class="line">      x.insert(<span class="built_in">document</span>.body);</span><br><span class="line"></span><br><span class="line">      x = page.dom.factory(<span class="string">'Text'</span>);</span><br><span class="line">      x.text = <span class="string">"天下第一"</span>;</span><br><span class="line">      x.insert(<span class="built_in">document</span>.body);</span><br><span class="line"></span><br><span class="line">      x = page.dom.factory(<span class="string">'Img'</span>);</span><br><span class="line">      x.url = <span class="string">"./1.jpg"</span> ;</span><br><span class="line">      x.insert(<span class="built_in">document</span>.body);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <div>
+    
+    </div>
+    <footer class="post-footer">
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/js-this/" rel="next" title="JavaScript this指向问题/闭包/面向对象/原型及原型链继承/JSON">
+                <i class="fa fa-chevron-left"></i> JavaScript this指向问题/闭包/面向对象/原型及原型链继承/JSON
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/franksunhd.github.io/2019/01/14/js-dom/" rel="prev" title="DOM对象/节点/client/offset/scroll/瀑布流布局/图片预加载/图片懒加载">
+                DOM对象/节点/client/offset/scroll/瀑布流布局/图片预加载/图片懒加载 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/franksunhd.github.io/images/avatar.png" alt="franksun">
+            
+              <p class="site-author-name" itemprop="name">franksun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/franksunhd.github.io/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/franksunhd.github.io/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/franksunhd.github.io/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/franksunhd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数绑定"><span class="nav-number">1.</span> <span class="nav-text">函数绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化"><span class="nav-number">2.</span> <span class="nav-text">函数柯里化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数记忆-函数缓存"><span class="nav-number">3.</span> <span class="nav-text">函数记忆/函数缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数"><span class="nav-number">4.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定时器节流"><span class="nav-number">5.</span> <span class="nav-text">定时器节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式"><span class="nav-number">6.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式"><span class="nav-number">6.1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字面量创建"><span class="nav-number">6.1.1.</span> <span class="nav-text">字面量创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用闭包封装私有成员和方法"><span class="nav-number">6.1.2.</span> <span class="nav-text">使用闭包封装私有成员和方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用惰性创建单例对象"><span class="nav-number">6.1.3.</span> <span class="nav-text">使用惰性创建单例对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单例对象的应用"><span class="nav-number">6.1.4.</span> <span class="nav-text">单例对象的应用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂模式"><span class="nav-number">6.2.</span> <span class="nav-text">工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#工厂函数的应用"><span class="nav-number">6.2.1.</span> <span class="nav-text">工厂函数的应用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">franksun</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="javascript:;">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/franksunhd.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/franksunhd.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/franksunhd.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
