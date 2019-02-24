@@ -356,29 +356,29 @@
 <li>GitHub 是存储源码的,(林纳斯-托瓦兹 linus Tovals)– kernel / git</li>
 </ul>
 <a id="more"></a>
-<h3 id="安装GIT"><a href="#安装GIT" class="headerlink" title="安装GIT"></a>安装GIT</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<h3 id="创建版本库-本地仓库"><a href="#创建版本库-本地仓库" class="headerlink" title="创建版本库(本地仓库)"></a>创建版本库(本地仓库)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir demo</span><br><span class="line"><span class="meta">$</span> cd demo</span><br></pre></td></tr></table></figure>
+<h3 id="安装GIT"><a href="#安装GIT" class="headerlink" title="安装GIT"></a>安装GIT</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install git</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建版本库-本地仓库"><a href="#创建版本库-本地仓库" class="headerlink" title="创建版本库(本地仓库)"></a>创建版本库(本地仓库)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir demo</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> demo</span></span><br></pre></td></tr></table></figure>
 <h4 id="git-init-将当前目录创建为GIT仓库"><a href="#git-init-将当前目录创建为GIT仓库" class="headerlink" title="git init 将当前目录创建为GIT仓库"></a>git init 将当前目录创建为GIT仓库</h4><ul>
 <li>.git 为隐藏目录</li>
 </ul>
 <h4 id="创建README文件"><a href="#创建README文件" class="headerlink" title="创建README文件"></a>创建README文件</h4><ul>
 <li>仓库中没有文件,创建一个README文件,用来存放每次修改信息</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim README</span><br><span class="line">或者</span><br><span class="line"><span class="meta">$</span> touch README</span><br></pre></td></tr></table></figure>
-<h4 id="git-status-查看当前目录下的文件状态"><a href="#git-status-查看当前目录下的文件状态" class="headerlink" title="git status 查看当前目录下的文件状态"></a>git status 查看当前目录下的文件状态</h4><h4 id="git-add-filename-跟踪文件"><a href="#git-add-filename-跟踪文件" class="headerlink" title="git add filename 跟踪文件"></a>git add filename 跟踪文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git add .</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim README</span></span><br><span class="line">或者</span><br><span class="line"><span class="meta">$</span><span class="bash"> touch README</span></span><br></pre></td></tr></table></figure>
+<h4 id="git-status-查看当前目录下的文件状态"><a href="#git-status-查看当前目录下的文件状态" class="headerlink" title="git status 查看当前目录下的文件状态"></a>git status 查看当前目录下的文件状态</h4><h4 id="git-add-filename-跟踪文件"><a href="#git-add-filename-跟踪文件" class="headerlink" title="git add filename 跟踪文件"></a>git add filename 跟踪文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git add .</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>跟踪文件,加入git 版本库,完成之后状态修改.</li>
 </ul>
-<h4 id="配置用户信息"><a href="#配置用户信息" class="headerlink" title="配置用户信息"></a>配置用户信息</h4><h5 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global user.name "franksun"</span><br></pre></td></tr></table></figure>
-<h5 id="配置Email"><a href="#配置Email" class="headerlink" title="配置Email"></a>配置Email</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global user.email "sun_si_yan@163.com"</span><br></pre></td></tr></table></figure>
-<h5 id="配置VIM"><a href="#配置VIM" class="headerlink" title="配置VIM"></a>配置VIM</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global core.editor vim</span><br></pre></td></tr></table></figure>
-<h4 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git commit</span><br></pre></td></tr></table></figure>
-<h4 id="查看提交信息"><a href="#查看提交信息" class="headerlink" title="查看提交信息"></a>查看提交信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log</span><br></pre></td></tr></table></figure>
-<h4 id="删除文件恢复"><a href="#删除文件恢复" class="headerlink" title="删除文件恢复"></a>删除文件恢复</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> rm filename</span><br><span class="line"><span class="meta">$</span> git checkout filename</span><br></pre></td></tr></table></figure>
+<h4 id="配置用户信息"><a href="#配置用户信息" class="headerlink" title="配置用户信息"></a>配置用户信息</h4><h5 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.name <span class="string">"franksun"</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="配置Email"><a href="#配置Email" class="headerlink" title="配置Email"></a>配置Email</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.email <span class="string">"sun_si_yan@163.com"</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="配置VIM"><a href="#配置VIM" class="headerlink" title="配置VIM"></a>配置VIM</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global core.editor vim</span></span><br></pre></td></tr></table></figure>
+<h4 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit</span></span><br></pre></td></tr></table></figure>
+<h4 id="查看提交信息"><a href="#查看提交信息" class="headerlink" title="查看提交信息"></a>查看提交信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="删除文件恢复"><a href="#删除文件恢复" class="headerlink" title="删除文件恢复"></a>删除文件恢复</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rm filename</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout filename</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>只有文件修改过 未提交前或用rm 误删时会出现</li>
 </ul>
-<h4 id="从仓库中删除文件"><a href="#从仓库中删除文件" class="headerlink" title="从仓库中删除文件"></a>从仓库中删除文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git rm filename</span><br><span class="line"><span class="meta">$</span> git commit</span><br></pre></td></tr></table></figure>
+<h4 id="从仓库中删除文件"><a href="#从仓库中删除文件" class="headerlink" title="从仓库中删除文件"></a>从仓库中删除文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git rm filename</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>并没有从仓库真正删除,需要commit提交记录</li>
 </ul>
@@ -386,37 +386,37 @@
 <li>一次提交就是一次版本更新</li>
 <li>回退到提交版本</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reset --hard commitID</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset --hard commitID</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>这个命令后,使用 git log命令不会查到所有的log信息,不会获取到这个ID之后的ID</li>
 <li>git reflog 相当于一个列表,需要使用reset命令恢复</li>
 </ul>
-<h4 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> touch .gitignore</span><br></pre></td></tr></table></figure>
+<h4 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> touch .gitignore</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>这个目录下可以存放a.out等编译文件,文件都在跟踪时忽略</li>
 </ul>
-<h4 id="版本之间对比"><a href="#版本之间对比" class="headerlink" title="版本之间对比"></a>版本之间对比</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git diff</span><br><span class="line">//在提交之后重新修改并未跟踪提交有效</span><br></pre></td></tr></table></figure>
+<h4 id="版本之间对比"><a href="#版本之间对比" class="headerlink" title="版本之间对比"></a>版本之间对比</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git diff</span></span><br><span class="line">//在提交之后重新修改并未跟踪提交有效</span><br></pre></td></tr></table></figure>
 <p><strong>若跟踪并提交则需使用</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git diff commitD1 commitD2</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">提示:</span><br><span class="line">diff --git a/hello.c b/hello.c</span><br><span class="line">...</span><br><span class="line">---a/hello.c</span><br><span class="line">+++b/hello.c</span><br><span class="line"></span><br><span class="line">@@ -1,7 +1,13 @@  //原有1~7行,增加6行,+1~13</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git diff commitD1 commitD2</span></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">提示:</span><br><span class="line">diff --git a/hello.c b/hello.c</span><br><span class="line">...</span><br><span class="line">---a/hello.c</span><br><span class="line">+++b/hello.c</span><br><span class="line"></span><br><span class="line">@@ -1,7 +1,13 @@  //原有1~7行,增加6行,+1~13</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h4 id="patch"><a href="#patch" class="headerlink" title="patch"></a>patch</h4><ul>
 <li>指补丁,这里更多是指程序的一些BUG,需要我们进行fixed,那fixed源码文件就是patch</li>
 <li>patch 实际就是保存两个文件的差异</li>
 <li>用git 生成patch</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git format-patch -p1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git format-patch -p1</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>git 打 patch 就是已经有patch 文件了,但客户端版本低,打patch可以修补文件</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git am patch-name</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git am patch-name</span></span><br></pre></td></tr></table></figure>
 <h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ul>
 <li>工作流:是对工作流程及其各操作步骤之间业务规则的抽象,概括(workflow)描述.工作流建模即将工作流程中的工作如何前后组织在一起的逻辑和规则,在计算机当中以恰当的模型表达并对其实施计算.</li>
 <li>工作流管理系统:是处理工作流的电脑软件系统.(WFMS)</li>
 </ul>
-<h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git checkout -b 分支名 标签名</span><br></pre></td></tr></table></figure>
+<h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout -b 分支名 标签名</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>可根据标签名创建分支并切换</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch 分支名(-dev)			//只是创建,没有切换</span><br><span class="line"><span class="meta">$</span> git checkout -b 分支名			//创建并切换</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch 分支名(-dev)			//只是创建,没有切换</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout -b 分支名			//创建并切换</span></span><br></pre></td></tr></table></figure>
 <p>一般包括的分支有:</p>
 <ul>
 <li>master 主分支 (发布版)</li>
@@ -425,17 +425,17 @@
 <li>release branches 测试部分</li>
 <li>feature branches 与开发部分同级同步</li>
 </ul>
-<h4 id="显示分支"><a href="#显示分支" class="headerlink" title="显示分支"></a>显示分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch -av</span><br></pre></td></tr></table></figure>
+<h4 id="显示分支"><a href="#显示分支" class="headerlink" title="显示分支"></a>显示分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch -av</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>显示当前仓库有多少分支</li>
 </ul>
-<h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
-<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch -D 分支名</span><br></pre></td></tr></table></figure>
+<h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout 分支名</span></span><br></pre></td></tr></table></figure>
+<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch -D 分支名</span></span><br></pre></td></tr></table></figure>
 <h4 id="合并分支-merge"><a href="#合并分支-merge" class="headerlink" title="合并分支(merge)"></a>合并分支(merge)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge develop</span><br></pre></td></tr></table></figure>
 <ul>
 <li>若出现冲突.</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git mergetool</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git mergetool</span></span><br></pre></td></tr></table></figure>
 <h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><h4 id="什么是标签"><a href="#什么是标签" class="headerlink" title="什么是标签"></a>什么是标签</h4><ul>
 <li>标签就是给提交 标识上易懂的名称</li>
 <li>GIT可以使用2中种标签名称:轻标签和注释标签</li>
@@ -443,7 +443,7 @@
 <h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><ul>
 <li>为最新的版本设置标签</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git tag 标签名</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag 标签名</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>为指定的ID设置标签</li>
 </ul>
@@ -451,38 +451,38 @@
 <h4 id="显示标签"><a href="#显示标签" class="headerlink" title="显示标签"></a>显示标签</h4><ul>
 <li>显示现在所有的全部标签</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git tag</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>显示包含标签资料的历史资料</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log --decorate</span><br></pre></td></tr></table></figure>
-<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 本地</span><br><span class="line"><span class="meta">$</span> git tag -d 标签名</span><br><span class="line"></span><br><span class="line">// 删除github上的分支名</span><br><span class="line"><span class="meta">$</span> git tag -d 标签名</span><br><span class="line"><span class="meta">$</span> git push origin :refs/tags/&lt;tagname&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="同步标签"><a href="#同步标签" class="headerlink" title="同步标签"></a>同步标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin --tags</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span> --decorate</span></span><br></pre></td></tr></table></figure>
+<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 本地</span><br><span class="line"><span class="meta">$</span><span class="bash"> git tag -d 标签名</span></span><br><span class="line"></span><br><span class="line">// 删除github上的分支名</span><br><span class="line"><span class="meta">$</span><span class="bash"> git tag -d 标签名</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin :refs/tags/&lt;tagname&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="同步标签"><a href="#同步标签" class="headerlink" title="同步标签"></a>同步标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push origin --tags</span></span><br></pre></td></tr></table></figure>
 <h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><h4 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h4><ul>
 <li>首先在github上创建一个目录</li>
 <li>在本地仓库目录下执行</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git remote add origin URL</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin URL</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>实现远程仓库和本地仓库的关联</li>
 <li>相关的URL可在  .git/config 文件中找到</li>
 </ul>
-<h4 id="查看分支状态"><a href="#查看分支状态" class="headerlink" title="查看分支状态"></a>查看分支状态</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch -av</span><br></pre></td></tr></table></figure>
+<h4 id="查看分支状态"><a href="#查看分支状态" class="headerlink" title="查看分支状态"></a>查看分支状态</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch -av</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>若不同步,分情况讨论:是同步到远程还是同步到本地</li>
 </ul>
 <h4 id="远程仓库同步到本地"><a href="#远程仓库同步到本地" class="headerlink" title="远程仓库同步到本地"></a>远程仓库同步到本地</h4><ul>
 <li>只是同步差异,而且只是查,不是真正同步.</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git fetch origin</span><br><span class="line"><span class="meta">$</span> git pull</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git fetch origin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git pull</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>适合于已经拉去文件到本地,但服务器的git 已经更新.</li>
 </ul>
 <h4 id="远程仓库克隆到本地"><a href="#远程仓库克隆到本地" class="headerlink" title="远程仓库克隆到本地"></a>远程仓库克隆到本地</h4><ul>
 <li>本地没有目录,并且克隆全部信息</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone URL</span><br></pre></td></tr></table></figure>
-<h4 id="本地仓库同步到远程"><a href="#本地仓库同步到远程" class="headerlink" title="本地仓库同步到远程"></a>本地仓库同步到远程</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push -u origin 远程分支名(master)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> URL</span></span><br></pre></td></tr></table></figure>
+<h4 id="本地仓库同步到远程"><a href="#本地仓库同步到远程" class="headerlink" title="本地仓库同步到远程"></a>本地仓库同步到远程</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push -u origin 远程分支名(master)</span></span><br></pre></td></tr></table></figure>
 <h4 id="如何删除远程服务器GITHUB的文件及文件夹"><a href="#如何删除远程服务器GITHUB的文件及文件夹" class="headerlink" title="如何删除远程服务器GITHUB的文件及文件夹"></a>如何删除远程服务器GITHUB的文件及文件夹</h4><p><strong>按照以下步骤即可(本地删除)</strong></p>
 <ul>
 <li>git pull (you git url)</li>
@@ -618,7 +618,7 @@
               
                 <a href="/franksunhd.github.io/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
