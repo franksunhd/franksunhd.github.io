@@ -499,7 +499,14 @@
 
       
         
-          <h3 id="脏数据"><a href="#脏数据" class="headerlink" title="脏数据"></a>脏数据</h3>
+          <h3 id="脏数据"><a href="#脏数据" class="headerlink" title="脏数据"></a>脏数据</h3><ul>
+<li><p>直接调用了成员变量 所以产生了脏数据</p>
+</li>
+<li><p>解决办法：</p>
+<pre><code>不让成员变量在类的外部被直接访问
+在方法内部对成员变量的值进行过滤
+没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/franksunhd.github.io/2019/01/16/max-os-operation/#more" rel="contents">
@@ -509,7 +516,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
     
     
     

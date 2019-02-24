@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="脏数据">
+<meta name="description" content="脏数据 直接调用了成员变量 所以产生了脏数据  解决办法： 不让成员变量在类的外部被直接访问 在方法内部对成员变量的值进行过滤 没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MaxOS的简单操作">
 <meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/01/16/max-os-operation/index.html">
 <meta property="og:site_name" content="孙思研的个人博客">
-<meta property="og:description" content="脏数据">
+<meta property="og:description" content="脏数据 直接调用了成员变量 所以产生了脏数据  解决办法： 不让成员变量在类的外部被直接访问 在方法内部对成员变量的值进行过滤 没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-24T11:17:33.550Z">
+<meta property="og:updated_time" content="2019-02-24T11:18:53.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MaxOS的简单操作">
-<meta name="twitter:description" content="脏数据">
+<meta name="twitter:description" content="脏数据 直接调用了成员变量 所以产生了脏数据  解决办法： 不让成员变量在类的外部被直接访问 在方法内部对成员变量的值进行过滤 没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类">
 
 
 
@@ -342,15 +342,15 @@
       
 
       
-        <h3 id="脏数据"><a href="#脏数据" class="headerlink" title="脏数据"></a>脏数据</h3><a id="more"></a>
-<ul>
+        <h3 id="脏数据"><a href="#脏数据" class="headerlink" title="脏数据"></a>脏数据</h3><ul>
 <li><p>直接调用了成员变量 所以产生了脏数据</p>
 </li>
 <li><p>解决办法：</p>
 <pre><code>不让成员变量在类的外部被直接访问
 在方法内部对成员变量的值进行过滤
 没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类
-</code></pre></li>
+</code></pre><a id="more"></a>
+</li>
 </ul>
 <h3 id="set方法"><a href="#set方法" class="headerlink" title="set方法"></a>set方法</h3><p>oc有一个约定 体现 set 方法 相对于写操作</p>
 <ul>
