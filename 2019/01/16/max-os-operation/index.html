@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="孙思研的个人博客">
 <meta property="og:description" content="脏数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-24T10:53:30.710Z">
+<meta property="og:updated_time" content="2019-02-24T11:17:33.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MaxOS的简单操作">
 <meta name="twitter:description" content="脏数据">
@@ -347,13 +347,10 @@
 <li><p>直接调用了成员变量 所以产生了脏数据</p>
 </li>
 <li><p>解决办法：</p>
-</li>
-<li><p>不让成员变量在类的外部被直接访问</p>
-</li>
-<li><p>在方法内部对成员变量的值进行过滤</p>
-</li>
-<li><p>没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类</p>
-</li>
+<pre><code>不让成员变量在类的外部被直接访问
+在方法内部对成员变量的值进行过滤
+没有限制词修饰的时候 默认的修饰词是 @protected 被他修饰的成员变量的作用域是 本类和子类
+</code></pre></li>
 </ul>
 <h3 id="set方法"><a href="#set方法" class="headerlink" title="set方法"></a>set方法</h3><p>oc有一个约定 体现 set 方法 相对于写操作</p>
 <ul>
