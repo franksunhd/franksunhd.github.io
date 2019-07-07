@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="UIView 屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片 一般翻译叫做 视图/控件/组件 UIButton,UILabel,UITextField都继承自UIView 每一个UIView都是一个容器，能容纳其他的UIView 父控件和子控件(和继承没有关系)">
+<meta name="description" content="UIView简介 屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片 一般翻译叫做 视图/控件/组件 UIButton,UILabel,UITextField都继承自UIView 每一个UIView都是一个容器，能容纳其他的UIView 父控件和子控件(和继承没有关系)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac-os-ui">
 <meta property="og:url" content="https://franksunhd.github.io/franksunhd.github.io/2019/02/24/mac-os-ui/index.html">
 <meta property="og:site_name" content="孙思研的个人博客">
-<meta property="og:description" content="UIView 屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片 一般翻译叫做 视图/控件/组件 UIButton,UILabel,UITextField都继承自UIView 每一个UIView都是一个容器，能容纳其他的UIView 父控件和子控件(和继承没有关系)">
+<meta property="og:description" content="UIView简介 屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片 一般翻译叫做 视图/控件/组件 UIButton,UILabel,UITextField都继承自UIView 每一个UIView都是一个容器，能容纳其他的UIView 父控件和子控件(和继承没有关系)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-24T11:02:10.573Z">
+<meta property="og:updated_time" content="2019-07-07T10:19:35.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac-os-ui">
-<meta name="twitter:description" content="UIView 屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片 一般翻译叫做 视图/控件/组件 UIButton,UILabel,UITextField都继承自UIView 每一个UIView都是一个容器，能容纳其他的UIView 父控件和子控件(和继承没有关系)">
+<meta name="twitter:description" content="UIView简介 屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片 一般翻译叫做 视图/控件/组件 UIButton,UILabel,UITextField都继承自UIView 每一个UIView都是一个容器，能容纳其他的UIView 父控件和子控件(和继承没有关系)">
 
 
 
@@ -318,7 +318,7 @@
           <span title="字数统计">
             <span class="post-meta-divider">|</span>
             <span class="post-meta-divider">字数统计</span>
-              784 字
+              786 字
           </span>
 
           <span title="阅读时长">
@@ -355,7 +355,7 @@
       
 
       
-        <h3 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h3><ul>
+        <h3 id="UIView简介"><a href="#UIView简介" class="headerlink" title="UIView简介"></a>UIView简介</h3><ul>
 <li>屏幕上能看得见摸得着的东西都是UIView，比如屏幕上的按钮，文字，图片</li>
 <li>一般翻译叫做 视图/控件/组件</li>
 <li>UIButton,UILabel,UITextField都继承自UIView</li>
@@ -615,7 +615,7 @@ disabled (失效状态 不可用状态)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView"><span class="nav-number">1.</span> <span class="nav-text">UIView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIViewController"><span class="nav-number">2.</span> <span class="nav-text">UIViewController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加法计算器的运行流程"><span class="nav-number">3.</span> <span class="nav-text">加法计算器的运行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充问题"><span class="nav-number">4.</span> <span class="nav-text">补充问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IBAction和IBOutlet的区别"><span class="nav-number">4.1.</span> <span class="nav-text">IBAction和IBOutlet的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storyboard文件中箭头的含义"><span class="nav-number">4.2.</span> <span class="nav-text">Storyboard文件中箭头的含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何更换storyboard文件"><span class="nav-number">4.3.</span> <span class="nav-text">如何更换storyboard文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何让文本框只能输入数字"><span class="nav-number">4.4.</span> <span class="nav-text">如何让文本框只能输入数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何修改控件状态"><span class="nav-number">4.5.</span> <span class="nav-text">如何修改控件状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIView的常见属性"><span class="nav-number">4.6.</span> <span class="nav-text">UIView的常见属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按钮-UIButton"><span class="nav-number">4.7.</span> <span class="nav-text">按钮 UIButton</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView简介"><span class="nav-number">1.</span> <span class="nav-text">UIView简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIViewController"><span class="nav-number">2.</span> <span class="nav-text">UIViewController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加法计算器的运行流程"><span class="nav-number">3.</span> <span class="nav-text">加法计算器的运行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充问题"><span class="nav-number">4.</span> <span class="nav-text">补充问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IBAction和IBOutlet的区别"><span class="nav-number">4.1.</span> <span class="nav-text">IBAction和IBOutlet的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storyboard文件中箭头的含义"><span class="nav-number">4.2.</span> <span class="nav-text">Storyboard文件中箭头的含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何更换storyboard文件"><span class="nav-number">4.3.</span> <span class="nav-text">如何更换storyboard文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何让文本框只能输入数字"><span class="nav-number">4.4.</span> <span class="nav-text">如何让文本框只能输入数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何修改控件状态"><span class="nav-number">4.5.</span> <span class="nav-text">如何修改控件状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIView的常见属性"><span class="nav-number">4.6.</span> <span class="nav-text">UIView的常见属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按钮-UIButton"><span class="nav-number">4.7.</span> <span class="nav-text">按钮 UIButton</span></a></li></ol></li></ol></div>
             
 
           </div>
